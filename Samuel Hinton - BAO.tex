@@ -433,7 +433,7 @@ where we can see that we have once again different notation for the smoothing pa
 
 
 Whilst advances in renormalization perturbation theory (RPT)  \citep{CrocceScoccimarro2008} allow a theoretical determination of $\sigma_v$ as
-\begin{align}
+\begin{align} \label{eq:sigmav}
 \sigma_v^2 = \frac{1}{6\pi^2} \int P_{\rm{lin}}(k)\, dk,
 \end{align}
 this requires knowledge of the power of the spectrum, which is also marginalised over in all examined models. As such $\sigma_v$ (or equivalent variable) is often set as a free parameter. However, as the smoothing parameter $\sigma_v$ does not provide substantial impact to cosmological fitting \citep{ReidPercival2010, XuPadmanabhan2012}, it can also been fixed to a specific value, where \citet{XuPadmanabhan2012} (and companion papers) fix $\Sigma_{\rm{NL}}$ to the value corresponding with maximum likelihood when the parameter was initially allowed to vary.
@@ -655,7 +655,7 @@ Study & Data Range $(h^{-1}$Mpc) & Comments \\
 
 \section{Confirming model}
 
-In order to determine the constructed model was consistent with prior literature, I attempt to recover the fits found by \citet{BlakeKazin2011} by utilising their model creation method. The underlying linear model is computed using the CAMB software \citep{Lewis2000}, following prior studies \citep{BlakeDavis2011, SanchezScoccola2012, ChuangWang2012}. The parameter $\Omega_c h^2$ is free, with $\Omega_b h^2$ set to $0.1666\Omega_c h^2$ and $h=0.705$ following the WizCOLA fiducial model. The quasi-linear correction due to matter flow displacement is incorporated into the model via blending between the linear model and a model without the BAO feature - denoted $P_{\rm{nw}}$ - with a Gaussian dampening term:
+In order to determine the constructed model was consistent with prior literature, I attempt to recover the fits found by \citet{BlakeKazin2011} by utilising their model creation method. The underlying linear model is computed using the CAMB software \citep{Lewis2000}, following prior studies \citep{BlakeDavis2011, SanchezScoccola2012, ChuangWang2012}. The parameter $\Omega_c h^2$ is free, with $\Omega_b h^2$ set to $0.0226$ and $h=0.705$ following the WizCOLA fiducial model. The quasi-linear correction due to matter flow displacement is incorporated into the model via blending between the linear model and a model without the BAO feature - denoted $P_{\rm{nw}}$ - with a Gaussian dampening term:
 \begin{align}
 P_{\text{dw}}(k) = P_{\text{lin}}(k) \exp\left(-\frac{k^2}{2k_*^2}\right)  + P_{\text{nw}}(k) \left(1 - \exp\left(-\frac{k^2}{2k_*^2}\right)\right),
 \end{align}
@@ -677,7 +677,6 @@ Fits were created utilising this model and the Wigglez unreconstructed dataset o
 \begin{table}[h]
 \centering
 \caption{A comparison between the fits found in this analysis and those found in \citet{BlakeKazin2011}.}
-\label{tab:blakekazintable}
 \begin{tabular}{cc|ccc|ccc}
 \specialrule{.1em}{.05em}{.05em} 
 Sample & $z_{\rm{eff}}$ & \multicolumn{3}{c}{\citet{BlakeKazin2011}}  & \multicolumn{3}{c}{This analysis}\\
@@ -687,18 +686,41 @@ $0.2 < z < 0.6$ & $0.44$ & $11.4$ & $0.143\pm0.020$ &$1.024\pm0.093$ & $13.9$ & 
 $0.4 < z < 0.8$ & $0.60$ & $10.1$ & $0.147\pm0.016$ &$1.003\pm0.065$ & $11.7$ & $0.142\pm 0.014$ & $1.019\pm 0.082$ \\
 $0.6 < z < 1.0$ & $0.73$ & $13.7$ & $0.120\pm0.013$ &$1.113\pm0.071$ & $15.1$ & $0.114\pm 0.012$ & $1.132\pm 0.074$ \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabular}
+\end{tabular} \label{tab:blakekazintable}
 \end{table}
 
 
-It is interesting to note that the choice of statistics used to extract parameter bounds can have a significant effect on the final constraints achieved. Three methods of extracting constraints from distributions are contrasted in Figure \ref{fig:statistics}, where a skewed Gaussian distribution has been used as the underlying distribution. 
+It is interesting to note that the choice of statistics used to extract parameter bounds can have a significant effect on the final constraints achieved. Three methods of extracting constraints from distributions are contrasted in Figure \ref{fig:statistics}, where a skewed Gaussian distribution has been used as the underlying probability distribution. 
+
+
+\begin{figure}[h]
+%\begin{wrapfigure}{r}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/stats.pdf}
+  \end{center}
+  \caption{Three different statistics are presented in the above figure. The red uncertainty bounds and circular marker indicated as ``Method A'' represent statistics that are determined directly from the cumulative probability distribution function, where the lower $1-\sigma$ confidence bound, mean value, and upper bound are respectively given by the $x$ value of the cumulative function at points $0.15865$, $0.5$, and $0.84135$. The second statistic displayed, denoted `Method B'', is similar to the prior method in determining parameter bounds, but achieves a symmetric error by taking the mean value as simply the mean of the parameter bounds. The final statistic, ``Method C'' is based upon the point of maximum likelihood, which is given as the quoted parameter value. Uncertainty in this value is then given by the parameter values which have equal probability and together enclose an area of $68.27\%$. All three statistics converge to the same outcome for symmetric distributions. It is believed that the statistics given in \citet{BlakeKazin2011} follow the second methodology to achieve symmetric upper and lower error bounds. I have instead chosen to use the maximum likelihood based statistics in this thesis, and so it is useful to compare differences in final parameter bounds for the values quoted in Table \ref{tab:blakekazintable}. This comparison is found in Table \ref{tab:stats}.}
+  \label{fig:statistics}
+%\end{wrapfigure}
+\end{figure}
 
 
 
+\begin{table}[h]
+\centering
+\caption{A comparison between the parameter outcomes from Table \ref{tab:blakekazintable} when using different statistics.}
+\begin{tabular}{c|cc|cc|cc} 
+\specialrule{.1em}{.05em}{.05em} 
+Sample  & \multicolumn{2}{c}{Method A}  & \multicolumn{2}{c}{Method B} & \multicolumn{2}{c}{Method C} \\
+ $z_{\rm{eff}}$ &  $\Omega_c h^2$ & $\alpha$ &  $\Omega_c h^2$ & $\alpha$ &  $\Omega_c h^2$ & $\alpha$ \\
+\specialrule{.1em}{.05em}{.05em} 
+$0.44$ & $0.113^{+0.018}_{-0.014}$ & $1.026^{+0.110}_{-0.086}$ & $0.115\pm 0.016$ & $1.038\pm 0.098$ & $0.110^{+0.019}_{-0.013}$ & $1.038^{+0.098}_{-0.098}$ \\
+0.6 & $0.117^{+0.016}_{-0.013}$ & $1.011^{+0.090}_{-0.074}$ & $0.119\pm 0.014$ & $1.019\pm0.082$ & $0.116^{+0.016}_{-0.013}$ & $1.003^{+0.089}_{-0.072}$ \\
+0.73 & $0.090^{+0.013}_{-0.011}$ & $1.134^{+0.072}_{-0.077}$ & $0.091\pm 0.012$ & $1.132\pm 0.074$ & $0.088^{+0.013}_{-0.010}$ & $1.146^{+0.072}_{-0.075}$ \\
+\specialrule{.1em}{.05em}{.05em} 
+\end{tabular}\label{tab:stats}
+\end{table}
 
-
-
-
+In all cases in the comparison from Table \ref{tab:stats}, we can see that the change in mean value is within the uncertainty of all statistical methods, indicating that the symmetry of all recovered distributions is great enough that the choice of statistical methodology does not significantly impact final parametrisations.
 
 
 \pagebreak
@@ -739,18 +761,18 @@ where $j_\ell(ks)$ are spherical Bessel functions of the first kind, and the Gau
 \xi_0^{\rm{fin}}(s) &= b^2 B(s) \xi_0(\alpha_0 s) \\
 \xi_2^{\rm{fin}}(s) &= b^2 B(s) \xi_2(\alpha_2 s)
 \end{align}
-These models were compared to all 600 WizCOLA realisations, such that the WizCOLA data points were calculated from the mean of all realisations, and the covariance reduced by a factor of $\sqrt{600}$. Data was fit in the range $50<s<150$, where the reduced data range follows \citet{ChuangWang2012}.  The fitting results for this are $\Omega_c h^2 = 0.104^{+0.009}_{-0.008}$, $b^2 = 0.773^{+0.067}_{-0.072}$, $\alpha_0 = 0.947^{+0.034}_{-0.032}$, $\alpha_2 = 0.909^{+0.060}_{-0.056}$, and the likelihood surfaces and marginalised distributions are shown in Figure \ref{fig:wizmp}. The best fitting and mean models have been reproduced in Figure \ref{fig:wizmodel}.
+{\red Check with Tam the planned way of using $\alpha$ and $\epsilon$ and getting the derivatives is sufficient, at the moment have simply done the naive way above} These models were compared to all 600 WizCOLA realisations, such that the WizCOLA data points were calculated from the mean of all realisations, and the covariance reduced by a factor of $\sqrt{600}$. Data was fit in the range $40<s<180$, and a comparison of the effects of dataset truncation can be found in Appendix \ref{app:truncation}.
 
+The fitting results for the $z=0.6$ redshift bin are $\Omega_c h^2 = 0.114^{+0.007}_{-0.006}$, $\log(k_*) = -1.99^{+0.30}_{-0.24}$ and $\alpha = 1.003^{+0.020}_{-0.016}$, and the likelihood surfaces and marginalised distributions are shown in Figure \ref{fig:wizmp}. The best fitting and mean models have been reproduced in Figure \ref{fig:wizmodel}. The desired recovery of WizCOLA simulation conditions of $\alpha = 1.0$ and $\Omega_c h^2 = 0.113$ are within the uncertainty of the results found. The minimum $\chi^2$ of the result is $8.2$, and with 14 degrees of freedom (21 data points with 7 free parameters) this indicates an overly good fit to the data, as might be expected given the combination of all 600 realisations. Finally, the maximum likelihood $\log(k_*)$ of $-1.99$ corresponds to a $\sigma_v = 5.18$, which is in the magnitude predicted by the theory given in equation \eqref{eq:sigmav}.
 
-{\red still dont know how to extract information from $\alpha_0$ and $\alpha_2$.}
 
 
 \begin{figure}[h!]
 %\begin{wrapfigure}{r}{0.5\textwidth}
   \begin{center}
-    \includegraphics[width=\textwidth]{images/wizcola_40_150.pdf}
+    \includegraphics[width=\textwidth]{images/wizcola_quad_z1_40_180.pdf}
   \end{center}
-  \caption{Model fitting using data from the WizCOLA $z=0.6$ bin, where we are fitting to the multipole expansion. The dashed line represents the desired parameter recovery of $\Omega_c h^2 = 0.113$. This analysis was redone for redshift bins $z=0.44$ and $z=0.73$, and all were found to be just under $1\sigma$ below the desired $\Omega_c h^2$, indicate a systematic failure of the model. Increasing the range of data points included in the matching served to draw the recovered $\Omega_c h^2$ further away from the desired recovery value.}
+  \caption{Model fitting using data from the WizCOLA $z=0.6$ bin, where we are fitting to the multipole expansion. The dashed line represents the desired parameter recovery of $\Omega_c h^2 = 0.113$. Increasing the range of data points included in the matching served to draw the recovered $\Omega_c h^2$ further away from the desired recovery value. We can also see that moving from varying $\sigma_v$ as has been done in \citet{BlakeDavis2011} to varying $\log(k_*)$ we span a far larger parameter space, but are able to actually recover constraints on $k_*$.}
   \label{fig:wizmp}
 %\end{wrapfigure}
 \end{figure}
@@ -759,7 +781,7 @@ These models were compared to all 600 WizCOLA realisations, such that the WizCOL
 \begin{figure}[h!]
 %\begin{wrapfigure}{r}{0.5\textwidth}
   \begin{center}
-    \includegraphics[width=\textwidth]{images/wizcola_40_150model.pdf}
+    \includegraphics[width=\textwidth]{images/wizcola_quad_z1_40_180model.pdf}
   \end{center}
   \caption{The determined models compared to the WizCOLA multipole expansion data points for the redshift $z=0.6$ bin.}
   \label{fig:wizmodel}
@@ -770,6 +792,8 @@ These models were compared to all 600 WizCOLA realisations, such that the WizCOL
 
 \pagebreak
 \section{Testing against WizCOLA wedges}
+
+{\red Note this section is out of data, I ran this fit using fixed $f_b$ and not fixed $\Omega_b h^2$}.
 
 I also test the wedge methodology used by \citet{SanchezKazinBeutler2013} and \citet{KazinSanchezCuesta2013}, whereby one transforms the scale of the tangential and parallel to line-of-sight directions separately in the form of $\alpha_\perp$ and $\alpha_\parallel$. From these transformations we define
 \begin{align}
@@ -807,6 +831,8 @@ The WizCOLA data provides two wedges, $0 < \mu < 0.5$ and $0.5 < \mu < 1$, which
 \item Compare different statistics (counting area and marking limits like Blake, or starting at top and counting down like Tam)
 \item Weep, wail and gnash teeth.
 \end{itemize}
+
+
 
 %this is how i fit model (mcmc)
 
