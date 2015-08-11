@@ -864,6 +864,93 @@ $0.6 < z < 1.0$ & $0.73$ & $10.9$ & $ 0.111^{+0.006}_{-0.005}$ &$1.012^{+0.026}_
 \end{figure}
 
 
+
+
+
+
+
+
+
+
+\newpage\phantom{blabla}\newpage
+\section{Parameter Covariance}
+
+The data present in the WizCOLA simulations and the final Wigglez dataset is available in three redshift bins, $0.2 < z < 0.6$, $0.4 < z < 0.8$ and $0.6 < z < 1.0$. In the circumstance where these bins were independent, final parameter constraints could simply be obtained by combining the results for each individual bin. However, the data bins that we have to work with overlap and are thus correlated. In order to extra final parametrisations the correlation between the redshift bins needs to be quantified and accounted for. To do this, individual realisations of the WizCOLA simulation were fitted for, and peak likelihood $\Omega_c h^2$, $\alpha$ and $\epsilon$ were utilised to construct a covariance matrix, such that we construct
+\begin{align}
+C_{ij} = \frac{1}{N} \sum\limits_{n=1}^{600} (P_i - \bar{P}_i)(P_j - \bar{P}_j),
+\end{align}
+where $P_i$ represents the list of parameters 
+\begin{align*}
+\left\lbrace \Omega_c h^2 (z = 0.44), \Omega_c h^2 (z = 0.60),  \Omega_c h^2 (z = 0.73), \right. \\ 
+\alpha (z = 0.44), \alpha (z = 0.60),  \alpha (z = 0.73), \\
+\epsilon (z = 0.44), \left. \epsilon (z = 0.60),  \epsilon (z = 0.73) \right\rbrace
+\end{align*}
+Similarly to the covariance matrix, we can also calculate the correlation matrix, defined similarly as
+\begin{align}
+R_{ij} = \frac{1}{N} \sum\limits_{n=1}^{600} \frac{(P_i - \bar{P}_i)(P_j - \bar{P}_j)}{\sigma_i \sigma_j},
+\end{align}
+where $\sigma_i$ represents the standard deviation of the $i$th parameter. The correlation matrix determined from analysis of $N$ realisations is shown in Figure \ref{fig:correlations}.
+
+\begin{figure}[h!]
+%\begin{wrapfigure}{r}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{images/correlations.pdf}
+  \end{center}
+  \caption{Correlations between final cosmological parameters when fitting to the three redshift bins of each WizCOLA simulation. The subscript numbers after each parameter are used to denote the redshift bin, with $0$, $1$ and $2$ respectively denoting the $0.2 < z < 0.6$, $0.4 < z < 0.8$ and $0.6 < z < 1.0$ bins. }
+  \label{fig:correlations}
+%\end{wrapfigure}
+\end{figure}
+
+The covariance matrix calculated by fitting to all of the WizCOLA simulations can be used to search the $\Omega_c h^2$, $\alpha$ and $\epsilon$ space and find a best fitting final $\Omega_c h^2$, $\alpha$ and $\epsilon$ by minimising the $\chi^2$ statistic by
+\begin{align} \label{eq:covchi}
+\chi^2(\Omega_c h^2, \alpha, \epsilon) = (\Omega_c h^2 - \Omega_c h^2_0, ...,\  \epsilon - \epsilon_2)^T C_{ij}^{-1}(\Omega_c h^2 - \Omega_c h^2_0, ...,\  \epsilon - \epsilon_2),
+\end{align}
+where again the subscript indices on the $\Omega_c h^2$, $\alpha$ and $\epsilon$ refer to the redshift bins. In essence, we utilise the parameters fitted to each bin as datapoints in a secondary model, which we minimise with respect to the final parameters $\Omega_c h^2$, $\alpha$ and $\epsilon$. To test this methodology, it has been applied to the $N=2$ WizCOLA realisation, which had binned fitted parameters described in Table \ref{tab:n2Wizcola}. We should also notice that, compared to the mean of all realisations, the recovered cosmological parameters for each bin lie outside the $1\sigma$ error for both $\alpha$ and $\epsilon$. After combination, all parameters reach desired recovery values within a $1\sigma$ confidence level. However, we would not expect this to hold true to all realisations of the WizCOLA simulation data. The likelihood surfaces and marginalised parameter distributions for the three bins and the combined data is shown in Figure \ref{fig:corCombined_2}. 
+
+\begin{table}[h]
+\centering
+\caption{Recovered parameter constraints when fitting the $N=2$ realisation of the WizCOLA simulation. The parameter values after combination are shown at the bottom of the table, where the $\chi^2$ value for the combined dataset indicates the $\chi^2$ from equation \eqref{eq:covchi} instead of the $\chi^2$ when fitting the cosmological model to the WizCOLA data.}
+\begin{tabular}{cc|ccccc}
+\specialrule{.1em}{.05em}{.05em} 
+Sample & $z_{\rm{eff}}$ & min $\chi^2$ & $\Omega_c h^2$ &$\alpha$ & $\epsilon$\\
+\specialrule{.1em}{.05em}{.05em} 
+$0.2 < z < 0.6$ & $0.44$ & $36.2$ & $0.122^{+0.034}_{-0.024}$ &$0.992^{+0.199}_{-0.102}$ & $0.149^{+0.062}_{-0.081}$ \\
+$0.4 < z < 0.8$ & $0.60$ & $39.8$ & $0.101^{+0.022}_{-0.017}$ &$1.117^{+0.153}_{-0.154}$ & $0.197^{+0.067}_{-0.098}$ \\
+$0.6 < z < 1.0$ & $0.73$ & $33.7$ & $0.092^{+0.027}_{-0.019}$ &$1.127^{+0.193}_{-0.174}$ & $-0.083^{+0.140}_{-0.107}$ \\
+\specialrule{.05em}{.05em}{.05em} 
+Combined & $0.60$ & $4.4$ & $0.108^{+0.015}_{-0.016}$ &$1.030^{+0.115}_{-0.108}$ & $0.076^{+0.108}_{-0.103}$ \\
+\specialrule{.1em}{.05em}{.05em} 
+\end{tabular}\label{tab:n2Wizcola}
+\end{table}
+
+\begin{figure}[h!]
+%\begin{wrapfigure}{r}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/corCombined_2.pdf}
+  \end{center}
+  \caption{Likelihood surfaces and marginalised distributions of $\Omega_ch^2$, $\alpha$ and $\epsilon$ for the $N=2$ realisation of the WizCOLA simulation. }
+  \label{fig:corCombined_2}
+%\end{wrapfigure}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 %\chapter{Results}
 
 \chapter{Plan for the rest of thesis}
