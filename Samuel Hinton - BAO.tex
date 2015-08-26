@@ -953,7 +953,7 @@ Combined & $0.60$ & $4.4$ & $0.108^{+0.015}_{-0.016}$ &$1.030^{+0.115}_{-0.108}$
 
 In this section we have sought to validate a constructed BAO model. The one dimensional base model was first validated by successfully reproducing fits to the one dimensional Wigglez survey as found in \citet{BlakeDavis2011} and \citet{BlakeKazin2011}. Both methodologies for incorporating angle dependence to create a 2D BAO model, by modelling data wedges or multipole expansion, were then successfully tested using the combined WizCOLA simulation dataset by recovering the simulation parametrisation. The significance of the hexadecapole term was investigated, and was found to be small enough that discarding the term for computational benefit would have a negligible impact on parameter recovery when compared to statistical error.\\
 
-Due to the overlapping redshift bins in the analyses, covariance between the final cosmological parameters was determined by analysing individual realisations of the WizCOLA simulations. {\red Except I probably wont have time to do it for wedges as well}.\\
+Due to the overlapping redshift bins in the analyses, covariance between the final cosmological parameters was determined by analysing individual realisations of the WizCOLA simulations. \\
 
 Having performed these tests to determine that the constructed models are free of significant bias and are able to correctly recover cosmological values, this model will now be applied to the Wigglez data.
 
@@ -969,7 +969,46 @@ Having performed these tests to determine that the constructed models are free o
 
 
 
-%\chapter{Results}
+\chapter{Results}
+
+In this section I will present the cosmological results obtained when fitting to the final Wigglez data.
+
+\section{Multipole data}
+
+Fits to the multipole data were done using 24 MCMC chains, each containing a hundred thousand points. The three redshift bins were combined using the covariance matrix illustrated in Figure \ref{fig:correlations}. The likelihood surfaces and marginalised distributions found are shown in Figure \ref{fig:wigglezMPResults}, and the final parameters are detailed in Table \ref{tab:wigglezMPResults}.
+
+
+
+
+\begin{figure}[h!]
+%\begin{wrapfigure}{r}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/corCombinedMP.pdf}
+  \end{center}
+  \caption{Likelihood surfaces and marginalised distributions of $\Omega_ch^2$, $\alpha$ and $\epsilon$ for the Wigglez multipole expression of the data. }
+  \label{fig:wigglezMPResults}
+%\end{wrapfigure}
+\end{figure}
+
+{\red ALPHA NOT PROPERLY CONSTRAINED FOR Z0 AND COMBINED DATA. Using Area based statistics to get error for that one, consult with Tam about proper action to take. Increasing alpha bound introduces oscillations in function, and I wont be able to run all the realisations again}
+\begin{table}[h]
+\centering
+\caption{Recovered parameter constraints when fitting the Wigglez multipole data. The parameter values after combination are shown at the bottom of the table, where the $\chi^2$ value for the combined dataset indicates the $\chi^2$ from equation \eqref{eq:covchi} instead of the $\chi^2$ when fitting the cosmological model to the Wigglez data.}
+\begin{tabular}{cc|ccccc}
+\specialrule{.1em}{.05em}{.05em} 
+Sample & $z_{\rm{eff}}$ & min $\chi^2$ & $\Omega_c h^2$ &$\alpha$ & $\epsilon$\\
+\specialrule{.1em}{.05em}{.05em} 
+$0.2 < z < 0.6$ & $0.44$ & $54.6$ & $0.129^{+0.057}_{-0.037}$ &$1.12^{+0.12}_{-0.14}$ & $-0.001^{+0.072}_{-0.125}$ \\
+$0.4 < z < 0.8$ & $0.60$ & $35.5$ & $0.170^{+0.044}_{-0.040}$ &$1.06^{+0.16}_{-0.11}$ & $0.033^{+0.061}_{-0.078}$ \\
+$0.6 < z < 1.0$ & $0.73$ & $44.3$ & $0.098^{+0.038}_{-0.026}$ &$1.08^{+0.09}_{-0.10}$ & $0.056^{+0.051}_{-0.053}$ \\
+\specialrule{.05em}{.05em}{.05em} 
+Combined & $0.60$ & $1.5$ & $0.142^{+0.031}_{-0.034}$ &$1.07^{+0.115}_{-0.108}$ & $0.049^{+0.185}_{-0.176}$ \\
+\specialrule{.1em}{.05em}{.05em} 
+\end{tabular}\label{tab:wigglezMPResults}
+\end{table}
+
+
+
 
 \chapter{Plan for the rest of thesis}
 \begin{itemize}
