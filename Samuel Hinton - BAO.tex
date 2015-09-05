@@ -68,7 +68,7 @@
 \hypersetup{pageanchor=true}
 \pdfbookmark{Title}{toc}
 
-\title{Undergraduate Thesis\\ \vspace{0.5 cm} ``Extraction of cosmological information from WiggleZ" }
+\title{Undergraduate Thesis\\ \vspace{0.5 cm} Extraction of cosmological information from WiggleZ}
 \author{Samuel Hinton}
 \department{Science}
 
@@ -883,12 +883,19 @@ $0.6 < z < 1.0$ & $0.73$ & $10.9$ & $ 0.111^{+0.006}_{-0.005}$ &$1.012^{+0.026}_
 
 
 
-\newpage\phantom{blabla}\newpage
-\section{Parameter Covariance}
 
-The data present in the WizCOLA simulations and the final Wigglez dataset is available in three redshift bins, $0.2 < z < 0.6$, $0.4 < z < 0.8$ and $0.6 < z < 1.0$. In the circumstance where these bins were independent, final parameter constraints could simply be obtained by combining the results for each individual bin. However, the data bins that we have to work with overlap and are thus correlated. In order to extra final parametrisations the correlation between the redshift bins needs to be quantified and accounted for. To do this, individual realisations of the WizCOLA simulation were fitted for, and peak likelihood $\Omega_c h^2$, $\alpha$ and $\epsilon$ were utilised to construct a covariance matrix, such that we construct
+\newpage\phantom{blabla}\newpage
+\section{Combining data bins}
+
+The data present in the WizCOLA simulations and the final Wigglez dataset is available in three redshift bins, $0.2 < z < 0.6$, $0.4 < z < 0.8$ and $0.6 < z < 1.0$. In the circumstance where these bins were independent, final parameter constraints could simply be obtained by combining the results for each individual bin. However, the data bins that we have to work with overlap and are thus correlated. 
+
+There are two methods we can use to combined the binned data, and both methods will be utilised in my analysis so that I can check they give consistent results. The first method investigated is using the correlation between final parameter values, and the second method I investigate is to simply calculate the covariance between data points across all bins and run a separate fit.
+
+\subsection{Parameter Covariance}
+
+In order to extra final parametrisations the correlation between fit parameters across redshift bins needs to be quantified and accounted for. To do this, individual realisations of the WizCOLA simulation were fitted for, and peak likelihood values for cosmological parameters ($\Omega_c h^2$, $\alpha$ and $\epsilon$ for a multipole analysis and $\Omega_c h^2$, $\alpha_\perp$ and $\alpha_\parallel$ for the wedge analysis) were utilised to construct a covariance matrix, such that we construct
 \begin{align}
-C_{ij} = \frac{1}{N} \sum\limits_{n=1}^{600} (P_i - \bar{P}_i)(P_j - \bar{P}_j),
+C_{ij} = \frac{1}{N} \sum\limits_{n=1}^{N} (P_i - \bar{P}_i)(P_j - \bar{P}_j),
 \end{align}
 where $P_i$ represents the list of parameters 
 \begin{align*}
@@ -898,9 +905,9 @@ where $P_i$ represents the list of parameters
 \end{align*}
 Similarly to the covariance matrix, we can also calculate the correlation matrix, defined similarly as
 \begin{align}
-R_{ij} = \frac{1}{N} \sum\limits_{n=1}^{600} \frac{(P_i - \bar{P}_i)(P_j - \bar{P}_j)}{\sigma_i \sigma_j},
+R_{ij} = \frac{1}{N} \sum\limits_{n=1}^{N} \frac{(P_i - \bar{P}_i)(P_j - \bar{P}_j)}{\sigma_i \sigma_j},
 \end{align}
-where $\sigma_i$ represents the standard deviation of the $i$th parameter. The correlation matrix determined from analysis of $N$ realisations is shown in Figure \ref{fig:correlations}.
+where $\sigma_i$ represents the standard deviation of the $i$th parameter. The correlation matrix determined from analysis of $N$ realisations is shown in Figure \ref{fig:correlations}. Ideally, this matrix would be constructed using all $N=600$ realisations, however computational limitations have reduced this to $N=100$. 
 
 \begin{figure}[h!]
 %\begin{wrapfigure}{r}{0.5\textwidth}
@@ -912,11 +919,11 @@ where $\sigma_i$ represents the standard deviation of the $i$th parameter. The c
 %\end{wrapfigure}
 \end{figure}
 
-The covariance matrix calculated by fitting to all of the WizCOLA simulations can be used to search the $\Omega_c h^2$, $\alpha$ and $\epsilon$ space and find a best fitting final $\Omega_c h^2$, $\alpha$ and $\epsilon$ by minimising the $\chi^2$ statistic by
+This covariance matrix can now be used to fit for a final $\Omega_c h^2$, $\alpha$ and $\epsilon$ (for a multipole analysis), or a final $\Omega_c h^2$, $\alpha_\perp$ and $\alpha_\parallel$ (for a wedge analysis). Treating only multipoles for hereonin to simplify the text, this is done by  minimising the $\chi^2$ statistic, given as
 \begin{align} \label{eq:covchi}
-\chi^2(\Omega_c h^2, \alpha, \epsilon) = (\Omega_c h^2 - \Omega_c h^2_0, ...,\  \epsilon - \epsilon_2)^T C_{ij}^{-1}(\Omega_c h^2 - \Omega_c h^2_0, ...,\  \epsilon - \epsilon_2),
+\chi^2(\Omega_c h^2, \alpha, \epsilon) = (\Omega_c h^2 - \Omega_c h^2_0, \Omega_c h^2 - \Omega_c h^2_1, ...,\  \epsilon - \epsilon_2)^T C_{ij}^{-1}(\Omega_c h^2 - \Omega_c h^2_0, \Omega_c h^2 - \Omega_c h^2_1, ...,\  \epsilon - \epsilon_2),
 \end{align}
-where again the subscript indices on the $\Omega_c h^2$, $\alpha$ and $\epsilon$ refer to the redshift bins. In essence, we utilise the parameters fitted to each bin as datapoints in a secondary model, which we minimise with respect to the final parameters $\Omega_c h^2$, $\alpha$ and $\epsilon$. To test this methodology, it has been applied to the $N=2$ WizCOLA realisation, which had binned fitted parameters described in Table \ref{tab:n2Wizcola}. We should also notice that, compared to the mean of all realisations, the recovered cosmological parameters for each bin lie outside the $1\sigma$ error for both $\alpha$ and $\epsilon$. After combination, all parameters reach desired recovery values within a $1\sigma$ confidence level. However, we would not expect this to hold true to all realisations of the WizCOLA simulation data. The likelihood surfaces and marginalised parameter distributions for the three bins and the combined data is shown in Figure \ref{fig:corCombined_2}. 
+where again the subscript indices on the $\Omega_c h^2$, $\alpha$ and $\epsilon$ refer to the redshift bins. In essence, we utilise the parameters fitted to each bin as datapoints in a secondary model, which we minimise with respect to the final parameters $\Omega_c h^2$, $\alpha$ and $\epsilon$. To test this methodology, it has been applied to the $N=2$ WizCOLA realisation, which had binned fitted parameters described in Table \ref{tab:n2Wizcola}. We can see from the results, that combining the redshift bins recovers tighter parameter constraints that are closer to recovering simulation parameters than any individual redshift bin. The likelihood surfaces and marginalised parameter distributions for the three bins and the combined data is shown in Figure \ref{fig:corCombined_2}. 
 
 \begin{table}[h]
 \centering
@@ -943,6 +950,44 @@ Combined & $0.60$ & $1.1$ & $0.110^{+0.031}_{-0.032}$ &$1.073^{+0.115}_{-0.108}$
   \label{fig:corCombined_2}
 %\end{wrapfigure}
 \end{figure}
+
+
+
+
+
+\subsection{Full data covariance}
+
+The covariance matrices utilised so far in my analysis have been supplied from the WizCOLA simulations, and give data covariance inside each redshift bin. However, also having the 600 WizCOLA realisations, I can reconstruct a full covariance matrix across redshift bins. The correlation matrix for the multipole and wedge data formats are shown in Figure \ref{fig:fullCorrelations}.
+
+
+\begin{figure}[h!]
+%\begin{wrapfigure}{r}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/fullCorrelations.pdf}
+  \end{center}
+  \caption{Full data correlation matrices constructed for both the multipole (left) and wedge (right) expressions of the WizCOLA data. The $b=0$, $b=1$ and $b=2$ labels respectively refer to the redshift bins $0.2 < z < 0.6$, $0.4 < z < 0.8$ and $0.6 < z < 1.0$. We can see that, even though the $b=0$ and $b=2$ bins do not overlap, some faint correlation still persists. This is expected, as long modes in the simulation would span both bins.}
+  \label{fig:fullCorrelations}
+%\end{wrapfigure}
+\end{figure}
+
+
+
+It is interesting to note that the computed covariance differs from the supplied WizCOLA covariance in off-diagonal cells, and an analysis of the significance of this difference can be found in Append \ref{app:wizDiff}. When using the full data covariance to simultaneously fit all three redshift bins, a further question becomes whether marginalisation parameters $\beta$, $\sigma H$ and $k_*$ should be free between redshift bins, or consistent across them. To investigate this, a fit to the combined WizCOLA data was performed using both methodologies. {\red insert fits here when they are complete}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1228,6 +1273,50 @@ The failure of modern cosmological models at small separations and their similar
 
 
 
+\chapter{WizCOLA Covariance} \label{app:wizDiff}
+
+
+When comparing the computed covariance matrix using the provided 600 WizCOLA realisations to the supplied covariance matrix from the WizCOLA data release, I found discrepancies in the off diagonal terms, which are illustrated in Figure \ref{fig:DfullCorrelationDifferences}. Contact with academics involved in the simulation creation has not been able to resolve the source of these differences. Visually, the WizCOLA correlation matrix appears smoother than the computed correlation matrix, and so a potential source of discrepancy would be if the WizCOLA covariance was calculated using more than the 600 realisations available in the data release. {\red Wait for Chris's feedback, take this out if not correct}.
+
+\begin{figure}[h!]
+%\begin{wrapfigure}{r}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/fullCorrelationDifferences.pdf}
+  \end{center}
+  \caption{Plots of the supplied WizCOLA correlation function and the computed correlation function. The difference is shown in the third plot, where the greatest differences can be observed in the off diagonal terms.}
+  \label{fig:DfullCorrelationDifferences}
+%\end{wrapfigure}
+\end{figure}
+
+In order to determine the significance of difference in covariance, fits to the Wigglez multipole data were formed with both covariance matrices, with the output marginalised distributions and likelihood surfaces shown in Figure \ref{fig:DcomputedDiff}. The output parameters are detailed in Table \ref{tab:Ddiff}, and we can see that changes in final parameters are well below the $1\sigma$ level, with a mean and median deviation of $0.18\sigma$ and $0.14\sigma$ respectively across all parameters and all bins. These results are strong enough that the cause of the covariance difference should be investigated, but as the differences fall well below a $1\sigma$ threshold it should not effect final output significantly. {\red Remember to update this based on feedback from Chris.}
+
+
+\begin{table}[h]
+\centering
+\caption{A comparison between the fits for the Wigglez multipole analysis when using either the provided WizCOLA covariance or the computed variance from WizCOLA realisations.}
+\begin{tabular}{cc|ccc|ccc}
+\specialrule{.1em}{.05em}{.05em} 
+Sample & $z_{\rm{eff}}$ & \multicolumn{3}{c}{Provided}  & \multicolumn{3}{c}{Computed}\\
+&  & $\Omega_m h^2$ &$\alpha$ & $\epsilon$ & $\Omega_m h^2$ & $\alpha$ & $\epsilon$ \\
+\specialrule{.1em}{.05em}{.05em} 
+$0.2 < z < 0.6$ & $0.44$ & $0.128^{+0.058}_{-0.036}$ & $1.12^{+0.13}_{-0.12}$ & $0.00^{+0.07}_{-0.13}$ & $0.127^{+0.053}_{-0.039}$ & $1.08^{+0.13}_{-0.11}$ & $-0.01^{+0.07}_{-0.17}$ \\
+$0.4 < z < 0.8$ & $0.60$ & $0.172^{+0.042}_{-0.042}$ & $1.06^{+0.16}_{-0.11}$ & $0.03^{+0.06}_{-0.08}$ & $0.180^{+0.042}_{-0.034}$ & $1.02^{+0.18}_{-0.08}$ & $0.03^{+0.06}_{-0.07}$ \\
+$0.6 < z < 1.0$ & $0.73$ & $0.098^{+0.038}_{-0.027}$ & $1.08^{+0.09}_{-0.10}$ & $0.06^{+0.05}_{-0.05}$ & $0.103^{+0.037}_{-0.026}$ & $1.08^{+0.09}_{-0.10}$ & $0.09^{+0.05}_{-0.05}$\\
+\specialrule{.1em}{.05em}{.05em} 
+\end{tabular} \label{tab:Ddiff}
+\end{table}
+
+
+
+\begin{figure}[h!]
+%\begin{wrapfigure}{r}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=1\textwidth]{images/computedDiff.pdf}
+  \end{center}
+  \caption{Parameter fits to the Wigglez multipole data using both the supplied and computed covariance matrices.}
+  \label{fig:DcomputedDiff}
+%\end{wrapfigure}
+\end{figure}
 
 
 
