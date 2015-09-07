@@ -433,9 +433,9 @@ In all analyses investigated, this the observed correlation function was determi
 \begin{equation}
 \xi(s) = \frac{DD(s) - DR(s) + RR(s)}{RR(s)},
 \end{equation}
-where $D$ is used to denote the observed distribution and $R$ a random distribution, where the density of the random distribution used is denser than the observed distribution (by a factor of 20 for \citet{Gaztanaga2009} and a factor of 50 for \citet{SanchezScoccola2012}), and the random distribution follows the same selection function as used for the observed distribution. The small angle approximation is used in this estimator up to scales of approximately 10 degrees, to which it remains accurate \citep{Szapudi2004, Matsubara2000Correlation}. Alternative estimators were compared by \citet{Gaztanaga2009}, such as the estimator based on pixel density fluctuations \citep{BarrigaGaztanaga2002}, and no significant changes in results were observed. Several studies utilised the \citet{LandySzalay1993} estimator to produce an angle independent correlation function $\xi(s)$ \citep{BlakeDavis2011, ChuangWang2012}, whilst other studies produce a two dimensional cross correlation function $\xi(s,\mu)$ due to survey geometry introducing angular dependence in the random distributions \citep{SanchezScoccola2012, SamushiaPercivalGuzzo2011, KazinSanchezBlanton2012}.
+where $D$ is used to denote the observed distribution and $R$ a random distribution, where the density of the random distribution used is denser than the observed distribution (by a factor of 20 for \citet{Gaztanaga2009} and a factor of 50 for \citet{SanchezScoccola2012}), and the random distribution follows the same selection function as used for the observed distribution. The small angle approximation is used in this estimator up to scales of approximately 10 degrees, to which it remains accurate \citep{Szapudi2004, Matsubara2000Correlation}. Alternative estimators were compared by \citet{Gaztanaga2009}, such as the estimator based on pixel density fluctuations \citep{BarrigaGaztanaga2002}, and no significant changes in results were observed. Several studies utilised the \citet{LandySzalay1993} estimator to produce an angle independent correlation function $\xi(s)$ \citep{BlakeDavis2011, ChuangWang2012}, whilst other studies produce a two dimensional cross correlation function $\xi(s,\mu)$ due to survey geometry introducing angular dependence in the random distributions \citep{SanchezScoccola2012, SamushiaPercivalGuzzo2011, KazinSanchezBlanton2012}.\\
 
-Covariance is often estimated through the utilisation of simulations created to replicate survey conditions and geometry. As with \citet{SanchezScoccola2012}, \citet{AndersonAubourg2012} states that the dataset covariance for the BOSS data was recovered from 600 galaxy mock catalogues, as detailed in \citet{ManeraScoccimarro2013}. For more detail, the mocks were generated using a method similar to PTHalos \citep{ScoccimarroSheth2002}, in which second order perturbation theory (2LPT) was used to generate the matter fields corresponding to the fiducial cosmology, and these fields were calibrated using suite of N-body simulations from LasDamas \citep{McBride2011}. The halos were populated with galaxies using a halo occupation distribution as described by \citet{ZhengCoilZehavi2007}. Mocks were then reshaped to fit the survey geometry and modified so as to include redshift-space distortions, follow sky completeness and downsampled to match the radial number density of observed data. Covariance was calculated for the LRG dataset of SDD with the use of 216 mock catalogues (MICEL7860, \citet[see][for details]{FosalbaGaztanaga2008, CrocceFosalbaCastander2010}), and \citet{Gaztanaga2009} compared this covariance to Jack-knife error and analytic error estimation. Agreement between comparisons validated the analytic error model, which is used in rest of their. \citet{BlakeDavis2011} utilised a series of lognormal realisations to estimate uncertainty in the binned data points. Lognormal realisations are reasonably accurate whilst the data remains in the linear and quasi-linear regimes, which is generally sufficient for analysis of large scale structure such as the BAO \citep{ColesJones1991}. The method of generating these realisations is detailed \citet{BlakeGlazebrook2003} and \citet{GlazebrookBlake2005}. In contrast to this, I will be using uncertainties derived from the WizCOLA simulations \citep{KodaBlake2015}. 
+Successive data points in a galaxy correlation function are highly correlated, and as such accurate estimation of the covariance between points is critical in being able to generate correct results. A popular methodolody is to estimate covariance through the utilisation of simulations created to replicate survey conditions and geometry. As with \citet{SanchezScoccola2012}, \citet{AndersonAubourg2012} states that the dataset covariance for the BOSS data was recovered from 600 galaxy mock catalogues, as detailed in \citet{ManeraScoccimarro2013}. For more detail, the mocks were generated using a method similar to PTHalos \citep{ScoccimarroSheth2002}, in which second order perturbation theory (2LPT) was used to generate the matter fields corresponding to the fiducial cosmology, and these fields were calibrated using suite of $N$-body simulations from LasDamas \citep{McBride2011}. The halos were populated with galaxies using a halo occupation distribution as described by \citet{ZhengCoilZehavi2007}. Mocks were then reshaped to fit the survey geometry and modified so as to include redshift-space distortions, follow sky completeness and downsampled to match the radial number density of observed data. Covariance was calculated for the LRG dataset of SDSS with the use of 216 mock catalogues \citep[MICEL7860; see][for details]{FosalbaGaztanaga2008, CrocceFosalbaCastander2010}, and \citet{Gaztanaga2009} compared this covariance to Jack-knife error and analytic error estimation. Agreement between comparisons validated the analytic error model, which is used in rest of their analysis. \citet{BlakeDavis2011} utilised a series of lognormal realisations to estimate uncertainty in the binned data points. Lognormal realisations are reasonably accurate whilst the data remains in the linear and quasi-linear regimes, which is generally sufficient for analysis of large scale structure such as the BAO \citep{ColesJones1991}. The method of generating these realisations is detailed \citet{BlakeGlazebrook2003} and \citet{GlazebrookBlake2005}. In contrast to this, I will be using uncertainties derived from the WizCOLA simulations \citep{KodaBlake2015}. These use a technique to create fast simulations that are more accurate than lognormal realisations in the non-linear regime, but not quite as accurate as a full $N$-body simulation would be. That means they are ideal in situation where many realisations of a survey are required - as is true in my case as I need to calculate the covariance between data points in our Wigglez 2D correlation function.
 
 
 
@@ -444,23 +444,35 @@ Covariance is often estimated through the utilisation of simulations created to 
 
 \section{Model Creation}
 
-Whilst the physical considerations taken into account when modelling the correlation function are fairly consistent across studies, the methodology used varies significantly. The greatest difference in model creation depends on whether the analysis seeks to take the broad shape of the correlation function into account, or whether they simply seek to marginalise over this broad structure and fit a pseudo-Gaussian peak. As this analysis will utilise the full correlation function and not just the peak, only these methodologies will be investigated in detail. It is important to note that many of the steps discussed in this section can be applied onto both the power spectrum and correlation function representations of the cosmological model, and that, whilst we shall see a trend of starting with a power spectrum and finishing with a correlation function, different methodologies transform them at different points. 
+Whilst the physical considerations taken into account when modelling the correlation function are fairly consistent across studies, the methodology used varies significantly. The greatest difference in model creation depends on whether the analysis seeks to take the broad shape of the correlation function into account, or whether they simply seek to marginalise over this broad structure and fit a pseudo-Gaussian peak. As this analysis will utilise the full correlation function and not just the peak, I will only describe in detail models that also use the full shape of the correlation function. It is important to note that many of the steps discussed in this section can be applied onto both the power spectrum and correlation function representations of the cosmological model, and that, whilst we shall see a trend of starting with a power spectrum and finishing with a correlation function, different methodologies transform them at different points. 
 
 \subsection{Base Model}
-All studies investigated begin with a linear power spectrum $P_{\rm{lin}}(k)$, which is commonly generated using the \camb{} software created by \citet{Lewis2000}. \citet{ChuangWang2012} and \citet{BlakeDavis2011} utilise the default version of \camb{}, where \citet{BlakeDavis2011} sets \camb{} parametrisation using the fiducial cosmology and allows $\Omega_m$ to be a free parameter. \citet{SanchezScoccola2012}, who utilise  \cosmomc{} \citep{LewisBridle2002}, where a generalised version of \camb{} software was used to test a time dependent dark energy equation of state \citep{FangHuLewis2008}, with additional modifications from \citet{KeislerReichardt2011} and \citet{ConleyGuySullivan2011} to compute the likelihood of SPT and SNLS data sets.
-
+All studies investigated begin with a linear power spectrum $P_{\rm{lin}}(k)$, which is commonly generated using the \camb{} software created by \citet{Lewis2000}. The default \camb{} software, utilised by \citet{ChuangWang2012,BlakeDavis2011} test the default Flat $\Lambda$CDM cosmology. Modifications to \camb{} to support other cosmologies is possible \citep{SanchezScoccola2012, FangHuLewis2008, KeislerReichardt2011, ConleyGuySullivan2011}, however my analysis does not extend to that scope and as such I shall utilise the base version of \camb{} to generate a linear power spectrum.
 
 \subsection{BAO damping}
 
-One of the common quasilinear effects taken into account by all studies is that of BAO peak smoothing caused by displacement of matter due to bulk flows \citep{EisensteinSeoWhite2007,CrocceScoccimarro2008,Matsubara2008,CrocceScoccimarro2006}. The degradation in the acoustic peak can be modelled with a smoothing parameter \citep{CrocceScoccimarro2008}, which was tested by \citet{SanchezBaughAngulo2008} against N-body simulations and subsequently used in large amount of analyses \citet{BlakeDavis2011,EisensteinZehavi2005,Sanchez2009,BeutlerBlake2011}. This smoothing parameter takes the form of a Gaussian dampening term which reduces the amplitude of the BAO signal as a function of $k$:
+One of the common quasilinear effects taken into account by all studies is that of BAO peak smoothing caused by displacement of matter due to bulk flows \citep{EisensteinSeoWhite2007,CrocceScoccimarro2008,Matsubara2008,CrocceScoccimarro2006}. The degradation in the acoustic peak can be modelled with a smoothing parameter \citep{CrocceScoccimarro2008}, which was tested by \citet{SanchezBaughAngulo2008} against N-body simulations and subsequently used in many analyses \citep{BlakeDavis2011,EisensteinZehavi2005,Sanchez2009,BeutlerBlake2011}. This smoothing parameter takes the form of a Gaussian dampening term which reduces the amplitude of the BAO signal as a function of $k$:
 \begin{align} \label{{eq:blake1}}
 P_{\rm{dw}}(k) = \exp(-k^2 \sigma_v^2) P_{\rm{lin}}(k) + (1 - \exp(-k^2 \sigma_v^2)) P_{\rm{nw}}(k),
 \end{align}
-where $P_{\rm{nw}}(k)$ is a power spectrum without the BAO signal (the BAO peak is visible as a wiggle in the power spectrum) power spectrum, and $\sigma_v$ is the smoothing parameter. \citet{ChuangWang2012} utilise the same method, but call their smoothing parameter $k_*$, such that $\sigma_v = 1/(\sqrt{2} k_*)$. An almost identical method is utilised by \citep{AndersonAubourg2012} and \citet{XuPadmanabhan2012}, who follow \citet{EisensteinSeoWhite2007} and smooth their linear power spectrum as
+where $P_{\rm{nw}}(k)$ is a power spectrum without the BAO signal (the BAO peak is visible as a wiggle in the power spectrum, so `nw' denotes `no wiggles'), and $\sigma_v$ is the smoothing parameter. \citet{ChuangWang2012} utilise the same method, but call their smoothing parameter $k_*$, such that $\sigma_v = 1/(\sqrt{2} k_*)$. An identical method is utilised by \citep{AndersonAubourg2012} and \citet{XuPadmanabhan2012}, who follow \citet{EisensteinSeoWhite2007} and smooth their linear power spectrum as
 \begin{align}
 P_{\rm{dw}}(k) = \left[ P_{\rm{lin}}(k) - P_{\rm{nw}}(k) \right] e^{-k^2 \Sigma_{\rm{NL}}^2 / 2} + P_{\rm{nw}}(k),
 \end{align}
-where we can see that we have once again different notation for the smoothing parameter, giving $\sigma_v = \Sigma_{\rm{NL}} / \sqrt{2}$. Analogous approaches are also utilised by \citet{MontesanoSanchezPhelps2012} and \citet{SanchezScoccola2012}.
+where we can see that we have different notation for the smoothing parameter, giving $\sigma_v = \Sigma_{\rm{NL}} / \sqrt{2}$. Analogous approaches are also utilised by \citet{MontesanoSanchezPhelps2012} and \citet{SanchezScoccola2012}, and the effect of damping the BAO signal is shown in Figure \ref{fig:dwExample}.
+
+
+
+\begin{figure}[h!]
+%\begin{wrapfigure}{r}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/dwExample.pdf}
+  \end{center}
+  \caption{An illustration on the effect of dampening the BAO peak in both the power spectrum and resultant correlation function. The signal without wiggles, $P_{\mathrm{nw}}$ is shown dotted, the original linear power spectrum $P_{\mathrm{lin}}$ is shown dashed, and the damped power spectrum $P_{\mathrm{dw}}$ is shown in red.}
+  \label{fig:dwExample}
+%\end{wrapfigure}
+\end{figure}
+
 
 
 Whilst advances in renormalization perturbation theory (RPT)  \citep{CrocceScoccimarro2008} allow a theoretical determination of $\sigma_v$ as
@@ -472,6 +484,7 @@ this requires knowledge of the power of the spectrum, which is also marginalised
 
 
 The power spectrum without the BAO signal present is generated using the algorithm given by \citet{EisensteinHu1998} in the majority of studies. \citet{ReidPercival2010} investigated an alternate method of generating a no-wiggle power spectrum from the linear \camb{} power spectrum in which an 8 node b-spline was fitted to the linear power spectrum, concluding the likelihood surfaces generated when fitting using splines and the algorithm from \citet{EisensteinHu1998} agree well.
+
 
 
 \subsection{Non-linear growth}
@@ -641,8 +654,8 @@ It is interesting to note some disagreement in prior literature about the form o
 
 With these transformations in place, we can then utilise $\alpha$ and $\epsilon$ to fit for the multipole moments of the correlation function. For small $\epsilon$, we can can constrain $H(z)$ and $D_A$ via
 \begin{align}
-\alpha(1 + \epsilon)^2 \approx \alpha(1 + 2\epsilon) &\approx \frac{H^\mathcal{D}(z)}{H(z)} \\
-\alpha(1 + \epsilon)^{-1} \approx \alpha(1 - \epsilon) &\approx \frac{D_A}{D_A^\mathcal{D}}
+\alpha(1 + \epsilon)^2 \approx \alpha(1 + 2\epsilon) &\approx \frac{H^\mathcal{D}(z)}{H(z)} \label{eq:alpha1}\\
+\alpha(1 + \epsilon)^{-1} \approx \alpha(1 - \epsilon) &\approx \frac{D_A}{D_A^\mathcal{D}} \label{eq:alpha2}
 \end{align}
 
 
@@ -916,7 +929,7 @@ The data present in the WizCOLA simulations and the final Wigglez dataset is ava
 
 There are two methods we can use to combined the binned data, and both methods will be utilised in my analysis so that I can check they give consistent results. The first method investigated is using the correlation between final parameter values, and the second method I investigate is to simply calculate the covariance between data points across all bins and run a separate fit.
 
-\subsection{Parameter Covariance}
+\subsection{Parameter Covariance} \label{sec:parameterCov}
 
 In order to extra final parametrisations the correlation between fit parameters across redshift bins needs to be quantified and accounted for. To do this, individual realisations of the WizCOLA simulation were fitted for, and peak likelihood values for cosmological parameters ($\Omega_c h^2$, $\alpha$ and $\epsilon$ for a multipole analysis and $\Omega_c h^2$, $\alpha_\perp$ and $\alpha_\parallel$ for the wedge analysis) were utilised to construct a covariance matrix, such that we construct
 \begin{align}
@@ -971,10 +984,12 @@ Combined & $0.60$ & $1.1$ & $0.110^{+0.031}_{-0.032}$ &$1.073^{+0.115}_{-0.108}$
   \begin{center}
     \includegraphics[width=0.8\textwidth]{images/corCombined_2.pdf}
   \end{center}
-  \caption{Likelihood surfaces and marginalised distributions of $\Omega_ch^2$, $\alpha$ and $\epsilon$ for the $N=2$ realisation of the WizCOLA simulation. }
+  \caption{Likelihood surfaces and marginalised distributions of $\Omega_ch^2$, $\alpha$ and $\epsilon$ for the $N=2$ realisation of the WizCOLA simulation. {\red replace this with proper wizcols from aIndividualCombined when its done computing}}
   \label{fig:corCombined_2}
 %\end{wrapfigure}
 \end{figure}
+
+
 
 
 
@@ -997,7 +1012,18 @@ The covariance matrices utilised so far in my analysis have been supplied from t
 
 
 
-It is interesting to note that the computed covariance differs from the supplied WizCOLA covariance in off-diagonal cells, and an analysis of the significance of this difference can be found in Append \ref{app:wizDiff}. When using the full data covariance to simultaneously fit all three redshift bins, a further question becomes whether marginalisation parameters $\beta$, $\sigma H$ and $k_*$ should be free between redshift bins, or consistent across them. To investigate this, a fit to the combined WizCOLA data was performed using both methodologies. {\red insert fits here when they are complete}
+It is interesting to note that the computed covariance differs from the supplied WizCOLA covariance in off-diagonal cells, and an analysis of the significance of this difference can be found in Append \ref{app:wizDiff}. When using the full data covariance to simultaneously fit all three redshift bins, a further question becomes whether marginalisation parameters $b^2$, $\beta$, $\sigma H$ and $k_*$ should be free between redshift bins, or consistent across them. To investigate this, I ran fits to the combined WizCOLA data was performed using both methodologies, and a comparison of their parameter distributions is shown in Figure \ref{fig:wizcolaAllNormalCovCombined}. I should note that, due to the degeneracy between $\alpha$ and $b^2$, $b^2$ was kept global, and the marginalisation parameters considered across bins are $\beta$, $k_*$ and $\sigma H(z)$. These fits indicate a strong preference for fitting with separate marginalisation parameters across redshift bins due to tighter constraints achieved. One piece of information not illustrated in the figure is the convergence rate of the MCMC chains. The increased number of parameters when separating redshift bins (13 parameters in total) increases convergence time. However, the benefits shown in Figure \ref{fig:wizcolaAllNormalCovCombined} make the increased computational time worthwhile. Setting parameters independent between bins also brings this methodology closer to the method of combining output parameters as discussed in  \S\ref{sec:parameterCov}, allowing comparison between methodology with less confounding factors.\\
+
+Based on these results, I will utilise independent $\beta$, $k_*$ and $\sigma H(z)$ between bins when fitting with the full data set and full data covariance.
+
+
+\begin{figure}[h!]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{images/wizcolaAllNormalCovCombined.pdf}
+  \end{center}
+  \caption{Fits to the mean WizCOLA data using the computed covariance matrix. Marginalisation parameters for the fit are $b^2$, $\beta$, $k_*$ and $\sigma H(z)$. The two plots shown, denoted `global' and `per bin' respectively refer to if one set of marginalisation parameters are used globally across redshift bins, or if each bin has its own set of nuisance parameters (excluding $b^2$). We can see that setting nuisance parameters per bin results in much tighter constraints.}
+  \label{fig:wizcolaAllNormalCovCombined}
+\end{figure}
 
 
 
@@ -1018,7 +1044,7 @@ It is interesting to note that the computed covariance differs from the supplied
 
 
 
-\newpage\phantom{blabla}\newpage
+
 \section{Model testing conclusions}
 
 In this section we have sought to validate a constructed BAO model. The one dimensional base model was first validated by successfully reproducing fits to the one dimensional Wigglez survey as found in \citet{BlakeDavis2011} and \citet{BlakeKazin2011}. Both methodologies for incorporating angle dependence to create a 2D BAO model, by modelling data wedges or multipole expansion, were then successfully tested using the combined WizCOLA simulation dataset by recovering the simulation parametrisation. The significance of the hexadecapole term was investigated, and was found to be small enough that discarding the term for computational benefit would have a negligible impact on parameter recovery when compared to statistical error.\\
@@ -1041,11 +1067,71 @@ Having performed these tests to determine that the constructed models are free o
 
 \chapter{Results}
 
-In this section I will present the cosmological results obtained when fitting to the final Wigglez data.
+In this section I will present the cosmological results obtained when fitting to the final Wigglez data. I utilise four different fitting methods outlined in the previous section, fitting individual bins and combining them for both the multipole and wedge data representation, in addition to doing full data fits for the two data representations. I will present results for the individual bin fitting first, the full data second, and the final constraints third.
 
-\section{Multipole data}
 
-Fits to the multipole data were done using 24 MCMC chains, each containing a hundred thousand points. The three redshift bins were combined using the covariance matrix illustrated in Figure \ref{fig:correlations}. The likelihood surfaces and marginalised distributions found are shown in Figure \ref{fig:wigglezMPResults}, and the final parameters are detailed in Table \ref{tab:wigglezMPResults}.
+
+\section{Fitting Redshift bins}
+
+Following \S\ref{sec:parameterCov}, I fit to the final Wigglez dataset from \citet{KazinKoda2014}. The final distributions obtained are given in Table \ref{tab:wigglezBins} and are illustrated in Figures \ref{fig:wigglezBinsMP} and \ref{fig:wigglezBinsWdg} for mulitpole and wedge data respectively.
+
+
+
+
+
+\begin{table}[h]
+\centering
+\caption{Recovered parameter constraints when fitting the Wigglez multipole and wedge data data. The $\chi^2$ column represents the minimum $\chi^2$ attained in the fit. The parameter values after combination are shown at the bottom of the table, where the $\chi^2$ value for the combined dataset indicates the $\chi^2$ from equation \eqref{eq:covchi} instead of the $\chi^2$ when fitting the cosmological model to the Wigglez data.}
+\begin{tabular}{c|cccc|cccc}
+\specialrule{.1em}{.05em}{.05em} 
+$z_{\rm{eff}}$ & \multicolumn{4}{c}{Multipole}  & \multicolumn{4}{c}{Wedge}\\
+ & $\chi^2$ & $\Omega_c h^2$ &$\alpha$ & $\epsilon$ & $\chi^2$ & $\Omega_c h^2$ & $\alpha_\perp$ & $\alpha_\parallel$\\
+\specialrule{.1em}{.05em}{.05em} 
+$0.44$ & $54.6$ & $0.129^{+0.057}_{-0.037}$ & $1.12^{+0.13}_{-0.12}$ & $0.00^{+0.07}_{-0.12}$ & $54.1$ & $0.164^{+0.045}_{-0.048}$ & $1.11^{+0.12}_{-0.16}$ & $1.13^{+0.13}_{-0.17}$ \\
+$0.60$ & $35.5$ & $0.170^{+0.044}_{-0.040}$ & $1.06^{+0.16}_{-0.11}$ & $0.03^{+0.06}_{-0.08}$ & $39.3$ & $0.184^{+0.038}_{-0.045}$ & $1.03^{+0.12}_{-0.14}$ & $1.19^{+0.09}_{-0.20}$ \\
+$0.73$ & $44.3$ & $0.098^{+0.038}_{-0.026}$ & $1.08^{+0.09}_{-0.10}$ & $0.06^{+0.05}_{-0.05}$ & $41.5$ & $0.097^{+0.040}_{-0.027}$ & $1.05^{+0.12}_{-0.12}$ & $1.14^{+0.12}_{-0.12}$ \\
+\specialrule{.05em}{.05em}{.05em} 
+All & $13.7$ & $0.133^{+0.013}_{-0.012}$ & $1.11\pm0.06$ & $0.02\pm0.07$ & $44.0$ & $0.132^{+0.008}_{-0.009}$ & $1.08\pm0.05$ & $1.15\pm0.05$ \\
+\specialrule{.1em}{.05em}{.05em} 
+\end{tabular}\label{tab:wigglezBins}
+\end{table}
+
+
+Whilst the process to move from the parameters $\Omega_c h^2$, $\alpha_\perp$ and $\alpha_parallel$ is trivial, the parameters $\alpha$ and $\epsilon$ combine to give cosmological constraints as per equations \eqref{eq:alpha1} and \eqref{eq:alpha2}. To estimate final parameter variance we can utilise Fisher matrices. From
+\begin{align}
+\begin{pmatrix}
+\sigma_{D_A}^2 & \sigma_{D_A H} \\ \sigma_{D_A H} & \sigma_H^2 \end{pmatrix}
+ = 
+\begin{pmatrix}
+\frac{\partial D_A}{\partial \alpha} & \frac{\partial H}{\partial \alpha} \\ \frac{\partial D_A}{\partial \epsilon} & \frac{\partial H}{\partial \epsilon} \end{pmatrix} 
+\begin{pmatrix}
+\sigma_\alpha^2 & \sigma_{\alpha \epsilon} \\ \sigma_{\alpha \epsilon} & \sigma_\epsilon^2
+\end{pmatrix}
+\begin{pmatrix}
+\frac{\partial D_A}{\partial \alpha} & \frac{\partial H}{\partial \alpha} \\ \frac{\partial D_A}{\partial \epsilon} & \frac{\partial H}{\partial \epsilon} \end{pmatrix} ^T,
+\end{align}
+we have
+\begin{align}
+\frac{\sigma_{D_A}^2}{D_A^2} &= \alpha^{-2} \sigma_\alpha^2 + \left(1 + \epsilon \right)^{-2} \sigma_\epsilon^2 - 2\alpha^{-1}\left(1 + \epsilon \right)^{-1} \sigma_{\alpha \epsilon} \\
+\frac{\sigma_H^2}{H^2} &= \alpha^{-2} \sigma_\alpha^2 + 4(1+\epsilon)^{-2} \sigma_\epsilon^2 + 4 \alpha^{-1} (1 + \epsilon)^{-1} \sigma_{\alpha \epsilon}
+\end{align}
+Using these relationships, I formulate parameter constraints shown in Table \ref{tab:wigglezBinsParams}. We notice a high level of agreement between the methodologies in recovering the output parameters, with smaller uncertainty present in the wedge analysis. This is attributable to the variance estimation using the Fisher matrix above, as covariance between $\alpha$ and $\epsilon$ increases uncertainty, in comparison to the independent parameters recovered from the wedge analysis ($\alpha_\perp$ and $\alpha_\parallel$).
+
+
+\begin{table}[h]
+\centering
+\caption{Parameter constraints from the combined Wigglez redshift bin fits for both the multipole and wedge expression of the data.}
+\begin{tabular}{ccc}
+\specialrule{.1em}{.05em}{.05em} 
+Parameter & Multipole  & Wedge\\
+\specialrule{.1em}{.05em}{.05em} 
+$\Omega_c h^2$                &  $0.133^{+0.013}_{-0.012}$ &   $0.132^{+0.008}_{-0.009}$   \\
+$D_A / D_A^{\mathcal{D}}$     &  $1.08 \pm 0.10 $          &   $1.08 \pm 0.05$ \\
+$H^\mathcal{D} / H$           &  $0.87 \pm 0.13$           &   $0.87 \pm 0.04$\\
+\end{tabular}\label{tab:wigglezBinsParams}
+\end{table}
+
+
 
 
 
@@ -1056,26 +1142,41 @@ Fits to the multipole data were done using 24 MCMC chains, each containing a hun
     \includegraphics[width=\textwidth]{images/corCombinedMP.pdf}
   \end{center}
   \caption{Likelihood surfaces and marginalised distributions of $\Omega_ch^2$, $\alpha$ and $\epsilon$ for the Wigglez multipole expression of the data. }
-  \label{fig:wigglezMPResults}
+  \label{fig:wigglezBinsMP}
 %\end{wrapfigure}
 \end{figure}
 
-{\red ALPHA NOT PROPERLY CONSTRAINED FOR Z0 AND COMBINED DATA. Using Area based statistics to get error for that one, consult with Tam about proper action to take. Increasing alpha bound introduces oscillations in function, and I wont be able to run all the realisations again}
-\begin{table}[h]
-\centering
-\caption{Recovered parameter constraints when fitting the Wigglez multipole data. The parameter values after combination are shown at the bottom of the table, where the $\chi^2$ value for the combined dataset indicates the $\chi^2$ from equation \eqref{eq:covchi} instead of the $\chi^2$ when fitting the cosmological model to the Wigglez data.}
-\begin{tabular}{cc|ccccc}
-\specialrule{.1em}{.05em}{.05em} 
-Sample & $z_{\rm{eff}}$ & min $\chi^2$ & $\Omega_c h^2$ &$\alpha$ & $\epsilon$\\
-\specialrule{.1em}{.05em}{.05em} 
-$0.2 < z < 0.6$ & $0.44$ & $54.6$ & $0.129^{+0.057}_{-0.037}$ &$1.12^{+0.12}_{-0.14}$ & $-0.001^{+0.072}_{-0.125}$ \\
-$0.4 < z < 0.8$ & $0.60$ & $35.5$ & $0.170^{+0.044}_{-0.040}$ &$1.06^{+0.16}_{-0.11}$ & $0.033^{+0.061}_{-0.078}$ \\
-$0.6 < z < 1.0$ & $0.73$ & $44.3$ & $0.098^{+0.038}_{-0.026}$ &$1.08^{+0.09}_{-0.10}$ & $0.056^{+0.051}_{-0.053}$ \\
-\specialrule{.05em}{.05em}{.05em} 
-Combined & $0.60$ & $1.5$ & $0.142^{+0.031}_{-0.034}$ &$1.07^{+0.115}_{-0.108}$ & $0.049^{+0.185}_{-0.176}$ \\
-\specialrule{.1em}{.05em}{.05em} 
-\end{tabular}\label{tab:wigglezMPResults}
-\end{table}
+\begin{figure}[h!]
+%\begin{wrapfigure}{r}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/corCombinedWedge.pdf}
+  \end{center}
+  \caption{Likelihood surfaces and marginalised distributions of $\Omega_ch^2$, $\alpha$ and $\epsilon$ for the Wigglez wedge expression of the data. }
+  \label{fig:wigglezBinsWdg}
+%\end{wrapfigure}
+\end{figure}
+
+
+
+\section{Fitting Full Data}
+
+
+Once b folders on smp comp have finished, flesh this out.
+
+
+
+\section{Final Cosmological Parameters}
+
+Put in final ones
+
+Put in significance of BAO peak
+
+
+
+
+
+
+
 
 
 
