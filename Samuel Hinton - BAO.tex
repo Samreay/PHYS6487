@@ -296,7 +296,7 @@ These anisotropic effects enter the analysis because we do not work with real-sp
 %\end{wrapfigure}
 \end{figure}
 
-The anisotropies present in the correlation function can also be decomposed using multipole expansion, as illustrated in Figure \ref{fig:xi2d}. In prior studies that examine the one dimensional angle-averaged BAO peak, this refers to the monopole component of the correlation function.\\
+The anisotropies present in the correlation function can also be decomposed using multipole expansion, as illustrated in Figure \ref{fig:xi2d}. In prior studies that examine the one dimensional angle-averaged BAO peak, this refers to the monopole component of the correlation function. Given advances in renormalised perturbation theory (RPT), and progress in accurately modelling non-linear growth \citep{CrocceScoccimarro2006, Matsubara2008Resumming, Matsubara2008, TaruyaNishimichi2009}, it is now possible to correct for some sources of anisotropy, allowing a one dimensional BAO signal to be reconstructed from two dimensional galaxy distribution data that provides better signal than the unreconstructed data \citep{EisensteinSeoSirko2007, SeoEckelEisenstein2010, PadmanabhanXuEisenstein2012, KazinKoda2014}. \\
 
 \begin{figure}[h!]
 %\begin{wrapfigure}{r}{0.5\textwidth}
@@ -557,21 +557,29 @@ A prominent source of anisotropy in cosmological models is due to the Kaiser eff
 \begin{align} \label{eq:gaztanga1}
 P_{\rm{nl}}(k, \mu) = (1 + \beta \mu^2)^2 P_{g}(k),
 \end{align}
-where $P_{g}$ is the power spectrum of galaxy density fluctuations $\delta_g$, $\mu$ is the cosine of the angle to line of sight, the subscript $s$ indicates redshift space, and $\beta$ is the growth rate of growing modes in linear theory. Using the assumption that galaxy over density is linearly biased by a factor of $b$ (vindicated in \citet{ReidSpergelBode2009}), such that we can relate $P_{\text{nl}}$ and $P_{g}$ as proportional, $\beta$ can be approximated as \citep{Hamilton1992}
+where $P_{g}$ is the power spectrum of galaxy density fluctuations $\delta_g$, $\mu$ is the cosine of the angle to line of sight, and $\beta$ is the growth rate of growing modes in linear theory. Given that galaxy over-density is linearly biased by a factor of $b$ \citep{ReidSpergelBode2009}, we can relate $P_{\text{nl}}$ and $P_{g}$ as proportional. We can also approximate $\beta$ as \citep{Linder2005}
 \begin{align}
 \beta \approx \frac{\Omega_m^{0.55}}{b}.
 \end{align}
-This correction for the Kaiser effect has been utilised by \citet{ChuangWang2012, XuPadmanabhan2012, Gaztanaga2009} for identifying the unreconstructed BAO signal in survey data. Given the advances in RPT and progress in accurately modelling non-linear growth \citep{CrocceScoccimarro2006, Matsubara2008Resumming, Matsubara2008, TaruyaNishimichi2009}, it is now possible to partially correct models and reconstruct the BAO peak \citep{EisensteinSeoSirko2007, SeoEckelEisenstein2010, PadmanabhanXuEisenstein2012, KazinKoda2014}. When reconstructing the peak \citep[see][for details]{KazinKoda2014,PadmanabhanXuEisenstein2012}, the Kaiser effect is accounted for and thus does not have to be inserted into the cosmological model.
+This correction for the Kaiser effect has been utilised by \citet{ChuangWang2012, XuPadmanabhan2012, Gaztanaga2009} for identifying the unreconstructed BAO signal in survey data. When reconstructing the BAO signal \citep[see][for details]{KazinKoda2014,PadmanabhanXuEisenstein2012}, the Kaiser effect is accounted for and thus does not have to be inserted into the cosmological model.
 
 
 
 \subsubsection{Fingers of God}
 
-Peculiar velocity does not have to be coherent to effect observational cosmology, and the random peculiar velocities of galaxies in clusters, which are related to the cluster mass via the virial theorem, create artefacts known as Fingers of God that elongate the observed position of galaxies along the line of sight. \citet{SanchezKazinBeutler2013} incorporates this effect via an additional exponential prefactor:
+Peculiar velocity does not have to be coherent to effect observational cosmology, and the random peculiar velocities of galaxies in clusters, which are related to the cluster mass via the virial theorem, create artefacts known as Fingers of God that elongate the observed position of galaxies along the line of sight. This is illustrate in Figure \ref{fig:fingersOfGod}. \citet{SanchezKazinBeutler2013} incorporates this effect via an additional exponential prefactor:
 \begin{align}
-P_{\rm{gal}} = \left( \frac{1}{1 + (k f \sigma_v \mu )^2} \right)^2  P_{\rm{nl}}(k, \mu),
+P_{\rm{gal}} = \left( \frac{1}{1 + (k f \sigma_v \mu )^2} \right)^2  P_{\rm{nl}}(k, \mu), \label{eq:lorentzian}
 \end{align}
 where $f = \frac{d \ln D(a)}{d \ln a}$, $D(a)$ is the growth factor, and $\sigma_v$ is the pairwise peculiar velocity dispersion. Notational differences aside, the same prefactor is used by \citet{XuPadmanabhan2012}, who also tested an alternate Gaussian form prefactor, finding little difference between results. In the investigation of growth rate with WiggleZ data, \citet{BlakeBroughColless2011} adopts a Lorentzian model of velocity dispersion with prefactor $[1 + (k \sigma_v \mu)^2]^{-1}$ due to the better fitting results found in \citet{HawkinsMaddoxCole2003} and \citet{CabreGaztanaga2009}.
+
+\begin{figure}[h!]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{images/fingerOfGod.jpg}
+  \end{center}
+  \caption{A cone diagram (right ascension) around the Shapley supercluster from \citet{ProustQuintana2006}. Finger's of God are present in distinctly noticeable in the denser section of galaxy distribution, as elongated shapes pointing towards the origin.}
+  \label{fig:fingersOfGod}
+\end{figure}
 
 This velocity dispersion is accounted for by \citet{ChuangWang2012} by convolving their 2D correlation function with a distribution of velocities. The convolution is given by
 \begin{align}
@@ -607,7 +615,7 @@ where $\mathcal{L}_\ell$ represents the $\ell$'th Legendre polynomial. These mul
 \begin{align}
 \xi_\ell(s) = \frac{1}{(2\pi)^3} \int 4\pi k^2 \ P_\ell(k) \ j_\ell(ks)
 \end{align}
-where $j_\ell(ks)$ are spherical Bessel functions of the first kind. As the introduced power at small scales from the non-linear corrections decreases convergence of this function,  \citet{AndersonAubourg2012} add a Gaussian factor $\exp(-k^2 a^2)$ improve converge, where they have set $a= 1\, h\, \rm{Mpc}$ (and found cosmology insensitive to changes in $a$). This is in contrast to the algorithm used in \citet{BlakeDavis2011}, which improves converge by truncating the numerical integral after a specific number of periods in the spherical Bessel function. Interestingly, whilst the \citet{BlakeDavis2011} WiggleZ analysis does not contain the Gaussian dampening term seen in \citet{AndersonAubourg2012}, it is present in the correlation function model used in \citet{BlakeKazin2011}.
+where $j_\ell(ks)$ are spherical Bessel functions of the first kind. As the increased power of small scale oscillations from the non-linear corrections decreases convergence of this function,  \citet{AndersonAubourg2012} add a Gaussian factor $\exp(-k^2 a^2)$ to improve convergence, where they have set $a= 1\, h\, \rm{Mpc}$ (and found cosmology insensitive to changes in $a$). This is in contrast to other methods that may be used to increase convergence, such as truncating the numerical integral after a specific number of periods in the spherical Bessel function. Interestingly, whilst the \citet{BlakeDavis2011} WiggleZ analysis does not contain the Gaussian dampening term seen in \citet{AndersonAubourg2012}, it is present in the correlation function model used in \citet{BlakeKazin2011}.
 
 \subsubsection{Wedges} \label{sec:prior:cor:wedge}
 
@@ -619,14 +627,14 @@ Having obtained the multipole expansion of the correlation function, a 2D analys
 The distance scale is transformed via
 \begin{align}
 s_\perp &\rightarrow \alpha_\perp s_\perp \\
-s_\parallel &= \rightarrow \alpha_\parallel s_\parallel,
+s_\parallel &\rightarrow \alpha_\parallel s_\parallel,
 \end{align}
 which is respectively used to constrain
 \begin{align}
 \alpha_\perp &= \frac{D_A(z)}{D_A^{\mathcal{D}}(z)} \\
-\alpha_\parallel &= \frac{H^{\mathcal{D}}(z)}{H(z)}.
+\alpha_\parallel &= \frac{H^{\mathcal{D}}(z)}{H(z)},
 \end{align}
-Having defined $\alpha_\perp$ and $\alpha_\parallel$, they are used to define transformation functions:
+where the superscript $\mathcal{D}$ is used to denote the fiducial value of the model. Having defined $\alpha_\perp$ and $\alpha_\parallel$, they are used to define transformation functions:
 \begin{align}
 s(\mu^\prime, s^\prime) &= s^\prime \sqrt{\alpha_\parallel^2(\mu^\prime)^2 + \alpha_\perp^2 (1 - (\mu^\prime)^2)}, \\
 \mu(\mu^\prime) &= \frac{\alpha_\parallel \mu^\prime}{\sqrt{\alpha_\parallel^2(\mu^\prime)^2 + \alpha_\perp^2 (1 - (\mu^\prime)^2)}},
@@ -667,13 +675,13 @@ By combining this with the definition of the multipole expansion,
 we can conclude, to first order in $\epsilon$ and discarding hexadecapole contribution, that the multipole moments should be transformed as \citep{KazinSanchezBlanton2012}
 \begin{align}
 \xi_0(s) &= \xi_0(\alpha s) + \frac{2}{5}\epsilon \left[ 3 \xi_2(\alpha s) + \frac{d \xi_2(\alpha s)}{d \log(s)}\right] \label{eq:ximp}\\
-\xi_2(s) &= 2\epsilon \frac{d \xi_0(\alpha s)}{d\log(s)} + \left( 1 + \frac{6}{7}\epsilon\right) \xi_2(\alpha s) + \frac{4}{7} \epsilon \frac{d \xi_2(\alpha s)}{d \log(s)} 
+\xi_2(s) &= 2\epsilon \frac{d \xi_0(\alpha s)}{d\log(s)} + \left( 1 + \frac{6}{7}\epsilon\right) \xi_2(\alpha s) + \frac{4}{7} \epsilon \frac{d \xi_2(\alpha s)}{d \log(s)} \label{eq:multipoles} 
 \end{align}
 If we choose to include the hexadecapole terms as done by \citet{XuCuesta2013}, we would need to add to the $\xi_2(s)$ 
 \begin{align}
 \frac{4}{7}\epsilon \left[ 5 \xi_4 (\alpha s) + \frac{d \xi_4(\alpha s)}{d \log(s)} \right].
 \end{align}
-It is interesting to note some disagreement in prior literature about the form of the derivative terms and whether the distance $s$ should be transformed or not. \citet{KazinSanchezBlanton2012} do not transform this scale, using for example $d\xi_2(s)/d\log(s)$, whilst \citet{XuCuesta2013} do include the scale factors, such that they use $d\xi_2(\alpha s) / d\log(s)$. Following the more detailed derivation from \citet{XuCuesta2013}, the scale factors will be included inside the derivative terms for my analysis. Finally, we can note that for the monopole moment $\xi_0(s)$ found in equation \eqref{eq:ximp}, the terms in the square bracket effectively cancel out, such that we can use the transformation $\xi_0(s) = \xi_0(\alpha s)$. This simplification we tested in \citet{Sanchez2009} and \citet{EisensteinZehavi2005}.
+It is interesting to note some disagreement in prior literature about the form of the derivative terms and whether the distance $s$ should be transformed or not. \citet{KazinSanchezBlanton2012} do not transform this scale, using for example $d\xi_2(s)/d\log(s)$, whilst \citet{XuCuesta2013} do include the scale factors, such that they use $d\xi_2(\alpha s) / d\log(s)$. Following the more detailed derivation from \citet{XuCuesta2013}, the scale factors will be included inside the derivative terms for my analysis. Finally, we can note that for the monopole moment $\xi_0(s)$ found in equation \eqref{eq:ximp}, the terms in the square bracket effectively cancel out, such that we can use the transformation $\xi_0(s) = \xi_0(\alpha s)$. This simplification is tested in \citet{Sanchez2009} and \citet{EisensteinZehavi2005}.
 
 With these transformations in place, we can then utilise $\alpha$ and $\epsilon$ to fit for the multipole moments of the correlation function. For small $\epsilon$, we can can constrain $H(z)$ and $D_A$ via
 \begin{align}
@@ -686,7 +694,7 @@ With these transformations in place, we can then utilise $\alpha$ and $\epsilon$
 \newpage
 \section{Fitting} \label{sec:trunc}
 
-One final important factor is the fitting range applied to the created cosmological models. Due to a failure of the models at small scales, and noisy data due to sample variance at high separation, these models are often fitted over a truncated data range. Comparisons between different papers is shown in Table \ref{tab:truncation}. Given the wide range of dataset truncation values and lack of clear support for one cutoff over another, this represents an area of required investigation in this thesis.
+Having generated a model correlation function, the final step is to compare that against the correlation function computed with observational data and a fiducial cosmology. However, as the created model breaks down at low distances and all models are similar at high distances where sample variance increases data uncertainty, matching normally only occurs on a subsection of the data. Comparisons between different papers are shown in Table \ref{tab:truncation}. Given the wide range of dataset truncation values and lack of clear support for one cutoff over another, this represents that requires investigation. This investigation can be found in Appendix \ref{app:truncation}.
 
 
 \begin{table}[h]
@@ -722,11 +730,11 @@ Study & Data Range $(h^{-1}$Mpc) & Comments \\
 \chapter{Cosmological Model}
 \label{ch:model}
 
-In this section I outline the steps taken to create a robust model for the BAO signal, and the consistency checks it went through. I present the base, one dimensional model and check it against the prior WiggleZ analysis from \citet{BlakeKazin2011}. I then turn this base model into a two dimensional model via the inclusion of anisotropies in the model, and utilise the WizCOLA simulations to check the consistency of the angular dependent model using both the wedges and multipole expansion methodologies.
+In this section I outline the steps I used to create a robust model for the BAO signal, and the consistency checks I put it through. I present the base, one dimensional model and check it against the prior WiggleZ analysis from \citet{BlakeKazin2011}. I then turn this base model into a two dimensional model by including anisotropies in the model, and utilise the WizCOLA simulations to check the consistency of the angular dependent model using both the wedges and multipole expansion methodologies.
 
 \section{Confirming the base model}
 
-In order to determine the constructed model was consistent with prior literature, I attempt to recover the fits found by \citet{BlakeKazin2011} by utilising their model creation method. The underlying linear model is computed using the CAMB software \citep{Lewis2000}, following prior studies \citep{BlakeDavis2011, SanchezScoccola2012, ChuangWang2012}. The parameter $\Omega_c h^2$ is free, with $\Omega_b h^2$ set to $0.0226$ and $h=0.705$ following the WizCOLA fiducial model and fiducial model adopted by \citet{BlakeKazin2011}. The quasi-linear correction due to matter flow displacement is incorporated into the model via blending between the linear model and a model without the BAO feature - denoted $P_{\rm{nw}}$ - with a Gaussian dampening term:
+In order to determine whether my model was consistent with prior literature, I attempt to recover the fits found by \citet{BlakeKazin2011} by utilising their model creation method. The underlying linear model is computed using the CAMB software \citep{Lewis2000}, following prior studies \citep{BlakeDavis2011, SanchezScoccola2012, ChuangWang2012}. The parameter $\Omega_c h^2$ is free, with $\Omega_b h^2$ set to $0.0226$\footnote{As $\Omega_b h^2$ is well constrained by CMB data and variations even up to $5\sigma$ are negligible to the BAO model, I have set it constant in my model. Note that this holds for Flat $\Lambda$CDM cosmology, and if my analysis extended beyond this cosmology I would not be able to fix $\Omega_b h^2$.} and $h=0.705$ following the WizCOLA fiducial model and fiducial model adopted by \citet{BlakeKazin2011}. The quasi-linear correction due to matter flow displacement is incorporated into the model via blending between the linear model and a model without the BAO feature - denoted $P_{\rm{nw}}$ - with a Gaussian dampening term:
 \begin{align}
 P_{\text{dw}}(k) = P_{\text{lin}}(k) \exp\left(-\frac{k^2}{2k_*^2}\right)  + P_{\text{nw}}(k) \left(1 - \exp\left(-\frac{k^2}{2k_*^2}\right)\right),
 \end{align}
@@ -734,7 +742,7 @@ where $k_*$ is set as a free parameter. The non-linear growth of structure is ac
 \begin{align}
 P_{\text{nl}} = P_{\text{dw}} r_{\text{halo}}
 \end{align}
-The Spherical Hankel transformation is used to move from power spectrum to correlation function,
+The Spherical Hankel transformation (a special form of the Fourier transform) is used to move from power spectrum to correlation function,
 \begin{align}
 \xi_\ell(s) = \frac{1}{(2\pi)^3} \int 4\pi k^2 \ P_\ell(k) \ j_\ell(ks) e^{-k^2 a^2},
 \end{align}
@@ -742,7 +750,7 @@ where we have introduced the gaussian dampening term following \citet{AndersonAu
 \begin{align}
 \xi^{\rm{fin}}(s) = b^2 \xi_B(\alpha_0 s)
 \end{align}
-Fits were created utilising this model and the WiggleZ unreconstructed dataset over the same data range utilised by \citet{BlakeDavis2011} and \citet{BlakeKazin2011}($10<s<180 h^{-1}\rm{Mpc}$), and the fitting values found by \citet{BlakeKazin2011} and this analysis are detailed in Table \ref{tab:blakekazintable}. If we take the uncertainty from \citet{BlakeKazin2011} and use that to determine the difference in units of $\sigma$ for both $\Omega_m h^2$ and $\alpha$, we find the difference in recovered $\Omega_m h^2$ to be $(0.25\sigma, 0.31\sigma, 0.46\sigma)$ for the effective redshift bins $0.44, 0.6, 0.73$ respectively. We also find $\alpha$ to be recovered at a shift of $(0.15\sigma, 0.25\sigma, 0.26\sigma)$ for the same respective effective redshift bins as before. The consistent sign of both the $\Omega_m h^2$ and $\alpha$ recovery values may be indicative of a systematic bias in our model when compared to the model used by \citet{BlakeKazin2011}, or simply a product of different fitting methodologies.
+Fits were created utilising this model and the WiggleZ unreconstructed dataset over the same data range utilised by \citet{BlakeDavis2011} and \citet{BlakeKazin2011}: $10<s<180 h^{-1}\rm{Mpc}$. The fitting values found by \citet{BlakeKazin2011} and this analysis are detailed in Table \ref{tab:blakekazintable}. If we take the uncertainty from \citet{BlakeKazin2011} and use that to determine the difference in units of $\sigma$ for both $\Omega_m h^2$ and $\alpha$, we find the difference in recovered $\Omega_m h^2$ to be $(0.25\sigma, 0.31\sigma, 0.46\sigma)$ for the effective redshift bins $0.44, 0.6, 0.73$ respectively. We also find $\alpha$ to be recovered at a shift of $(0.15\sigma, 0.25\sigma, 0.26\sigma)$ for the same respective effective redshift bins as before. The consistent sign of both the $\Omega_m h^2$ and $\alpha$ recovery values may be indicative of a systematic bias in our model when compared to the model used by \citet{BlakeKazin2011}, or simply a product of different fitting methodologies.
 
 
 \begin{table}[h]
@@ -769,7 +777,7 @@ It is interesting to note that the choice of statistics used to extract paramete
   \begin{center}
     \includegraphics[width=\textwidth]{images/stats.pdf}
   \end{center}
-  \caption{Three different statistics are presented in the above figure. The red uncertainty bounds and circular marker indicated as ``Method A'' represent statistics that are determined directly from the cumulative probability distribution function, where the lower $1\sigma$ confidence bound, mean value, and upper bound are respectively given by the $x$ value of the cumulative function at points $0.15865$, $0.5$, and $0.84135$. The second statistic displayed, denoted ``Method B'', is similar to the prior method in determining parameter bounds, but achieves a symmetric error by taking the mean value as simply the mean of the $1\sigma$ parameter bounds. The final statistic, ``Method C'' is based upon the point of maximum likelihood, which is given as the quoted parameter value. Uncertainty in this value is then given by the parameter values which have equal probability and together enclose an area of $68.27\%$. All three statistics converge to the same outcome for symmetric distributions. It is believed that the statistics given in \citet{BlakeKazin2011} follow the second methodology to achieve symmetric upper and lower error bounds. I have instead chosen to use the maximum likelihood based statistics in this thesis, and so it is useful to compare differences in final parameter bounds for the values quoted in Table \ref{tab:blakekazintable}. This comparison is found in Table \ref{tab:stats}.}
+  \caption{Three different statistics are presented in the above figure. The red uncertainty bounds and circular marker indicated as ``Method A'' represent statistics that are determined directly from the cumulative probability distribution function, where the lower $1\sigma$ confidence bound, mean value, and upper bound are respectively given by the $x$ value of the cumulative function at points $0.15865$, $0.5$, and $0.84135$. The second statistic displayed, denoted ``Method B'', is similar to the prior method in determining parameter bounds, but achieves a symmetric error by taking the mean value as simply the mean of the $1\sigma$ parameter bounds. The final statistic, ``Method C'' is based upon the point of maximum likelihood, which is given as the quoted parameter value. Uncertainty in this value is then given by the parameter values which have equal probability and together enclose an area of $68.27\%$. All three statistics converge to the same outcome for symmetric distributions. It is believed that the statistics given in \citet{BlakeKazin2011} follow the second methodology to achieve symmetric upper and lower error bounds. I have instead chosen to use the maximum likelihood based statistics for my own results, and only quote ``Method B'' statistics in Table \ref{tab:blakekazintable} to try and match their output. As such, it is useful to compare differences in final parameter bounds for the values quoted in Table \ref{tab:blakekazintable}. This comparison is found in Table \ref{tab:stats}.}
   \label{fig:statistics}
 %\end{wrapfigure}
 \end{figure}
@@ -778,15 +786,15 @@ It is interesting to note that the choice of statistics used to extract paramete
 
 \begin{table}[h]
 \centering
-\caption{A comparison between the parameter outcomes from Table \ref{tab:blakekazintable} when using different statistics.}
+\caption{A comparison between the parameter outcomes from Table \ref{tab:blakekazintable} when using different statistics. We should note that no one particular choice of statistics dramatically improves the level of agreement between my results and those of \citet{BlakeKazin2011}.}
 \begin{tabular}{c|cc|cc|cc} 
 \specialrule{.1em}{.05em}{.05em} 
 Sample  & \multicolumn{2}{c}{Method A}  & \multicolumn{2}{c}{Method B} & \multicolumn{2}{c}{Method C} \\
  $z_{\rm{eff}}$ &  $\Omega_c h^2$ & $\alpha$ &  $\Omega_c h^2$ & $\alpha$ &  $\Omega_c h^2$ & $\alpha$ \\
 \specialrule{.1em}{.05em}{.05em} 
-$0.44$ & $0.113^{+0.018}_{-0.014}$ & $1.026^{+0.110}_{-0.086}$ & $0.115\pm 0.016$ & $1.038\pm 0.098$ & $0.110^{+0.019}_{-0.013}$ & $1.038^{+0.098}_{-0.098}$ \\
-0.6 & $0.117^{+0.016}_{-0.013}$ & $1.011^{+0.090}_{-0.074}$ & $0.119\pm 0.014$ & $1.019\pm0.082$ & $0.116^{+0.016}_{-0.013}$ & $1.003^{+0.089}_{-0.072}$ \\
-0.73 & $0.090^{+0.013}_{-0.011}$ & $1.134^{+0.072}_{-0.077}$ & $0.091\pm 0.012$ & $1.132\pm 0.074$ & $0.088^{+0.013}_{-0.010}$ & $1.146^{+0.072}_{-0.075}$ \\
+$0.44$ & $0.136^{+0.018}_{-0.014}$ & $1.026^{+0.110}_{-0.086}$ & $0.138\pm 0.016$ & $1.038\pm 0.098$ & $0.133^{+0.019}_{-0.013}$ & $1.038^{+0.098}_{-0.098}$ \\
+0.6 & $0.140^{+0.016}_{-0.013}$ & $1.011^{+0.090}_{-0.074}$ & $0.142\pm 0.014$ & $1.019\pm0.082$ & $0.139^{+0.016}_{-0.013}$ & $1.003^{+0.089}_{-0.072}$ \\
+0.73 & $0.113^{+0.013}_{-0.011}$ & $1.134^{+0.072}_{-0.077}$ & $0.114\pm 0.012$ & $1.132\pm 0.074$ & $0.111^{+0.013}_{-0.010}$ & $1.146^{+0.072}_{-0.075}$ \\
 \specialrule{.1em}{.05em}{.05em} 
 \end{tabular}\label{tab:stats}
 \end{table}
@@ -799,15 +807,15 @@ In all cases in the comparison from Table \ref{tab:stats}, we can see that the c
 
 
 
-In moving to a 2D analysis, anisotropies must now be taken into account. As with the 1D analysis, we calculate up to the non-linear power spectrum $P_{\rm{nl}}(k)$. Given we are no longer following \citet{BlakeDavis2011}, we set $k_*$ to a free parameter and marginalise over it. Considering anisotropic effects, distortions due to coherent infall are corrected via an angle dependent factor:
+In moving to a 2D analysis, anisotropies must now be taken into account. As with the 1D analysis, we calculate up to the non-linear power spectrum $P_{\rm{nl}}(k)$. Given we are now going beyond \citet{BlakeDavis2011}, we set $k_*$ to a free parameter and marginalise over it. Considering anisotropic effects, distortions due to coherent infall are corrected via an angle dependent factor:
 \begin{align}
 P_{\rm{nl}}(k, \mu) = \left(1 + \beta \mu^2\right)^2 P_{\text{nl}}(k),
 \end{align}
-where $\mu$ is the cosine of the angle with line-of-sight, and $\beta$ is the growth rate. The growth rate is set marginalised over in this study, and can be checked for consistency by comparing it to the approximate value
+where $\mu$ is the cosine of the angle with line-of-sight, and $\beta$ is the growth rate. The growth rate is marginalised over in this study, and can be checked for consistency by comparing it to the approximate value
 \begin{align}
 \beta \approx \frac{\Omega_m^{0.55}}{b},
 \end{align}
-where $b$ is galaxy bias. The effect of galaxy bias on the power of the spectrum is marginalised over with free parameter $b$, and the pairwise velocity dispersion of galaxies is reflected in the Lorentz distribution factor, such that we get
+where $b$ is galaxy bias. The effect of galaxy bias on the power of the spectrum is marginalised over with free parameter $b$, and the pairwise velocity dispersion of galaxies is reflected in the Lorentz distribution factor (see discussion after equation \ref{eq:lorentzian}), such that we get
 \begin{align}
 P_{\rm{gal}}(k, \mu) = \frac{b^2 P_{\rm{nl}}(k, \mu)}{1 + \left(\sigma_v H(z) k \mu\right)^2},
 \end{align} 
@@ -827,17 +835,19 @@ The monopole and quadrupole moments of the power spectrum are then Fourier trans
 \begin{align}
 \xi_\ell(s) = \frac{1}{(2\pi)^3} \int 4\pi k^2 \ P_\ell(k) \ j_\ell(ks) e^{-k^2 a^2},
 \end{align}
-where $j_\ell(ks)$ are spherical Bessel functions of the first kind, and the Gaussian dampening term has been added following \citet{AndersonAubourg2012} to improve converge, with $a= 0.5\, h\, \rm{Mpc}$. For more detail on the effect this dampening term has, please consult Appendix \ref{app:pk2xi}. The monopole and quadrupole correlation functions $x_0(s)$ and $x_2(s)$ both had scale dependent bias applied to them, following what was done for the 1D analysis previously. Linear bias corrections and horizontal dilation terms were added, such that the final monopole and quadrupole models were given by
+where $j_\ell(ks)$ are spherical Bessel functions of the first kind, and the Gaussian dampening term has been added following \citet{AndersonAubourg2012} to improve converge, with $a= 0.5\, h/\rm{Mpc}$. My chosen value of $a$ differs to that of \citet{AndersonAubourg2012} as I found a lower value of $a$ gave more numerically accurate results for low $s$, as can be seen in Appendix \ref{app:pk2xi}.
+
+I applied scale dependent bias onto both the monopole correlation function $x_0(s)$ and quadrupole correlation function $x_2(s)$, following what was done for the 1D analysis previously. Linear bias corrections and horizontal dilation terms were added, such that the final monopole and quadrupole models were given by
 \begin{align}
 \xi_0^{\rm{fin}}(s) &= b^2 B(s) \xi_0(\alpha_0 s) \\
-\xi_2^{\rm{fin}}(s) &= b^2 B(s) \xi_2(\alpha_2 s)
+\xi_2^{\rm{fin}}(s) &= b^2 B(s) \xi_2(\alpha_2 s).
 \end{align}
 
-
+With this basic angular dependent models, I can now sanity check my model against both the WizCOLA multipole and wedge data formats.
 
 \subsection{Testing WizCOLA multipoles}
 
-Following the methodology detailed in \S\ref{sec:prior:cor:mp}, the multipoles of the correlation function were transformed such that
+Having created a basic model with angular dependence, I now need to transform it such that matches the multipole data expressions as outlined in \S\ref{sec:prior:cor:mp}. Following equation \eqref{eq:multipoles}, the multipoles of the correlation function were transformed such that
 \begin{align}
 \xi_0(s) &= \xi_0(\alpha s) + \frac{2}{5}\epsilon \left[ 3 \xi_2(\alpha s) + \frac{d \xi_2(\alpha s)}{d \log(s)}\right] \\
 \xi_2(s) &= 2\epsilon \frac{d \xi_0(\alpha s)}{d\log(s)} + \left( 1 + \frac{6}{7}\epsilon\right) \xi_2(\alpha s) + \frac{4}{7} \epsilon \frac{d \xi_2(\alpha s)}{d \log(s)} + \frac{4}{7}\epsilon \left[ 5 \xi_4 (\alpha s) + \frac{d \xi_4(\alpha s)}{d \log(s)} \right] ,
@@ -984,7 +994,7 @@ This covariance matrix can now be used to fit for a final $\Omega_c h^2$, $\alph
 \begin{align} \label{eq:covchi}
 \chi^2(\Omega_c h^2, \alpha, \epsilon) = (\Omega_c h^2 - \Omega_c h^2_0, \Omega_c h^2 - \Omega_c h^2_1, ...,\  \epsilon - \epsilon_2)^T C_{ij}^{-1}(\Omega_c h^2 - \Omega_c h^2_0, \Omega_c h^2 - \Omega_c h^2_1, ...,\  \epsilon - \epsilon_2),
 \end{align}
-where again the subscript indices on the $\Omega_c h^2$, $\alpha$ and $\epsilon$ refer to the redshift bins. In essence, we utilise the parameters fitted to each bin as datapoints in a secondary model, which we minimise with respect to the final parameters $\Omega_c h^2$, $\alpha$ and $\epsilon$. To test this methodology, it has been applied to the $N=2$ WizCOLA realisation, which had binned fitted parameters described in Table \ref{tab:n2Wizcola}. We can see from the results, that combining the redshift bins recovers tighter parameter constraints that are closer to recovering simulation parameters than any individual redshift bin. The likelihood surfaces and marginalised parameter distributions for the three bins and the combined data is shown in Figure \ref{fig:corCombined_2}. 
+where again the subscript indices on the $\Omega_c h^2$, $\alpha$ and $\epsilon$ refer to the redshift bins. In essence, we utilise the parameters fitted to each bin as datapoints in a secondary model, which we minimise with respect to the final parameters $\Omega_c h^2$, $\alpha$ and $\epsilon$. To test this methodology, I first utilise it on a fit to the mean WizCOLA simulation values, illustrated in Figure \ref{fig:corCombinedAll}, as a basic test of the methodology. With this test showing that tighter constraints can be achieved by combining bins, it has been applied to the $N=2$ WizCOLA realisation to more accurately test the effect on the final WiggleZ dataset.  The fitting results for the $N=2$ realisation are described in Table \ref{tab:n2Wizcola}. We can see from the results, that combining the redshift bins recovers tighter parameter constraints that are closer to recovering simulation parameters than any individual redshift bin. The likelihood surfaces and marginalised parameter distributions for the three bins and the combined data is shown in Figure \ref{fig:corCombined_2}. 
 
 \begin{table}[h]
 \centering
@@ -1002,12 +1012,24 @@ Combined & $0.60$ & $1.1$ & $0.110^{+0.031}_{-0.032}$ &$1.073^{+0.115}_{-0.108}$
 \end{tabular}\label{tab:n2Wizcola}
 \end{table}
 
+
+\begin{figure}[h!]
+%\begin{wrapfigure}{r}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{images/corCombinedMPAll.pdf}
+  \end{center}
+  \caption{Likelihood surfaces and marginalised distributions of $\Omega_ch^2$, $\alpha$ and $\epsilon$ for the mean data across all 600 WizCOLA simulations.}
+  \label{fig:corCombinedAll}
+%\end{wrapfigure}
+\end{figure}
+
+
 \begin{figure}[h!]
 %\begin{wrapfigure}{r}{0.5\textwidth}
   \begin{center}
     \includegraphics[width=0.8\textwidth]{images/corCombined_2.pdf}
   \end{center}
-  \caption{Likelihood surfaces and marginalised distributions of $\Omega_ch^2$, $\alpha$ and $\epsilon$ for the $N=2$ realisation of the WizCOLA simulation. {\red replace this with proper wizcols from aIndividualCombined when its done computing}}
+  \caption{Likelihood surfaces and marginalised distributions of $\Omega_ch^2$, $\alpha$ and $\epsilon$ for the $N=2$ realisation of the WizCOLA simulation.}
   \label{fig:corCombined_2}
 %\end{wrapfigure}
 \end{figure}
@@ -1015,12 +1037,10 @@ Combined & $0.60$ & $1.1$ & $0.110^{+0.031}_{-0.032}$ &$1.073^{+0.115}_{-0.108}$
 
 
 
-
-
 \newpage\phantom{blabla}\newpage
 \subsection{Full data covariance}
 
-The covariance matrices utilised so far in my analysis have been supplied from the WizCOLA simulations, and give data covariance inside each redshift bin. However, also having the 600 WizCOLA realisations, I can reconstruct a full covariance matrix across redshift bins. The correlation matrix for the multipole and wedge data formats are shown in Figure \ref{fig:fullCorrelations}.
+The covariance matrices utilised so far in my analysis have been supplied from the WizCOLA simulations, and give data covariance inside each redshift bin. However, also having the 600 WizCOLA realisations, I can reconstruct a full covariance matrix across redshift bins. The correlation matrix for the multipole and wedge data formats are shown in Figure \ref{fig:fullCorrelations}.\\
 
 
 \begin{figure}[h!]
@@ -1035,16 +1055,21 @@ The covariance matrices utilised so far in my analysis have been supplied from t
 
 
 
-It is interesting to note that the computed covariance differs from the supplied WizCOLA covariance in off-diagonal cells, and an analysis of the significance of this difference can be found in Append \ref{app:wizDiff}. When using the full data covariance to simultaneously fit all three redshift bins, a further question becomes whether marginalisation parameters $b^2$, $\beta$, $\sigma H$ and $k_*$ should be free between redshift bins, or consistent across them. To investigate this, I ran fits to the combined WizCOLA data was performed using both methodologies, and a comparison of their parameter distributions is shown in Figure \ref{fig:wizcolaAllNormalCovCombined}. I should note that, due to the degeneracy between $\alpha$ and $b^2$, $b^2$ was kept global, and the marginalisation parameters considered across bins are $\beta$, $k_*$ and $\sigma H(z)$. These fits indicate a strong preference for fitting with separate marginalisation parameters across redshift bins due to tighter constraints achieved. One piece of information not illustrated in the figure is the convergence rate of the MCMC chains. The increased number of parameters when separating redshift bins (13 parameters in total) increases convergence time. However, the benefits shown in Figure \ref{fig:wizcolaAllNormalCovCombined} make the increased computational time worthwhile. Setting parameters independent between bins also brings this methodology closer to the method of combining output parameters as discussed in  \S\ref{sec:parameterCov}, allowing comparison between methodology with less confounding factors.\\
+It is interesting to note that the computed covariance differs from the supplied WizCOLA covariance in off-diagonal cells, and an analysis of the significance of this difference can be found in Append \ref{app:wizDiff}. When using the full data covariance to simultaneously fit all three redshift bins, a further question becomes whether marginalisation parameters $b^2$, $\beta$, $\sigma H$ and $k_*$ should be free between redshift bins, or consistent across them. \\
 
-Based on these results, I will utilise independent $\beta$, $k_*$ and $\sigma H(z)$ between bins when fitting with the full data set and full data covariance.
+From a physical motivation, we expect the bias parameter $b^2$ to be dependent on redshift bin. This is that the further out we look, the fainter galaxies appear. As such, at higher redshifts, we are more likely to successfully observe more luminous galaxies, which increases bias. We can also see that the $\sigma H(z)$ nuisance parameter is explicitly a function of redshift, and so it is expected to change between redshift bins. However, when performing fits, $b^2$ and $\beta$ are well constrained, whilst $k_*$ and $\sigma H(z)$ are not. As this implies that those two parameters do not significantly contribute to the likelihood calculations, it is unknown if setting $\sigma H(z)$ free between bins will have a noticeable benefit. 
+
+
+To investigate this, I ran fits to the combined WizCOLA data was performed where I set no nuisance parameters free between redshift bins, when I only set $b^2$ free, when I set all \textit{but} $b^2$ free, and then when I set all four nuisance parameters free. A comparison of their parameter distributions is shown in Figure \ref{fig:wizcolaAllNormalCovCombined}. These fits indicate a strong preference for fitting with separate marginalisation parameters across redshift bins due to tighter constraints achieved, however once can see that setting more parameters free than $b^2$ has negligible benefits, and adds computational time in the form of delayed chain.\\
+
+Based on these results, I will utilise independent $b^2$ values, whilst fixing $\beta$, $k_*$ and $\sigma H(z)$ between bins when fitting with the full data set and full data covariance.
 
 
 \begin{figure}[h!]
   \begin{center}
     \includegraphics[width=0.8\textwidth]{images/wizcolaAllNormalCovCombined.pdf}
   \end{center}
-  \caption{Fits to the mean WizCOLA data using the computed covariance matrix. Marginalisation parameters for the fit are $b^2$, $\beta$, $k_*$ and $\sigma H(z)$. The two plots shown, denoted `global' and `per bin' respectively refer to if one set of marginalisation parameters are used globally across redshift bins, or if each bin has its own set of nuisance parameters (excluding $b^2$). We can see that setting nuisance parameters per bin results in much tighter constraints.}
+  \caption{Fits to the mean WizCOLA data using the computed covariance matrix. Marginalisation parameters for the fit are $b^2$, $\beta$, $k_*$ and $\sigma H(z)$. There are four fits shown, where the word `free' has been used to indicate that the parameter in question has been made unique for each redshift bin. We can see that setting more than just $b^2$ as a nuisance parameter per bin does not improve the tightness of obtained constraints.}
   \label{fig:wizcolaAllNormalCovCombined}
 \end{figure}
 
@@ -1120,7 +1145,7 @@ All & $13.7$ & $0.133^{+0.013}_{-0.012}$ & $1.11\pm0.06$ & $0.02\pm0.07$ & $44.0
 \end{table}
 
 
-Whilst the process to move from the parameters $\Omega_c h^2$, $\alpha_\perp$ and $\alpha_parallel$ is trivial, the parameters $\alpha$ and $\epsilon$ combine to give cosmological constraints as per equations \eqref{eq:alpha1} and \eqref{eq:alpha2}. To estimate final parameter variance we can utilise Fisher matrices. From
+Whilst the process to move from the parameters $\Omega_c h^2$, $\alpha_\perp$ and $\alpha_\parallel$ to cosmological information is trivial, the parameters $\alpha$ and $\epsilon$ combine to give cosmological constraints as per equations \eqref{eq:alpha1} and \eqref{eq:alpha2}. To estimate final parameter variance we can utilise Fisher matrices. From
 \begin{align}
 \begin{pmatrix}
 \sigma_{D_A}^2 & \sigma_{D_A H} \\ \sigma_{D_A H} & \sigma_H^2 \end{pmatrix}
@@ -1159,6 +1184,7 @@ $H^\mathcal{D} / H$           &  $0.87 \pm 0.13$           &   $0.87 \pm 0.04$\\
 
 
 
+
 \begin{figure}[h!]
 %\begin{wrapfigure}{r}{0.5\textwidth}
   \begin{center}
@@ -1180,14 +1206,14 @@ $H^\mathcal{D} / H$           &  $0.87 \pm 0.13$           &   $0.87 \pm 0.04$\\
 \end{figure}
 
 
-
+\newpage\phantom{blabla}\newpage
 \section{Fitting Full Data}
 
 
 Once b folders on smp comp have finished, flesh this out.
 
 
-
+\newpage\phantom{blabla}\newpage
 \section{Final Cosmological Parameters}
 
 Put in final ones
