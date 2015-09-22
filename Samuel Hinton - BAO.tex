@@ -169,9 +169,9 @@ Due to advances in modern technology, modern cosmology is an area of rapid scien
 
 The common metric used in to describe an expanding universe in modern cosmology is the Friedmann-Lema\^itre-Robertson-Walker metric, commonly abbreviated to the FLRW metric or the FRW metric. In spherical form, the metric can be written as
 \begin{align}
-ds^2 = -c^2 dt^2 + a(t)^2 \left[ d\chi^2 + S_\kappa(\chi)^2 d\Omega^2 \right], 
+ds^2 = -c^2 dt^2 + R(t)^2 \left[ d\chi^2 + S_\kappa(\chi)^2 d\Omega^2 \right], 
 \end{align}
-where $s$ denotes the proper distance, $c$ the speed of light, $a(t)$ the time dependent scale factor of the universe, $\chi$ the radial distance, $\Omega$ the angular distance and $S_\kappa(\chi)$ is dependent on the geometry of the universe, such that
+where $s$ denotes the proper distance, $c$ the speed of light, $R(t)$ the time dependent radius of the universe, $\chi$ the dimensionless radial distance, $\Omega$ the angular distance and $S_\kappa(\chi)$ is dependent on the geometry of the universe, such that
 \begin{align}
 S_\kappa(\chi) = \begin{cases}
     a(t) \sin(\chi/a(t)), & (\kappa = +1)\\
@@ -179,7 +179,7 @@ S_\kappa(\chi) = \begin{cases}
     a(t) \sinh (\chi/a(t)) & (\kappa = -1)
   \end{cases}
 \end{align}
-where $a(t)$ represents a scaling factor normalised to the present radius of the universe \citep{RydenPartridge2004}. We should note that $\kappa$ (representing the curvature of the universe) only needs to be given for three distinct values due to the ability to scale the metric without changing the underlying physics. As such, $\kappa = 1$ corresponds to a closed (spherical) universe, $\kappa = 0$ is a flat universe, and $\kappa = -1$ represents an open (hyperbolic) universe. Curvature can be thought of in multiple ways, where perhaps the two most conceptually simple methods of understanding relate to parallel lines and the angles in a triangle. Consider two rays of light emitted at some point parallel to one another. In a closed universe, these lines would eventually converge, in a flat universe they would stay parallel, and in an open universe they would diverge. For a real world example, consider the surface of the Earth, which is closed (spherical); if one were to draw to parallel lines towards the North Pole, they would converge at said pole. 
+where $a(t)$ represents a scaling factor normalised to the present radius of the universe \citep{RydenPartridge2004}, such that $a(t) = R(t)/R_0$, where $R_0$ is the present day radius. We should note that $\kappa$ (representing the curvature of the universe) only needs to be given for three distinct values due to the ability to scale the metric without changing the underlying physics. As such, $\kappa = 1$ corresponds to a closed (spherical) universe, $\kappa = 0$ is a flat universe, and $\kappa = -1$ represents an open (hyperbolic) universe. Curvature can be thought of in multiple ways, where perhaps the two most conceptually simple methods of understanding relate to parallel lines and the angles in a triangle. Consider two rays of light emitted at some point parallel to one another. In a closed universe, these lines would eventually converge, in a flat universe they would stay parallel, and in an open universe they would diverge. For a real world example, consider the surface of the Earth, which is closed (spherical); if one were to draw to parallel lines towards the North Pole, they would converge at said pole. 
 \begin{wrapfigure}{r}{0.4\textwidth}
   \begin{center}
     \includegraphics[width=0.4\textwidth]{images/SphereRightAngle.png}
@@ -191,10 +191,9 @@ Another useful way to conceptualise the curvature of space is to sum the angles 
 
 In order to simplify explanations, we will be working with flat geometry in this document, as cosmological observations highly support a flat universe \citep{Planck201416, DavisMortsell2007,Mortonson2009}. With this simplification, we see that the metric reduces down to
 \begin{align} \label{eq:flatmetric}
-ds^2 = -c^2 dt^2 + a(t)^2 \left[ d\chi^2 + \chi^2 d\Omega^2 \right].
+ds^2 = -c^2 dt^2 + R(t)^2 \left[ d\chi^2 + \chi^2 d\Omega^2 \right].
 \end{align}
-{\red Tam: Doesnt my $\chi$ have dimensions of distance?}
-If we wish to find the distance between two objects at time $t_0$, one can simply rotate the coordinate system such that $d\Omega$ vanishes and then integrate, giving that $D = a(t_0) \chi$. Thus $\chi$ represents a distance independent of the scale factor $a(t)$ of the universe, which is denoted the comoving distance \citep{CarrollOstlie2006}.  As $a(t)$ is a scaling factor, we normalise it such that $a(t_{\text{present day}}) = 1 = R(t)/R(t_0)$, where $R$ is the radius of the universe, meaning that the comoving distance $\chi$ represents the distance $D$ between two objects if measured in the present day.
+If we wish to find the distance between two objects at time $t_0$, one can simply rotate the coordinate system such that $d\Omega$ vanishes and then integrate, giving that $D = R(t_0) \chi$. Thus $\chi$ represents a distance independent of the the scale of the universe, which is denoted the comoving distance \citep{CarrollOstlie2006}.  As such, $R_0 \chi$ represents the distance $D$ between two objects if measured in the present day.
 
 We can also see that, as $a(t)$ is explicitly time dependent, its time derivative is non-zero. From this fact we can recover the famous Hubble's law \citep{Hubble1929}, such that we consider the rate of change of proper distance between two objects with no peculiar velocity due to relative motion through space (i.e., their recession velocity). Note that, as discussed previously, $\chi$ for comoving objects is independent of time and scalefactor, and is thus treated as a constant.
 \begin{align}
@@ -978,7 +977,7 @@ Similarly to the covariance matrix, we can also calculate the correlation matrix
 \begin{align}
 R_{ij} = \frac{1}{N} \sum\limits_{n=1}^{N} \frac{(P_i - \bar{P}_i)(P_j - \bar{P}_j)}{\sigma_i \sigma_j},
 \end{align}
-where $\sigma_i$ represents the standard deviation of the $i$th parameter. The correlation matrix determined from analysis of $N$ realisations is shown in Figure \ref{fig:correlations}. Ideally, this matrix would be constructed using all $N=600$ realisations, however computational limitations have reduced this to $N=100$. 
+where $\sigma_i$ represents the standard deviation of the $i$th parameter. The correlation matrix determined from analysis of $N$ realisations is shown in Figure \ref{fig:correlations}. Ideally, this matrix would be constructed using all $N=600$ realisations, however computational limitations have reduced this to $N=100$, which may not be sufficient to produce smooth and accurate covariance matrices.
 
 \begin{figure}[h!]
 %\begin{wrapfigure}{r}{0.5\textwidth}
@@ -994,7 +993,7 @@ This covariance matrix can now be used to fit for a final $\Omega_c h^2$, $\alph
 \begin{align} \label{eq:covchi}
 \chi^2(\Omega_c h^2, \alpha, \epsilon) = (\Omega_c h^2 - \Omega_c h^2_0, \Omega_c h^2 - \Omega_c h^2_1, ...,\  \epsilon - \epsilon_2)^T C_{ij}^{-1}(\Omega_c h^2 - \Omega_c h^2_0, \Omega_c h^2 - \Omega_c h^2_1, ...,\  \epsilon - \epsilon_2),
 \end{align}
-where again the subscript indices on the $\Omega_c h^2$, $\alpha$ and $\epsilon$ refer to the redshift bins. In essence, we utilise the parameters fitted to each bin as datapoints in a secondary model, which we minimise with respect to the final parameters $\Omega_c h^2$, $\alpha$ and $\epsilon$. To test this methodology, I first utilise it on a fit to the mean WizCOLA simulation values, illustrated in Figure \ref{fig:corCombinedAll}, as a basic test of the methodology. With this test showing that tighter constraints can be achieved by combining bins, it has been applied to the $N=2$ WizCOLA realisation to more accurately test the effect on the final WiggleZ dataset.  The fitting results for the $N=2$ realisation are described in Table \ref{tab:n2Wizcola}. We can see from the results, that combining the redshift bins recovers tighter parameter constraints that are closer to recovering simulation parameters than any individual redshift bin. The likelihood surfaces and marginalised parameter distributions for the three bins and the combined data is shown in Figure \ref{fig:corCombined_2}. 
+where again the subscript indices on the $\Omega_c h^2$, $\alpha$ and $\epsilon$ refer to the redshift bins. In essence, we utilise the parameters fitted to each bin as datapoints in a secondary model, which we minimise with respect to the final parameters $\Omega_c h^2$, $\alpha$ and $\epsilon$. To test this methodology, I first utilise it on a fit to the mean WizCOLA simulation values, illustrated in Figure \ref{fig:corCombinedAll}, as a basic test of the methodology. With this test showing that tighter constraints can be achieved by combining bins, it has been applied to the $N=2$ WizCOLA realisation to more accurately test the effect on the final WiggleZ dataset.  The fitting results for the $N=2$ realisation are described in Table \ref{tab:n2Wizcola}. We can see from the results, that combining the redshift bins recovers tighter parameter constraints that are closer to recovering simulation parameters than any individual redshift bin. The likelihood surfaces and marginalised parameter distributions for the three bins and the combined data is shown in Figure \ref{fig:corCombined_2}.
 
 \begin{table}[h]
 \centering
@@ -1092,12 +1091,12 @@ Based on these results, I will utilise independent $b^2$ values, whilst fixing $
 
 
 
-
+\clearpage
 \section{Model testing conclusions}
 
-In this section we have sought to validate a constructed BAO model. The one dimensional base model was first validated by successfully reproducing fits to the one dimensional WiggleZ survey as found in \citet{BlakeDavis2011} and \citet{BlakeKazin2011}. Both methodologies for incorporating angle dependence to create a 2D BAO model, by modelling data wedges or multipole expansion, were then successfully tested using the combined WizCOLA simulation dataset by recovering the simulation parametrisation. The significance of the hexadecapole term was investigated, and was found to be small enough that discarding the term for computational benefit would have a negligible impact on parameter recovery when compared to statistical error.\\
+In this chapter we have sought to validate a constructed BAO model. The one dimensional base model was first validated by successfully reproducing fits to the one dimensional WiggleZ survey as found in \citet{BlakeDavis2011} and \citet{BlakeKazin2011}. Both methodologies for incorporating angle dependence to create a 2D BAO model, by modelling data wedges or multipole expansion, were then successfully tested using the combined WizCOLA simulation dataset by recovering the simulation parameters. The significance of the hexadecapole term was investigated, and was found to be small enough that discarding the term for computational benefit would have a negligible impact on parameter recovery when compared to statistical error.\\
 
-Due to the overlapping redshift bins in the analyses, covariance between the final cosmological parameters was determined by analysing individual realisations of the WizCOLA simulations. \\
+Due to the overlapping redshift bins in the analyses, covariance between the final cosmological parameters was determined by comparing individual realisations of the WizCOLA simulations. \\
 
 Having performed these tests to determine that the constructed models are free of significant bias and are able to correctly recover cosmological values, this model will now be applied to the WiggleZ data.
 
@@ -1175,13 +1174,18 @@ Parameter & Multipole  & Wedge\\
 \specialrule{.1em}{.05em}{.05em} 
 $\Omega_c h^2$                &  $0.133^{+0.013}_{-0.012}$ &   $0.132^{+0.008}_{-0.009}$   \\
 $D_A / D_A^{\mathcal{D}}$     &  $1.08 \pm 0.10 $          &   $1.08 \pm 0.05$ \\
-$H^\mathcal{D} / H$           &  $0.87 \pm 0.13$           &   $0.87 \pm 0.04$\\
+$H / H^\mathcal{D}$           &  $0.87 \pm 0.13$           &   $0.87 \pm 0.04$\\
 \end{tabular}\label{tab:wigglezBinsParams}
 \end{table}
 
 
 
 
+
+\section{Fitting Full Data}
+
+
+Once b folders on smp comp have finished, flesh this out.
 
 
 
@@ -1206,11 +1210,6 @@ $H^\mathcal{D} / H$           &  $0.87 \pm 0.13$           &   $0.87 \pm 0.04$\\
 \end{figure}
 
 
-\newpage\phantom{blabla}\newpage
-\section{Fitting Full Data}
-
-
-Once b folders on smp comp have finished, flesh this out.
 
 
 \newpage\phantom{blabla}\newpage
@@ -1451,7 +1450,7 @@ The failure of modern cosmological models at small separations and their similar
 \chapter{WizCOLA Covariance} \label{app:wizDiff}
 
 
-When comparing the computed covariance matrix using the provided 600 WizCOLA realisations to the supplied covariance matrix from the WizCOLA data release, I found discrepancies in the off diagonal terms, which are illustrated in Figure \ref{fig:DfullCorrelationDifferences}. Contact with academics involved in the simulation creation has not been able to resolve the source of these differences. Visually, the WizCOLA correlation matrix appears smoother than the computed correlation matrix, and so a potential source of discrepancy would be if the WizCOLA covariance was calculated using more than the 600 realisations available in the data release. {\red Wait for Chris's feedback, take this out if not correct}.
+When comparing the computed covariance matrix using the provided 600 WizCOLA realisations to the supplied covariance matrix from the WizCOLA data release, I found discrepancies in the off diagonal terms, which are illustrated in Figure \ref{fig:DfullCorrelationDifferences}. Contact with academics involved in the simulation creation has not been able to resolve the source of these differences. Visually, the WizCOLA correlation matrix appears smoother than the computed correlation matrix, and so a potential source of discrepancy would be if the WizCOLA covariance was calculated using more than the 600 realisations available in the data release.
 
 \begin{figure}[h!]
 %\begin{wrapfigure}{r}{0.5\textwidth}
@@ -1463,7 +1462,7 @@ When comparing the computed covariance matrix using the provided 600 WizCOLA rea
 %\end{wrapfigure}
 \end{figure}
 
-In order to determine the significance of difference in covariance, fits to the WiggleZ multipole data were formed with both covariance matrices, with the output marginalised distributions and likelihood surfaces shown in Figure \ref{fig:DcomputedDiff}. The output parameters are detailed in Table \ref{tab:Ddiff}, and we can see that changes in final parameters are well below the $1\sigma$ level, with a mean and median deviation of $0.18\sigma$ and $0.14\sigma$ respectively across all parameters and all bins. These results are strong enough that the cause of the covariance difference should be investigated, but as the differences fall well below a $1\sigma$ threshold it should not effect final output significantly. {\red Remember to update this based on feedback from Chris.}
+In order to determine the significance of difference in covariance, fits to the WiggleZ multipole data were formed with both covariance matrices, with the output marginalised distributions and likelihood surfaces shown in Figure \ref{fig:DcomputedDiff}. The output parameters are detailed in Table \ref{tab:Ddiff}, and we can see that changes in final parameters are well below the $1\sigma$ level, with a mean and median deviation of $0.18\sigma$ and $0.14\sigma$ respectively across all parameters and all bins. These results are strong enough that the cause of the covariance difference should be investigated, but as the differences fall well below a $1\sigma$ threshold it should not effect final output significantly.
 
 
 \begin{table}[h]
@@ -1488,7 +1487,7 @@ $0.6 < z < 1.0$ & $0.73$ & $0.098^{+0.038}_{-0.027}$ & $1.08^{+0.09}_{-0.10}$ & 
   \begin{center}
     \includegraphics[width=1\textwidth]{images/computedDiff.pdf}
   \end{center}
-  \caption{Parameter fits to the WiggleZ multipole data using both the supplied and computed covariance matrices.}
+  \caption{Parameter fits to the WiggleZ multipole data using both the supplied and computed (labeled `Comp.' in the legend) covariance matrices.}
   \label{fig:DcomputedDiff}
 %\end{wrapfigure}
 \end{figure}
