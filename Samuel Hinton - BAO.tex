@@ -2,6 +2,7 @@
 
 \bibliographystyle{hapj}
 \usepackage{braket}
+\usepackage{graphics}
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{natbib}
 \usepackage{pdfpages}
@@ -86,7 +87,6 @@ discipline of Physics}
 %%%%%%     FRONT CONTENT
 % =====================================================================
 % =====================================================================
-\begin{comment}
 
 \begin{flushright}
 Samuel Hinton\\ 41966855\\ 30 Matingara St, Chapel Hill, QLD 4069\\
@@ -118,16 +118,16 @@ In accordance with the requirement of the Degree of Bachelor of Science (Honours
 
 \chapter{Acknowledgements}
 
-I would like to thank my supervisors, Tamara Davis, <and others>
+I would like to thank my supervisors, Tamara Davis, {\red and others. Flesh out}
 
 % =====================================================================
-
 \chapter{Abstract}
 
-this is my abstract 
-this is my abstract 
 
-\end{comment}
+
+{\red put this in after I confirm previous results with Tam}
+
+
 
 %\cleardoublepage
 \hypersetup{pageanchor=true}
@@ -149,7 +149,7 @@ this is my abstract
 
 Modern cosmological observations have given strict constraints on cosmological parameters and model viability, and indicate a late time accelerated expansion of the universe \citep{RiessFilippenko1998, PerlmutterAldering1999, SpergelVerde2003, RiessStrolger2004, TegmarkBlanton2004, SanchezBaugh2006, SpergelBean2007, Komatsu2009, RiessMacri2009, PercivalReid2010, ReidPercival2010,BlakeKazin2011}. This accelerating expansion is one of the foremost problems in cosmology, and efforts to determine the expansion history of the universe will allow differentiation between many proposed models \citep{SanchezScoccola2012, AlbrechtBernstein2006}. One area of promising investigatory development is in the detecting of Baryon Acoustic Oscillations (BAO) in the large scale structure of the universe, as the BAO signal provides a robust, precise measurement of the history of the universe's expansion rate and size \citep{BlakeGlazebrook2003,HuHaiman2003,SeoEisenstein2003,Linder2003}. The constraints BAO measurements provide are highly complimentary to, and can be used in conjunction with, constraints derived from measurements on the Cosmic Microwave Background (CMB) \citep{BennettHalpern2003, Planck201416}, weak lensing \citep{VanWaerbeke2000,WittmanTyson2000,KaiserWilson2000} and supernova data \citep{KowalskiRubin2008, KesslerBeckerCinabro2009, BetouleKessler2014}.\\
 
-From this motivation, I attempt to extract useful cosmological information from the BAO signal present in the WiggleZ dataset \citep[WiggleZ;][]{Drinkwater2010} beyond the analyses already completed by the WiggleZ team in \citet{BlakeDavis2011, BlakeKazin2011, BlakeBroughColless2011, BlakeGlazebrook2011, Parkinson2012}. In this document, I layout the sections as follows: In Chapter 2 I introduce relevant modern cosmology for any non-technical audience. Chapter 3 contains a summary of prior literature in which BAO signal has been used to constrain cosmological parameters in this dataset and others previously. In Chapter 4 I provide relevant information about the WiggleZ survey, including prior studies, observational details and ancillary data. In Chapter 5 I create the model used to recover cosmological information and test it against prior literature results and simulation data, and in Chapter 6 this model is then applied to the WiggleZ dataset. {\green Further chapters will be determined after fitting the WiggleZ data.}
+From this motivation, I attempt to extract useful cosmological information from the BAO signal present in the WiggleZ dataset \citep[WiggleZ;][]{Drinkwater2010} beyond the analyses already completed by the WiggleZ team in \citet{BlakeDavis2011, BlakeKazin2011, BlakeBroughColless2011, BlakeGlazebrook2011, Parkinson2012}. In this document, I layout the sections as follows: In Chapter 2 I introduce relevant modern cosmology for any non-technical audience. Chapter 3 contains a summary of prior literature in which BAO signal has been used to constrain cosmological parameters in this dataset and others previously. In Chapter 4 I construct my BAO model and test it against prior studies and WizCOLA mocks, and in Chapter 5 this model is then applied to the WiggleZ dataset. {\green Further chapters will be determined after fitting the WiggleZ data.}
 
 
 
@@ -860,7 +860,7 @@ where the WizCOLA data, having been turned to a correlation function using the s
 
 That, the cosmological model can now be tested to see if it can, within reasonable uncertainty, recover the simulation parameters. The WizCOLA simulations were configured with cosmology $\Omega_m = 0.273$, $\Omega_\Lambda = 0.727$, $\Omega_b = 0.0456$, $h=0.705$, $\sigma_8 = 0.812$ and $n_s = 0.961$, following WMAP5 cosmology \citep{Komatsu2009}. Putting this in terms of $\Omega_c h^2$, we have $\Omega_c h^2 = 0.113$, and as the cosmology used in the simulation and data extract is identical, we expect to find $\alpha = 1.0$ and $\epsilon = 0.0$. The WizCOLA data is presented both in multipole expansion and in data wedges, and for this fit we will first example fitting to the monopole and quadrupole moments. To reduce statistical uncertainty as much as possible, the input data was created using the mean of all 600 realisations of the WizCOLA simulations, and the variance was thus reduced by a factor of  $\sqrt{600}$ as each realisation should be independent. Data was fit in the range $25<s<180$, and a comparison of the effects of dataset truncation can be found in Appendix \ref{app:truncation}. As with the one dimensional fitting performed previously, fit parameters $\Omega_c h^2$, $b^2$, $\log(k_*)$ were allowed to vary, with additional angular dependent marginalisation parameters $\beta$ and $\sigma H(z)$ also allowed to vary. Fit parameters $\alpha$ and $\epsilon$ we also allowed to vary. Likelihood surfaces and marginalised parameter distributions for fits to all three redshift bins are shown in Figure \ref{fig:wizmp}, and final parameter constraints are detailed in Table \ref{tab:wizmp}.
 
-For all redshift bins, all desired recovery parameters were recovered well within the $1\sigma$ uncertainty limit. We can also see that, looking at the mean value of the determined values for $\log(k_*) = -2.10$, this gives a $\sigma_v = 5.77$, which  is in the magnitude expected by the theory given in equation \eqref{eq:sigmav} and the values found found in \citet{BlakeKazin2011} and \citet{BlakeDavis2011}. It should also be noted that within the range $\sigma_v \in [0,10]$, no significant difference is found in determined $\chi^2$ values, indicating that setting a specific $\sigma_v$ when refitting is sensitive to the magnitude, but not specific value.
+For all redshift bins, all desired recovery parameters were recovered well within the $1\sigma$ uncertainty limit. We can also see that, looking at the mean value of the determined values for $\log(k_*) = -2.10$, this gives a $\sigma_v = 5.77 h^{-1}$ Mpc, which  is in the magnitude expected by the theory given in equation \eqref{eq:sigmav} and the values found found in \citet{BlakeKazin2011} and \citet{BlakeDavis2011}. It should also be noted that within the range $\sigma_v \in [0,10]$, no significant difference is found in determined $\chi^2$ values, indicating that setting a specific $\sigma_v$ when refitting is sensitive to the magnitude, but not specific value. Fixing $\sigma_v = 5 h^{-1}$ Mpc, recover fits still consistent with a $1\sigma$ recovery of simulation cosmology.
 
 \begin{table}[h]
 \centering
@@ -928,7 +928,7 @@ where data wedges can be extracted via
 \begin{align}
 \xi^\prime_{\Delta \mu}(s^\prime) = \frac{1}{\Delta \mu^\prime} \int_{\mu^\prime_{\rm{min}}}^{\mu^\prime_{\rm{max}}} \xi(\mu(\mu^\prime), s(\mu^\prime, s^\prime)) d\mu^\prime.
 \end{align}
-The WizCOLA data provides two wedges, $0 < \mu < 0.5$ and $0.5 < \mu < 1$, which are used to fit against. As in the prior section, we intend to recover simulation parameters $\Omega_c h^2 = 0.113$, . As with all other tests, this is different from the desired model recovery of $\Omega_c h^2 = 0.113$, $\alpha_\perp = \alpha_\parallel = 1.0$ (as we assume distance extraction from WizCOLA is performed with a fiducial cosmology identical to simulation cosmology). Fit parametrisation is illustrated in Figure \ref{fig:wizwedge}, and recovered parameters are detailed in Table \ref{tab:wizwedge}. As with the multipole fitting, the recovered $\log(k_*)$ is consistent with prior literature and theory, and the parameter recovery is consistent with simulation cosmology.
+The WizCOLA data provides two wedges, $0 < \mu < 0.5$ and $0.5 < \mu < 1$, which are used to fit against. As in the prior section, we intend to recover simulation parameters $\Omega_c h^2 = 0.113$, . As with all other tests, this is different from the desired model recovery of $\Omega_c h^2 = 0.113$, $\alpha_\perp = \alpha_\parallel = 1.0$ (as we assume distance extraction from WizCOLA is performed with a fiducial cosmology identical to simulation cosmology). Fit parametrisation is illustrated in Figure \ref{fig:wizwedge}, and recovered parameters are detailed in Table \ref{tab:wizwedge}. As with the multipole fitting, the recovered $\log(k_*)$ is consistent with prior literature and theory, and the parameter recovery is consistent with simulation cosmology. Similarly to the multipole analysis, we recover simulation cosmology after fixing $\sigma_v = 5 h^{-1}$ Mpc. Checking recovery with a fixed $\sigma_v$ value is important, as the combined data from all WizCOLA simulations allows a good determination of $k_*$ (equivalently $\sigma_v$), this may not be possible for individual realisations, and hence it is prudent to fix the amount of dampening for future fits.
 
 
 \begin{table}[h]
@@ -961,7 +961,7 @@ $0.6 < z < 1.0$ & $0.73$ & $10.9$ & $ 0.111^{+0.006}_{-0.005}$ &$1.012^{+0.026}_
 
 
 
-As with the multipole expansion, we can perform a final validation of the wedge methodology by fitting to individual realisations of the WizCOLA simulation. This has been done in Figure \ref{fig:wdgDist2}, and confirms that there is no significant offset in the recovered parameter distribution from the simulation parametrisation. Unlike the multipole expansion, there is some cause for concern with the wedge fitting, as the $\alpha_\parallel$ distribution does not converge to zero as we depart from $\alpha_\parallel = 1.0$. Comparing the $\alpha_\perp$ and $\alpha_\parallel$ distribution, we can see that the ability to constrain $\alpha_\parallel$ is considerably less than the ability to constrain $\alpha_\perp$. In terms of data, this makes sense, as the $\alpha_\parallel$ correlation function comes from one dimension on the two point correlation function (line of sight), whilst the $\alpha_\perp$ contribution is the sum of the two transverse dimensions. Given this concern, potential contention between the mutlipole expansion and wedge analyses of the data should defer to the multipole analysis.
+As with the multipole expansion, we can perform a final validation of the wedge methodology by fitting to individual realisations of the WizCOLA simulation. This has been done in Figure \ref{fig:wdgDist2}, and confirms that there is no significant offset in the recovered parameter distribution from the simulation parametrisation. Unlike the multipole expansion, there is some cause for concern with the wedge fitting, as the $\alpha_\parallel$ distribution does not converge to zero as we depart from $\alpha_\parallel = 1.0$. Comparing the $\alpha_\perp$ and $\alpha_\parallel$ distribution, we can see that the ability to constrain $\alpha_\parallel$ is considerably less than the ability to constrain $\alpha_\perp$. In terms of data, this is not unexpected, as the $\alpha_\parallel$ correlation function comes from one dimension on the two point correlation function (line of sight), whilst the $\alpha_\perp$ contribution is the sum of the two transverse dimensions. Given this concern, potential contention between the mutlipole expansion and wedge analyses of the data should defer to the multipole analysis.
 
 
 \begin{figure}[h!]
@@ -1061,7 +1061,7 @@ Combined & $0.60$ & $3.7$ & $0.107^{+0.014}_{-0.016}$ &$1.01^{+0.06}_{-0.06}$ & 
 
 
 %\newpage\phantom{blabla}\newpage
-\subsection{Full data covariance}
+\subsection{Full data covariance} \label{sec:allData}
 
 The covariance matrices utilised so far in my analysis have been supplied from the WizCOLA simulations, and give data covariance inside each redshift bin. However, also having the 600 WizCOLA realisations, I can reconstruct a full covariance matrix across redshift bins. The correlation matrix for the multipole and wedge data formats are shown in Figure \ref{fig:fullCorrelations}.\\
 
@@ -1081,48 +1081,22 @@ The covariance matrices utilised so far in my analysis have been supplied from t
 
 It is interesting to note that the computed covariance differs from the supplied WizCOLA covariance in off-diagonal cells, and an analysis of the significance of this difference can be found in Append \ref{app:wizDiff}. When using the full data covariance to simultaneously fit all three redshift bins, a further question becomes whether marginalisation parameters $b^2$, $\beta$, $\sigma H$ and $k_*$ should be free between redshift bins, or consistent across them. \\
 
-From a physical motivation, we expect the bias parameter $b^2$ to be dependent on redshift bin. This is that the further out we look, the fainter galaxies appear. As such, at higher redshifts, we are more likely to successfully observe more luminous galaxies, which increases bias. We can also see that the $\sigma H(z)$ nuisance parameter is explicitly a function of redshift, and so it is expected to change between redshift bins. However, when performing fits, $b^2$ and $\beta$ are well constrained, whilst $k_*$ and $\sigma H(z)$ are not. As this implies that those two parameters do not significantly contribute to the likelihood calculations, it is unknown if setting $\sigma H(z)$ free between bins will have a noticeable benefit. 
+From a physical motivation, we expect the bias parameter $b^2$ to be dependent on redshift bin. This is that the further out we look, the fainter galaxies appear. As such, at higher redshifts, we are more likely to successfully observe more luminous galaxies, which increases bias. We can also see that the $\sigma H(z)$ nuisance parameter is explicitly a function of redshift, and so it is expected to change between redshift bins. However, when performing fits, $b^2$ and $\beta$ are well constrained, whilst $k_*$ and $\sigma H(z)$ are not. As this implies that those two parameters do not significantly contribute to the likelihood calculations, it is unknown if setting $\sigma H(z)$ free between bins will have a noticeable benefit. \\
 
 
 To investigate this, I ran fits to the combined WizCOLA data was performed where I set no nuisance parameters free between redshift bins, when I only set $b^2$ free, when I set all \textit{but} $b^2$ free, and then when I set all four nuisance parameters free. A comparison of their parameter distributions is shown in Figure \ref{fig:wizcolaAllNormalCovCombined}. These fits indicate a strong preference for fitting with separate marginalisation parameters across redshift bins due to tighter constraints achieved, however once can see that setting more parameters free than $b^2$ has negligible benefits, and adds computational time in the form of delayed chain.\\
 
-Based on these results, I will utilise independent $b^2$ values, whilst fixing $\beta$, $k_*$ and $\sigma H(z)$ between bins when fitting with the full data set and full data covariance.
+Based on these results, I will utilise independent $b^2$ values, whilst fixing $\beta$, $k_*$ and $\sigma H(z)$ between bins when fitting with the full data set and full data covariance.\\
 
 
 \begin{figure}[h!]
   \begin{center}
-    \includegraphics[width=0.8\textwidth]{images/wizcolaAllNormalCovCombined.pdf}
+    \includegraphics[width=\textwidth]{images/wizcolaAllNormalCovCombined.pdf}
   \end{center}
   \caption{Fits to the mean WizCOLA data using the computed covariance matrix. Marginalisation parameters for the fit are $b^2$, $\beta$, $k_*$ and $\sigma H(z)$. There are four fits shown, where the word `free' has been used to indicate that the parameter in question has been made unique for each redshift bin. We can see that setting more than just $b^2$ as a nuisance parameter per bin does not improve the tightness of obtained constraints.}
   \label{fig:wizcolaAllNormalCovCombined}
 \end{figure}
 
-
-
-{\red explain these figures}
-
-{\red belay that. restructure this entire section. eugh.}
-
-
-\begin{figure}[h!]
-%%\begin{wrapfigure}{r}{0.5\textwidth}
-  \begin{center}
-    \includegraphics[width=0.8\textwidth]{images/corCombinedMPWiz.pdf}
-  \end{center}
-  \caption{corCombinedMPWiz}
-  \label{fig:corCombinedMPWiz}
-%\end{wrapfigure}
-\end{figure}
-
-\begin{figure}[h!]
-%%\begin{wrapfigure}{r}{0.5\textwidth}
-  \begin{center}
-    \includegraphics[width=0.8\textwidth]{images/corCombinedWedgeWiz.pdf}
-  \end{center}
-  \caption{corCombinedWedgeWiz}
-  \label{fig:corCombinedWedgeWiz}
-%\end{wrapfigure}
-\end{figure}
 
 
 
@@ -1137,13 +1111,36 @@ Based on these results, I will utilise independent $b^2$ values, whilst fixing $
 
 In this chapter we have sought to validate a constructed BAO model. The one dimensional base model was first validated by successfully reproducing fits to the one dimensional WiggleZ survey as found in \citet{BlakeDavis2011} and \citet{BlakeKazin2011}. Both methodologies for incorporating angle dependence to create a 2D BAO model, by modelling data wedges or multipole expansion, were then successfully tested using the combined WizCOLA simulation dataset by recovering the simulation parameters. The significance of the hexadecapole term was investigated, and was found to be small enough that discarding the term for computational benefit would have a negligible impact on parameter recovery when compared to statistical error.\\
 
-Due to the overlapping redshift bins in the analyses, covariance between the final cosmological parameters was determined by comparing individual realisations of the WizCOLA simulations. \\
-
-Having performed these tests to determine that the constructed models are free of significant bias and are able to correctly recover cosmological values, this model will now be applied to the WiggleZ data.
+Due to the overlapping redshift bins in the analyses, covariance between the final cosmological parameters was determined by comparing individual realisations of the WizCOLA simulations, and this will be used in conjunction with an analysis using the full data to get parameters across redshift bins. A graphical comparison of fits to the mean WizCOLA data for individual redshift bins, all data fits, and combining bin parameters can be found for the multipole data format in Figure \ref{fig:corCombinedMPWiz} and for the wedge data format in Figure \ref{fig:corCombinedWedgeWiz}. \\
 
 
+Having performed various tests to determine that the constructed models are free of significant bias and are able to correctly recover cosmological values, this model will now be applied to the WiggleZ data. Due to potential issues constraining $\alpha_\parallel$ in the wedge analyses, the multipole analysis will form the primary analysis.
 
 
+
+
+
+
+
+\begin{figure}[h!]
+%%\begin{wrapfigure}{r}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/corCombinedMPWiz.pdf}
+  \end{center}
+  \caption{Fits to the mean data of all 600 WizCOLA realisations (without reducing data uncertainty) for the multipole expansion expression of the data. Fits using all three bins simultaneously are shown as the ``All data'' fits, and the combination of maximum likelihood parameters using parameter covariance is shown as the ``Combined'' likelihood surfaces. In all cases we recover simulation cosmology well within $1-\sigma$ limits.}
+  \label{fig:corCombinedMPWiz}
+%\end{wrapfigure}
+\end{figure}
+
+\begin{figure}[h!]
+%%\begin{wrapfigure}{r}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/corCombinedWedgeWiz.pdf}
+  \end{center}
+  \caption{Fits to the mean data of all 600 WizCOLA realisations (without reducing data uncertainty) for the wedge expansion expression of the data. Fits using all three bins simultaneously are shown as the ``All data'' fits, and the combination of maximum likelihood parameters using parameter covariance is shown as the ``Combined'' likelihood surfaces. In all cases we recover simulation cosmology well within $1-\sigma$ limits, although we should note that the data strength is not significant enough to constrain $\alpha_\parallel$ to the $2-\sigma$ limits even in this optimal example (where the data input is the mean of all 600 realisations).}
+  \label{fig:corCombinedWedgeWiz}
+%\end{wrapfigure}
+\end{figure}
 
 
 
@@ -1155,13 +1152,12 @@ Having performed these tests to determine that the constructed models are free o
 
 \chapter{Results}
 
-In this section I will present the cosmological results obtained when fitting to the final WiggleZ data. I utilise four different fitting methods outlined in the previous section, fitting individual bins and combining them for both the multipole and wedge data representation, in addition to doing full data fits for the two data representations. I will present results for the individual bin fitting first, the full data second, and the final constraints third.
+In this section I will present the cosmological results obtained when fitting to the final WiggleZ data. I utilise the three different fitting methods outlined in the previous section; fitting individual bins, fitting for all data, and combining binned fits, for both the multipole and wedge data representation.\\
 
 
+\section{Fitting Results}
 
-\section{Fitting Redshift bins}
-
-Following \S\ref{sec:parameterCov}, I fit to the final WiggleZ dataset from \citet{KazinKoda2014}. The final distributions obtained are given in Table \ref{tab:wigglezBins} and are illustrated in Figures \ref{fig:wigglezBinsMP} and \ref{fig:wigglezBinsWdg} for mulitpole and wedge data respectively.
+For the fits to individual redshift bins, I fit to the final unreconstructed WiggleZ dataset from \citet{KazinKoda2014}. I then combined these output parameters using the methodology outlined in \S\ref{sec:parameterCov}, and check the consistency of the combined parameters against the parameters recovered when fitting all redshift bins simultaneously as outlined in \S\ref{sec:allData}. The final distributions obtained are given in Table \ref{tab:wigglezBins} and are illustrated in Figures \ref{fig:wigglezBinsMP} and \ref{fig:wigglezBinsWdg} for mulitpole and wedge data respectively.\\
 
 
 
@@ -1169,19 +1165,21 @@ Following \S\ref{sec:parameterCov}, I fit to the final WiggleZ dataset from \cit
 
 \begin{table}[h]
 \centering
-\caption{Recovered parameter constraints when fitting the WiggleZ multipole and wedge data data. The $\chi^2$ column represents the minimum $\chi^2$ attained in the fit. The parameter values after combination are shown at the bottom of the table, where the $\chi^2$ value for the combined dataset indicates the $\chi^2$ from equation \eqref{eq:covchi} instead of the $\chi^2$ when fitting the cosmological model to the WiggleZ data.}
+\caption{Recovered parameter constraints when fitting the WiggleZ multipole and wedge data data. The $\chi^2$ column represents the minimum $\chi^2$ attained in the fit. The parameter values after combination are shown at the bottom of the table, where the $\chi^2$ value for the combined dataset indicates the $\chi^2$ from equation \eqref{eq:covchi} instead of the $\chi^2$ when fitting the cosmological model to the WiggleZ data. The multipole data fits are sufficiently constrained that statistics are given from maximum likelihood points (referred to as Method C in Figure \ref{fig:statistics}). The wedge data format did not produce well behaved distributions which would give proper uncertainty using Method A, and so have been presented using the Method B statistics. The effective redshift for the data in the ``All'' and ``Combined'' rows is $z=0.6$.}
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{c|cccc|cccc}
 \specialrule{.1em}{.05em}{.05em} 
 $z_{\rm{eff}}$ & \multicolumn{4}{c}{Multipole}  & \multicolumn{4}{c}{Wedge}\\
  & $\chi^2$ & $\Omega_c h^2$ &$\alpha$ & $\epsilon$ & $\chi^2$ & $\Omega_c h^2$ & $\alpha_\perp$ & $\alpha_\parallel$\\
 \specialrule{.1em}{.05em}{.05em} 
-$0.44$ & $54.6$ & $0.129^{+0.057}_{-0.037}$ & $1.12^{+0.13}_{-0.12}$ & $0.00^{+0.07}_{-0.12}$ & $54.1$ & $0.164^{+0.045}_{-0.048}$ & $1.11^{+0.12}_{-0.16}$ & $1.13^{+0.13}_{-0.17}$ \\
-$0.60$ & $35.5$ & $0.170^{+0.044}_{-0.040}$ & $1.06^{+0.16}_{-0.11}$ & $0.03^{+0.06}_{-0.08}$ & $39.3$ & $0.184^{+0.038}_{-0.045}$ & $1.03^{+0.12}_{-0.14}$ & $1.19^{+0.09}_{-0.20}$ \\
-$0.73$ & $44.3$ & $0.098^{+0.038}_{-0.026}$ & $1.08^{+0.09}_{-0.10}$ & $0.06^{+0.05}_{-0.05}$ & $41.5$ & $0.097^{+0.040}_{-0.027}$ & $1.05^{+0.12}_{-0.12}$ & $1.14^{+0.12}_{-0.12}$ \\
+$0.44$ & $52.5$ & $0.122^{+0.033}_{-0.024}$ & $1.05^{+0.08}_{-0.10}$ & $-0.03^{+0.06}_{-0.06}$ & $54.0$ & $0.16\pm 0.05$ & $1.07\pm 0.14$ & $1.05\pm 0.16$ \\
+$0.60$ & $67.3$ & $0.160^{+0.035}_{-0.029}$ & $0.93^{+0.07}_{-0.06}$ & $0.05^{+0.05}_{-0.06}$  & $39.2$ & $0.17\pm 0.05$ & $1.01\pm 0.12$ & $1.04\pm 0.15$ \\
+$0.73$ & $44.3$ & $0.159^{+0.033}_{-0.028}$ & $0.94^{+0.06}_{-0.06}$ & $0.11^{+0.05}_{-0.05}$  & $41.4$ & $0.11\pm 0.04$ & $1.04\pm 0.11$ & $1.01\pm 0.12$ \\
 \specialrule{.05em}{.05em}{.05em} 
-All & $13.7$ & $0.133^{+0.013}_{-0.012}$ & $1.11\pm0.06$ & $0.02\pm0.07$ & $44.0$ & $0.132^{+0.008}_{-0.009}$ & $1.08\pm0.05$ & $1.15\pm0.05$ \\
+All & $6.8$ & $0.151^{+0.015}_{-0.016}$ & $0.97^{+0.06}_{-0.06}$ & $0.055^{+0.031}_{-0.038}$ & $22.6$ & $0.147^{+0.012}_{-0.011}$ & $1.09^{+0.07}_{-0.06}$ & $1.00^{+0.07}_{-0.08}$ \\
 \specialrule{.1em}{.05em}{.05em} 
 \end{tabular}\label{tab:wigglezBins}
+}
 \end{table}
 
 
@@ -1201,21 +1199,59 @@ Whilst the process to move from the parameters $\Omega_c h^2$, $\alpha_\perp$ an
 we have
 \begin{align}
 \frac{\sigma_{D_A}^2}{D_A^2} &= \alpha^{-2} \sigma_\alpha^2 + \left(1 + \epsilon \right)^{-2} \sigma_\epsilon^2 - 2\alpha^{-1}\left(1 + \epsilon \right)^{-1} \sigma_{\alpha \epsilon} \\
-\frac{\sigma_H^2}{H^2} &= \alpha^{-2} \sigma_\alpha^2 + 4(1+\epsilon)^{-2} \sigma_\epsilon^2 + 4 \alpha^{-1} (1 + \epsilon)^{-1} \sigma_{\alpha \epsilon}
+\frac{\sigma_H^2}{H^2} &= \alpha^{-2} \sigma_\alpha^2 + 4(1+\epsilon)^{-2} \sigma_\epsilon^2 + 4 \alpha^{-1} (1 + \epsilon)^{-1} \sigma_{\alpha \epsilon}.
 \end{align}
-Using these relationships, I formulate parameter constraints shown in Table \ref{tab:wigglezBinsParams}. We notice a high level of agreement between the methodologies in recovering the output parameters, with smaller uncertainty present in the wedge analysis. This is attributable to the variance estimation using the Fisher matrix above, as covariance between $\alpha$ and $\epsilon$ increases uncertainty, in comparison to the independent parameters recovered from the wedge analysis ($\alpha_\perp$ and $\alpha_\parallel$).
+
+
+
+
+
+
+
+
+Using these relationships, I formulate parameter constraints shown in Table \ref{tab:wigglezBinsParams2}. We notice that, whilst most parameter recoveries are $1\sigma$ consistent between methodologies, there are notable discrepancies, especially in the wedge analysis. Specifically, the wedge analysis using all three bins of data is discrepant ($\approx 2\sigma$) with the individual bin fits for all three cosmological parameters - $\Omega_c h^2$, $D_A / D_A^{\mathcal{D}}$ and $H / H^\mathcal{D}$. Due to the lack of internal consistency for the wedge analysis, I will present results based off the multipole analysis hereonin, as the multipole analysis passes the internal consistency check (the all data analysis and the combined bin parameter analysis differ on average by only $0.3\sigma$ and so are well within a $1\sigma$ level of agreement).\\
+
+Using the multipole data analysis and fiducial cosmology, I present final constraints from the Wigglez analysis. These are shown in Table \ref{tab:wigglezBinsParams}.
+
+
 
 
 \begin{table}[h]
 \centering
-\caption{Parameter constraints from the combined WiggleZ redshift bin fits for both the multipole and wedge expression of the data.}
-\begin{tabular}{ccc}
+\caption{Relative cosmological constraints on $\Omega_c h^2$, $D_A(z)$ and $H(z)$ from Table \ref{tab:wigglezBins}. Note that the combined wedge constraints for $D_A / D_A^{\mathcal{D}}$ and $H / H^\mathcal{D}$ is inconsistent with the bin values, as the bin values have been quoted using method B statistics (mean of posterior) as stated in Table \ref{tab:wigglezBins}, whilst the combined parameter constraints are derived from maximum likelihood points (method A statistics).}
+\resizebox{\columnwidth}{!}{
+\begin{tabular}{c|ccccc|ccccc}
 \specialrule{.1em}{.05em}{.05em} 
-Parameter & Multipole  & Wedge\\
+Parameter & \multicolumn{5}{c}{Multipole}  & \multicolumn{5}{c}{Wedge}\\
+ & $z_{\rm{eff}} = 0.44$ & $z_{\rm{eff}} = 0.60$ & $z_{\rm{eff}} = 0.73$ & All & Combined & $z_{\rm{eff}} = 0.44$ & $z_{\rm{eff}} = 0.60$ & $z_{\rm{eff}} = 0.73$ & All & Combined \\
 \specialrule{.1em}{.05em}{.05em} 
-$\Omega_c h^2$                &  $0.133^{+0.013}_{-0.012}$ &   $0.132^{+0.008}_{-0.009}$   \\
-$D_A / D_A^{\mathcal{D}}$     &  $1.08 \pm 0.10 $          &   $1.08 \pm 0.05$ \\
-$H / H^\mathcal{D}$           &  $0.87 \pm 0.13$           &   $0.87 \pm 0.04$\\
+$\Omega_c h^2$                &  $0.119^{+0.036}_{-0.021}$ &   $0.159^{+0.036}_{-0.027}$  &  $0.160^{+0.032}_{-0.029}$ & $0.155^{+0.023}_{-0.015}$ & $0.151^{+0.015}_{-0.016}$ & $0.16^{+0.05}_{-0.05}$ & $0.17^{+0.05}_{-0.05}$  & $0.11^{+0.04}_{-0.04}$ & $0.18^{+0.03}_{-0.04}$ & $ 0.147^{+0.012}_{-0.011}$\\
+$D_A / D_A^{\mathcal{D}}$     &  $1.08 \pm  0.15$          &   $0.88 \pm  0.09$           &  $0.86 \pm  0.09$          & $0.89 \pm  0.06$          & $0.92 \pm  0.07$          & $1.07^{+0.14}_{-0.14}$ & $1.01^{+0.12}_{-0.12}$  & $1.04^{+0.11}_{-0.11}$ & $0.90^{+0.09}_{-0.04}$ & $1.09^{+0.07}_{-0.06}$ \\
+$H / H^\mathcal{D}$           &  $1.00 \pm 0.13$           &   $0.97 \pm  0.11$           &  $0.86 \pm  0.09$          & $0.94 \pm 0.07$           & $0.93 \pm  0.08$          & $0.95\pm0.15$          & $0.96 \pm 0.15$ & $0.91 \pm 0.11$ & $1.08 \pm 0.09$ & $1.00 \pm 0.08$ \\
+\specialrule{.1em}{.05em}{.05em} 
+\end{tabular}\label{tab:wigglezBinsParams2}
+}
+\end{table}
+
+
+
+
+
+
+
+
+
+\begin{table}[h]
+\centering
+\caption{Parameter constraints from the WiggleZ redshift bins. $D_A$ is presented in units of $[h^{-1}\rm{Mpc}]$, and $H(z)$ is presented in units of [km/s/Mpc].}
+\begin{tabular}{cc|cc|ccc}
+\specialrule{.1em}{.05em}{.05em} 
+Sample & $z_{\rm{eff}}$ & $D^\mathcal{D}_A(z)$ & $H^\mathcal{D}(z)$ &  $\Omega_c h^2$   & $D_A(z)$ & $H(z)$ \\
+\specialrule{.1em}{.05em}{.05em} 
+$0.2 < z < 0.6$ &  $0.44$ & 828.6  & 87.4  & $0.12^{+0.04}_{-0.02}$ & $895\pm115$ & $87.4\pm11.4$  \\
+$0.4 < z < 0.8$ &  $0.6$  & 977.3  & 95.5  & $0.16^{+0.04}_{-0.03}$ & $860\pm100$ & $92.7\pm10.8$  \\
+$0.6 < z < 1.0$ &  $0.73$ & 1064.1 & 102.8 & $0.16\pm0.03$         & $915\pm111$ & $88.4\pm10.8$  \\
+\specialrule{.1em}{.05em}{.05em} 
 \end{tabular}\label{tab:wigglezBinsParams}
 \end{table}
 
@@ -1223,17 +1259,12 @@ $H / H^\mathcal{D}$           &  $0.87 \pm 0.13$           &   $0.87 \pm 0.04$\\
 
 
 
-\section{Fitting Full Data}
-
-
-Once b folders on smp comp have finished, flesh this out.
-
 
 
 \begin{figure}[h!]
 %\begin{wrapfigure}{r}{0.5\textwidth}
   \begin{center}
-    \includegraphics[width=\textwidth]{images/corCombinedMP.pdf}
+    \includegraphics[width=\textwidth]{images/corCombinedMPWig.pdf}
   \end{center}
   \caption{Likelihood surfaces and marginalised distributions of $\Omega_ch^2$, $\alpha$ and $\epsilon$ for the WiggleZ multipole expression of the data. }
   \label{fig:wigglezBinsMP}
@@ -1243,7 +1274,7 @@ Once b folders on smp comp have finished, flesh this out.
 \begin{figure}[h!]
 %\begin{wrapfigure}{r}{0.5\textwidth}
   \begin{center}
-    \includegraphics[width=\textwidth]{images/corCombinedWedge.pdf}
+    \includegraphics[width=\textwidth]{images/corCombinedWedgeWig.pdf}
   \end{center}
   \caption{Likelihood surfaces and marginalised distributions of $\Omega_ch^2$, $\alpha$ and $\epsilon$ for the WiggleZ wedge expression of the data. }
   \label{fig:wigglezBinsWdg}
@@ -1251,18 +1282,52 @@ Once b folders on smp comp have finished, flesh this out.
 \end{figure}
 
 
+\clearpage
+\section{Result significance}
+
+To determine the significance of the detected BAO peak in my analysis, I reran the multipole analysis with a model devoid of the BAO peak. 
+
+{\red put in results here when I have them. currently running on obelix}
+
+{\red using this, and internal consistency, comment on my confidence of the achieved results}
+
+\clearpage
+\section{External comparison}
 
 
-\newpage\phantom{blabla}\newpage
-\section{Final Cosmological Parameters}
-
-Put in final ones
-
-Put in significance of BAO peak
+We can now check consistency of the results obtained in the previous section with results from other BAO analyses. In Table \ref{tab:external} I source cosmological constraints on $D_A(z)$ and $H(z)$, and compare them to the Wigglez constraints I have derived in Figure \ref{fig:external}. We can see that the derived $D_A(z)$ values diverge from Planck cosmology in the higher redshift bins, due to the low $D_A/D^{\mathcal{D}}_A$ values seen in Table \ref{tab:wigglezBinsParams2}. We should further note that if we had instead utilised the wedge analysis, the $D_A$ values would consistently have been higher than Planck cosmology! For the determined values of $H(z)$, we notice a (not significantly) lower value of $H(z = 0.73)$ that may have been expected from the trend observed in external data sets. Once again, we notice utilising the wedge data would bring $H(z=0.73)$ more in-line with external analyses.\\
 
 
 
 
+\begin{table}[h]
+\centering
+\caption{External constraints on $D_A(z)$ and $H(z)$.}
+\resizebox{\columnwidth}{!}{
+\begin{tabular}{cc|c|cc}
+\specialrule{.1em}{.05em}{.05em} 
+Paper & Source &  $z_{\rm{eff}}$ & $D_A(z)$ & $H(z)$ \\
+\specialrule{.1em}{.05em}{.05em} 
+\citet{Gaztanaga2009} & SDSS LRG DR7 & 0.24 & & $79.69\pm2.32$ \\
+ & & 0.34 & &  $83.80\pm2.96$ \\
+ & & 0.43 & &  $86.45\pm3.27$ \\
+\cite{ChuangWang2012} & SDSS LRG DR7 & 0.35 & $1048^{+60}_{-58}$ & $82.1^{+4.8}_{-4.9}$ \\
+\citet{AndersonAubourg2012} & SDSS-III BOSS DR11 & 0.57 & $(1421\pm20) (r_d/r_{d,\rm{fid}})$ & $(96.8\pm3.4) (r_{d,\rm{fid}}/r_d)$ \\
+\citet{FontRiberaKirkby2014} & SDSS-III BOSS DR11 Quasars & 2.36 & $1590\pm60$ & $226\pm 8$ \\
+\specialrule{.1em}{.05em}{.05em} 
+\end{tabular}\label{tab:external}
+}
+\end{table}
+
+\begin{figure}[h!]
+%\begin{wrapfigure}{r}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/external.pdf}
+  \end{center}
+  \caption{A comparison with the constraints on $D_A(z)$ and $H(z)$ found in external papers, best fitting Planck cosmology for a Flat $\Lambda$CDM universe, and the constraints derived in Table \ref{tab:wigglezBinsParams}.}
+  \label{fig:external}
+%\end{wrapfigure}
+\end{figure}
 
 
 
@@ -1272,32 +1337,22 @@ Put in significance of BAO peak
 
 \chapter{Plan for the rest of thesis}
 \begin{itemize}
-\item Contact other researchers to try and determine model shortcomings. {\green Based on feedback from Chris Blake, this is potentially done.}
-\item Confirm methodology to use monopole and quadrupole to extract $H(z)$ and $D_A(z)$.
-\item See if its possible to do fits with reconstructed BAO peak as well, check if there is any difference in final outcome.
-\item Determine significance of BAO peak by fitting without peak.
-\item Lots of cosmological sensitivity checks in detail. Check velocity dispersion model (Lorentzian/Gaussian/Exponential). Check transformation scale (\citet{KazinSanchezBlanton2012} vs \citet{XuCuesta2013}). Check effect of hexadecapole in fitting for multipole expansion.
-\item Combine with BAO analysis from BOSS + Planck to check tension in results.
+\item Check with Tam about if we should have a future improvements section? I could mention covariance smoothing (esp in diff between all data and combined). Could mention getting fit distribution for all data. would like to determine role of more data (ie fit 100 realisations, get dist. then avg 2 realisations, and fit 100 of these avgs, check variance in distribution, do for mean of 1,2,4,8,16,32 realisations, to determine what data strength would allow wedges to be well constrained within physical limits).
 \end{itemize}
 
 
 
-%this is how i fit model (mcmc)
+\chapter{Project Evaluation}
 
-%this is how I dance.
-
-%maybe shortcomings - to reconstruction, no lensing effect?
-
-%\chapter{Project Evaluation}
-
-%evaluation evaluation evaluation evaluation evaluation evaluation evaluation evaluation evaluation evaluation evaluation 
+{\red Do I need a project evaluation}
 
 
 
+\chapter{Conclusion}
 
-%\chapter{Conclusion}
+{\red put this in after I confirm previous results with Tam}
 
-%conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion conclusion 
+
 
 
 
@@ -1516,7 +1571,7 @@ Sample & $z_{\rm{eff}}$ & \multicolumn{3}{c}{Provided}  & \multicolumn{3}{c}{Com
 \specialrule{.1em}{.05em}{.05em} 
 $0.2 < z < 0.6$ & $0.44$ & $0.128^{+0.058}_{-0.036}$ & $1.12^{+0.13}_{-0.12}$ & $0.00^{+0.07}_{-0.13}$ & $0.127^{+0.053}_{-0.039}$ & $1.08^{+0.13}_{-0.11}$ & $-0.01^{+0.07}_{-0.17}$ \\
 $0.4 < z < 0.8$ & $0.60$ & $0.172^{+0.042}_{-0.042}$ & $1.06^{+0.16}_{-0.11}$ & $0.03^{+0.06}_{-0.08}$ & $0.180^{+0.042}_{-0.034}$ & $1.02^{+0.18}_{-0.08}$ & $0.03^{+0.06}_{-0.07}$ \\
-$0.6 < z < 1.0$ & $0.73$ & $0.098^{+0.038}_{-0.027}$ & $1.08^{+0.09}_{-0.10}$ & $0.06^{+0.05}_{-0.05}$ & $0.103^{+0.037}_{-0.026}$ & $1.08^{+0.09}_{-0.10}$ & $0.09^{+0.05}_{-0.05}$\\
+$0.6 < z < 1.0$ & $0.73$ & $0.098^{+0.038}_{-0.027}$ & $1.08^{+0.09}_{-0.10}$ & $0.06^{+0.05}_{-0.05}$ & $0.103^{+0.037}_{-0.026}$ & $1.08^{+0.09}_{-0.10}$ & $0.09^{+0.05}_{-0.05}$ \\
 \specialrule{.1em}{.05em}{.05em} 
 \end{tabular} \label{tab:Ddiff}
 \end{table}
