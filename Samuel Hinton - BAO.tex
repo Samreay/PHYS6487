@@ -118,14 +118,15 @@ In accordance with the requirement of the Degree of Bachelor of Science (Honours
 
 \chapter{Acknowledgements}
 
-I would like to thank my supervisors, Tamara Davis, {\red and others. Flesh out}
+I would like to thank my supervisors Tamara Davis and Chris Lidman for their significant help during the construction of this thesis. In particular, I am grateful for Tamara's patience with my stream of questions - some of them well thought out - more of them perhaps asked too quickly before I had thought them through properly. I am also grateful for the suggestions and feedback on fitting methodology provided by Chris Blake throughout the year.\\
+
+I would also like to thank Joshua Calcino, Carolyn Wood and Sarah Thompson for their emotional support during the year!
 
 % =====================================================================
 \chapter{Abstract}
 
+In this thesis, I analyse the 2D anisotropic Baryon Acoustic Oscillation signal present in the final WiggleZ dataset. I utilise newly released covariance matrices from the WizCOLA simulations and follow well tested methodologies used in prior analyses of the BAO signal in alternative datasets. The WiggleZ data is presented in two forms - in multipole expansion and in data wedges - both of which are analysed in this thesis. Analysis methodologies are tested against prior one dimensional analyses of the BAO signal in the WiggleZ data, and against WizCOLA simulations and found to be free of bias or systematic offsets. The analysis on the wedge data format was found to be internally inconsistent, and thus discarded in favour of the multipole analysis. The multipole analysis determined $\Omega_c h^2$, $H(z)$ and $D_A(z)$ for three redshift bins, of effective redshift bins $z = 0.44, 0.6, 0.73$. The respective constraints on $\Omega_c h^2$ are $0.119^{+0.029}_{-0.026}$, $0.151^{+0.038}_{-0.025}$ and $0.140^{+0.036}_{-0.022}$. The fits for $H(z)$ are respectively  $87.0 \pm 15.7$, $89.7 \pm 15.1$ km/s/Mpc and $82.0 \pm 12.7$, and for $D_A(z)$ I find values of $1302 \pm  160$, $1295 \pm  184$ and $1348 \pm  161$ Mpc. The cosmological constraints found are consistent with Flat $\Lambda$CDM cosmology.
 
-
-{\red put this in after I confirm previous results with Tam}
 
 
 
@@ -149,7 +150,7 @@ I would like to thank my supervisors, Tamara Davis, {\red and others. Flesh out}
 
 Modern cosmological observations have given strict constraints on cosmological parameters and model viability, and indicate a late time accelerated expansion of the universe \citep{RiessFilippenko1998, PerlmutterAldering1999, SpergelVerde2003, RiessStrolger2004, TegmarkBlanton2004, SanchezBaugh2006, SpergelBean2007, Komatsu2009, RiessMacri2009, PercivalReid2010, ReidPercival2010,BlakeKazin2011}. This accelerating expansion is one of the foremost problems in cosmology, and efforts to determine the expansion history of the universe will allow differentiation between many proposed models \citep{SanchezScoccola2012, AlbrechtBernstein2006}. One area of promising investigatory development is in the detecting of Baryon Acoustic Oscillations (BAO) in the large scale structure of the universe, as the BAO signal provides a robust, precise measurement of the history of the universe's expansion rate and size \citep{BlakeGlazebrook2003,HuHaiman2003,SeoEisenstein2003,Linder2003}. The constraints BAO measurements provide are highly complimentary to, and can be used in conjunction with, constraints derived from measurements on the Cosmic Microwave Background (CMB) \citep{BennettHalpern2003, Planck201416}, weak lensing \citep{VanWaerbeke2000,WittmanTyson2000,KaiserWilson2000} and supernova data \citep{KowalskiRubin2008, KesslerBeckerCinabro2009, BetouleKessler2014}.\\
 
-From this motivation, I attempt to extract useful cosmological information from the BAO signal present in the WiggleZ dataset \citep[WiggleZ;][]{Drinkwater2010} beyond the analyses already completed by the WiggleZ team in \citet{BlakeDavis2011, BlakeKazin2011, BlakeBroughColless2011, BlakeGlazebrook2011, Parkinson2012}. In this document, I layout the sections as follows: In Chapter 2 I introduce relevant modern cosmology for any non-technical audience. Chapter 3 contains a summary of prior literature in which BAO signal has been used to constrain cosmological parameters in this dataset and others previously. In Chapter 4 I construct my BAO model and test it against prior studies and WizCOLA mocks, and in Chapter 5 this model is then applied to the WiggleZ dataset. {\green Further chapters will be determined after fitting the WiggleZ data.}
+From this motivation, I attempt to extract useful cosmological information from the BAO signal present in the WiggleZ dataset \citep[WiggleZ;][]{Drinkwater2010} beyond the analyses already completed by the WiggleZ team in \citet{BlakeDavis2011, BlakeKazin2011, BlakeBroughColless2011, BlakeGlazebrook2011, Parkinson2012}. In this document, I layout the sections as follows: In Chapter 2 I introduce relevant modern cosmology for any non-technical audience. Chapter 3 contains a summary of prior literature in which BAO signal has been used to constrain cosmological parameters in this dataset and others previously. In Chapter 4 I construct my BAO model and test it against prior studies and WizCOLA mocks, and in Chapter 5 this model is then applied to the WiggleZ dataset. Chapter 6 presents the conclusions of these results.
 
 
 
@@ -969,7 +970,7 @@ As with the multipole expansion, we can perform a final validation of the wedge 
   \begin{center}
     \includegraphics[width=\textwidth]{images/wdgDist2.pdf}
   \end{center}
-  \caption{Maximum likelihood $\Omega_c h^2$, $\alpha_\perp$ and $\alpha_\parallel$ values from a total of 245 realisation bins are shown in the bottom left corner plots. Dashed black lines indicate simulations parameters, and the solid black distributions in the diagonal subplots represent the final distribution across all bins for the specific parameter.}
+  \caption{Maximum likelihood $\Omega_c h^2$, $\alpha_\perp$ and $\alpha_\parallel$ values from a total of 245 realisation bins are shown in the bottom left corner plots. Dashed black lines indicate simulations parameters, and the solid black distributions in the diagonal subplots represent the final distribution across all bins for the specific parameter. The clear physical boundaries of the fits are visible in the $\alpha_\parallel$ constraints, where the imposed $\alpha_\parallel < 1.3$ does not appear sufficient to constrain the parameter, raising a potential problem with the wedge analysis. Increasing $\alpha_\parallel$ is not only $>10\sigma$ from Planck results, but introduces cyclic patterns into the MCMC chain, worsening the fits for $\Omega_c h^2$ and $\alpha_\perp$.}
   \label{fig:wdgDist2}
 %\end{wrapfigure}
 \end{figure}
@@ -1211,7 +1212,14 @@ we have
 
 
 
-Using these relationships, I formulate parameter constraints shown in Table \ref{tab:wigglezBinsParams2}. We notice that, whilst most parameter recoveries are $1\sigma$ consistent between methodologies, there are notable discrepancies, especially in the wedge analysis. Specifically, the wedge analysis using all three bins of data is discrepant ($\approx 2\sigma$) with the individual bin fits for all three cosmological parameters - $\Omega_c h^2$, $D_A / D_A^{\mathcal{D}}$ and $H / H^\mathcal{D}$. Due to the lack of internal consistency for the wedge analysis, I will present results based off the multipole analysis hereonin, as the multipole analysis passes the internal consistency check (the all data analysis and the combined bin parameter analysis differ on average by only $0.3\sigma$ and so are well within a $1\sigma$ level of agreement).\\
+Using these relationships, I formulate parameter constraints shown in Table \ref{tab:wigglezBinsParams2}. We notice that, whilst most parameter recoveries are $1\sigma$ consistent between methodologies, there are notable discrepancies, especially in the wedge analysis. Specifically, the wedge analysis using all three bins of data is discrepant ($\approx 2\sigma$) with the individual bin fits for {\red all three cosmological parameters - $\Omega_c h^2$, $D_A / D_A^{\mathcal{D}}$ and $H / H^\mathcal{D}$.} This raises questions about the validity of the wedge analysis - whether the methodology itself is flawed or if the data present in the WiggleZ survey is simply insufficient to constrain parameters. In order to confirm that, with increased data quality, the wedge methodology outlined would work, it would be possible to determine the cross-realisation variance of the recovered $\alpha_\parallel$ parameter as a function of data strength, and ensure that this is a strictly minimising function. This would be simple to do with the WizCOLA mocks - we already possess the variance of $\alpha_\parallel$ when fitting for only one realisation. Data quality could be increased by summing an arbitrary number of realisations (as they are independent), where the more realisations one sums into a single dataset would give increased data quality. Whilst this methodology could be used to further confirm the wedge methodology outline in prior sections, the wedge data analysis would still show disagreement between the combined and all data analysis and could not be used for final analysis, and the desired consistency check in final parameter values between the multipole analysis and wedge analysis could not be utilised.\\
+
+
+
+
+Due to the lack of internal consistency for the wedge analysis, I will present results based off the multipole analysis hereonin, as the multipole analysis passes the internal consistency check - the all data analysis and the combined bin parameter analysis differ on average by only $0.3\sigma$ and so are well within a $1\sigma$ level of agreement.\\
+
+
 
 Using the multipole data analysis and fiducial cosmology, I present final constraints from the Wigglez analysis. To determine the significance of the detected BAO peak in my analysis, I reran the multipole analysis with a model devoid of the BAO peak and converted the $\Delta \chi^2$ into a detection significance. These results are shown in Table \ref{tab:wigglezBinsParams}.
 
@@ -1330,22 +1338,33 @@ Paper & Source &  $z_{\rm{eff}}$ & $D_A(z)$ & $H(z)$ \\
 
 
 
-\chapter{Plan for the rest of thesis}
-\begin{itemize}
-\item Check with Tam about if we should have a future improvements section? I could mention covariance smoothing (esp in diff between all data and combined). Could mention getting fit distribution for all data. would like to determine role of more data (ie fit 100 realisations, get dist. then avg 2 realisations, and fit 100 of these avgs, check variance in distribution, do for mean of 1,2,4,8,16,32 realisations, to determine what data strength would allow wedges to be well constrained within physical limits).
-\end{itemize}
-
-
-
-\chapter{Project Evaluation}
-
-{\red Do I need a project evaluation}
-
-
-
 \chapter{Conclusion}
 
-{\red put this in after I confirm previous results with Tam}
+
+In the previous section I analysed the full WiggleZ dataset from \citet{KazinKoda2014} for the 2D BAO signal. My methodology follows that of prior studies, and has been validated against prior WiggleZ analyses of the 1D BAO signal, and I have checked for systematic biases in my model by fitting to the WizCOLA simulations \citep{KodaBlake2015}, which provide improved covariance estimates over previous analyses of the WiggleZ data which estimate covariance from lognormal realisations. Using the WizCOLA covariance and WiggleZ data, I fit for the cosmological parameters $\Omega_c h^2$, $D_A(z)$ and $H(z)$ for the three redshift bins $z \in \left[0.44, 0.6, 0.73\right]$ using both the wedge and multipole data expressions provided.\\
+
+After showing the wedge data analysis was internally inconsistent and unable to properly constrain required parameters, I present the multipole data results as the final constraints from the 2D BAO analysis, given in Table \ref{tab:final}. As shown in Figure \ref{fig:external}, these results are consistent with the Flat $\Lambda$CDM cosmology derived from best-fitting Planck cosmological values.\\
+
+\begin{table}[h]
+\centering
+\caption{Final constraint summary, from the WiggleZ multipole data analysis.}
+%\resizebox{\columnwidth}{!}{
+\begin{tabular}{cc|cccc}
+\specialrule{.1em}{.05em}{.05em} 
+Sample & $z_{\rm{eff}}$   &  $\Omega_c h^2$   & $D_A(z)$ & $H(z)$ \\
+\specialrule{.1em}{.05em}{.05em} 
+$0.2 < z < 0.6$ &  $0.44$ & $0.119^{+0.029}_{-0.026}$ & $1302 \pm  160$ & $87.0 \pm 15.7$ \\
+$0.4 < z < 0.8$ &  $0.6$  & $0.151^{+0.038}_{-0.025}$ & $1295 \pm  184$ & $89.7 \pm 15.1$ \\
+$0.6 < z < 1.0$ &  $0.73$ & $0.140^{+0.036}_{-0.022}$ & $1348 \pm  161$ & $82.0 \pm 12.7$ \\
+\specialrule{.1em}{.05em}{.05em} 
+\end{tabular}\label{tab:final}
+%}
+\end{table}
+
+
+
+
+{\green What else should I discuss here, I wonder?}
 
 
 
