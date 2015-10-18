@@ -1173,13 +1173,13 @@ For the fits to individual redshift bins, I fit to the final unreconstructed Wig
 $z_{\rm{eff}}$ & \multicolumn{4}{c}{Multipole}  & \multicolumn{4}{c}{Wedge}\\
  & $\chi^2$ & $\Omega_c h^2$ &$\alpha$ & $\epsilon$ & $\chi^2$ & $\Omega_c h^2$ & $\alpha_\perp$ & $\alpha_\parallel$\\
 \specialrule{.1em}{.05em}{.05em} 
-$0.44$ & $51.8$ & $0.119^{+0.029}_{-0.026}$ & $1.07^{+0.10}_{-0.10}$ & $-0.03^{+0.07}_{-0.10}$ & {\red$54.0$} & $0.16\pm 0.05$ & $1.07\pm 0.14$ & $1.05\pm 0.16$ \\
-$0.60$ & $69.3$ & $0.151^{+0.038}_{-0.025}$ & $0.98^{+0.08}_{-0.10}$ & $0.05^{+0.07}_{-0.10}$  & {\red$39.2$} & $0.17\pm 0.05$ & $1.01\pm 0.12$ & $1.04\pm 0.15$ \\
-$0.73$ & $59.1$ & $0.140^{+0.036}_{-0.022}$ & $1.00^{+0.08}_{-0.07}$ & $0.12^{+0.06}_{-0.05}$  & {\red$41.4$} & $0.11\pm 0.04$ & $1.04\pm 0.11$ & $1.01\pm 0.12$ \\
+$0.44$ & $51.8$ & $0.119^{+0.029}_{-0.026}$ & $1.07^{+0.10}_{-0.10}$ & $-0.03^{+0.07}_{-0.10}$ & $55.0$ & $0.156\pm 0.048$ & $1.08\pm0.14$ & $1.054\pm 0.15 $ \\
+$0.60$ & $69.3$ & $0.151^{+0.038}_{-0.025}$ & $0.98^{+0.08}_{-0.10}$ & $0.05^{+0.07}_{-0.10}$  & $39.9$ & $0.169\pm 0.044$ & $1.02\pm 0.13 $ & $1.07\pm 0.15$ \\
+$0.73$ & $59.1$ & $0.140^{+0.036}_{-0.022}$ & $1.00^{+0.08}_{-0.07}$ & $0.12^{+0.06}_{-0.05}$  & $42.6$ & $0.111\pm 0.036$ & $1.06\pm 0.12$ & $1.10\pm 0.12$ \\
 \specialrule{.05em}{.05em}{.05em} 
-All & $255.0$ & $0.147^{+0.018}_{-0.018}$ & $1.00^{+0.05}_{-0.04}$ & $0.08^{+0.04}_{-0.05}$ & {\red$22.6$} & $0.147^{+0.012}_{-0.011}$ & $1.09^{+0.07}_{-0.06}$ & $1.00^{+0.07}_{-0.08}$ \\
+All & $255.0$ & $0.147^{+0.018}_{-0.018}$ & $1.00^{+0.05}_{-0.04}$ & $0.08^{+0.04}_{-0.05}$ & $204.0$ & $0.176\pm 0.032$ & $0.95\pm 0.07$ & $1.09\pm 0.14$ \\
 \specialrule{.05em}{.05em}{.05em} 
-Combined & $5.6$ & $0.140^{+0.014}_{-0.017}$ & $1.00^{+0.07}_{-0.05}$ & $0.06^{+0.03}_{-0.04}$ & $22.6$ & $0.147^{+0.012}_{-0.011}$ & $1.09^{+0.07}_{-0.06}$ & $1.00^{+0.07}_{-0.08}$ \\
+Combined & $5.6$ & $0.140^{+0.014}_{-0.017}$ & $1.00^{+0.07}_{-0.05}$ & $0.06^{+0.03}_{-0.04}$ & $20.3$ & $0.146\pm 0.013$ & $1.10\pm 0.07$ & $1.08\pm 0.07$ \\
 \specialrule{.1em}{.05em}{.05em} 
 \end{tabular}\label{tab:wigglezBins}
 }
@@ -1212,7 +1212,7 @@ we have
 
 
 
-Using these relationships, I formulate parameter constraints shown in Table \ref{tab:wigglezBinsParams2}. We notice that, whilst most parameter recoveries are $1\sigma$ consistent between methodologies, there are notable discrepancies, especially in the wedge analysis. Specifically, the wedge analysis using all three bins of data is discrepant ($\approx 2\sigma$) with the individual bin fits for {\red all three cosmological parameters - $\Omega_c h^2$, $D_A / D_A^{\mathcal{D}}$ and $H / H^\mathcal{D}$.} This raises questions about the validity of the wedge analysis - whether the methodology itself is flawed or if the data present in the WiggleZ survey is simply insufficient to constrain parameters. In order to confirm that, with increased data quality, the wedge methodology outlined would work, it would be possible to determine the cross-realisation variance of the recovered $\alpha_\parallel$ parameter as a function of data strength, and ensure that this is a strictly minimising function. This would be simple to do with the WizCOLA mocks - we already possess the variance of $\alpha_\parallel$ when fitting for only one realisation. Data quality could be increased by summing an arbitrary number of realisations (as they are independent), where the more realisations one sums into a single dataset would give increased data quality. Whilst this methodology could be used to further confirm the wedge methodology outline in prior sections, the wedge data analysis would still show disagreement between the combined and all data analysis and could not be used for final analysis, and the desired consistency check in final parameter values between the multipole analysis and wedge analysis could not be utilised.\\
+Using these relationships, I formulate parameter constraints shown in Table \ref{tab:wigglezBinsParams2}. We notice that, whilst most parameter recoveries are $1\sigma$ consistent between methodologies, there are notable discrepancies in the wedge analysis. In addition, we see in Figure \ref{fig:wigglezBinsWdg} that the distributions for $\alpha_\parallel$ did not converge properly for any of the redshift bins. This raises questions about the validity of the wedge analysis - whether the methodology itself is flawed or if the data present in the WiggleZ survey is simply insufficient to constrain parameters. In order to confirm that, with increased data quality, the wedge methodology outlined would work, it would be possible to determine the cross-realisation variance of the recovered $\alpha_\parallel$ parameter as a function of data strength, and ensure that this is a strictly minimising function. This would be simple to do with the WizCOLA mocks - we already possess the variance of $\alpha_\parallel$ when fitting for only one realisation. Data quality could be increased by summing an arbitrary number of realisations (as they are independent), where the more realisations one sums into a single dataset would give increased data quality. Whilst this methodology could be used to further confirm the wedge methodology outline in prior sections, the wedge data analysis would still show disagreement between the combined and all data analysis and could not be used for final analysis, and the desired consistency check in final parameter values between the multipole analysis and wedge analysis could not be utilised.\\
 
 
 
@@ -1235,9 +1235,9 @@ Using the multipole data analysis and fiducial cosmology, I present final constr
 Parameter & \multicolumn{5}{c}{Multipole}  & \multicolumn{5}{c}{Wedge}\\
  & $z_{\rm{eff}} = 0.44$ & $z_{\rm{eff}} = 0.60$ & $z_{\rm{eff}} = 0.73$ & All & Combined & $z_{\rm{eff}} = 0.44$ & $z_{\rm{eff}} = 0.60$ & $z_{\rm{eff}} = 0.73$ & All & Combined \\
 \specialrule{.1em}{.05em}{.05em} 
-$\Omega_c h^2$                &  $0.119^{+0.029}_{-0.026}$ &   $ 0.147^{+0.018}_{-0.018}$  &  $0.140^{+0.036}_{-0.022}$ & $0.155^{+0.023}_{-0.015}$ & $0.140^{+0.014}_{-0.017}$ & $0.16^{+0.05}_{-0.05}$ & $0.17^{+0.05}_{-0.05}$  & $0.11^{+0.04}_{-0.04}$ & $0.18^{+0.03}_{-0.04}$ & $ 0.147^{+0.012}_{-0.011}$\\
-$D_A / D_A^{\mathcal{D}}$     &  $1.11 \pm  0.15$          &   $0.93 \pm  0.12$           &  $0.89 \pm  0.10$          & $0.92 \pm  0.06$          & $ 0.95 \pm  0.07$          & $1.07^{+0.14}_{-0.14}$ & $1.01^{+0.12}_{-0.12}$  & $1.04^{+0.11}_{-0.11}$ & $0.90^{+0.09}_{-0.04}$ & $1.09^{+0.07}_{-0.06}$ \\
-$H / H^\mathcal{D}$           &  $1.00 \pm 0.18$           &   $0.94 \pm 0.15$           &  $0.80 \pm 0.10$          & $0.87 \pm 0.09$           & $0.89 \pm 0.08$          & $0.95\pm0.15$          & $0.96 \pm 0.15$ & $0.91 \pm 0.11$ & $1.08 \pm 0.09$ & $1.00 \pm 0.08$ \\
+$\Omega_c h^2$                &  $0.119^{+0.029}_{-0.026}$ &   $ 0.147^{+0.018}_{-0.018}$  &  $0.140^{+0.036}_{-0.022}$ & $0.155^{+0.023}_{-0.015}$ & $0.140^{+0.014}_{-0.017}$ & $0.156\pm 0.048$  & $0.169\pm 0.044$ & $0.111\pm 0.036 $ & $0.176\pm 0.032$ &  $ 0.146\pm 0.013$\\
+$D_A / D_A^{\mathcal{D}}$     &  $1.11 \pm  0.15$          &   $0.93 \pm  0.12$           &  $0.89 \pm  0.10$          & $0.92 \pm  0.06$          & $ 0.95 \pm  0.07$           & $1.08\pm0.14$ & $1.02\pm 0.13 $ & $1.06\pm 0.12$  & $0.95\pm 0.07$ & $1.10\pm 0.07$  \\
+$H / H^\mathcal{D}$           &  $1.00 \pm 0.18$           &   $0.94 \pm 0.15$           &  $0.80 \pm 0.10$          & $0.87 \pm 0.09$           & $0.89 \pm 0.08$          &                     $0.89 \pm 0.13$          & $0.94 \pm 0.14$ & $0.91 \pm 0.11$ & $0.91 \pm 0.13$ & $ 0.93 \pm 0.08$ \\
 \specialrule{.1em}{.05em}{.05em} 
 \end{tabular}\label{tab:wigglezBinsParams2}
 }
