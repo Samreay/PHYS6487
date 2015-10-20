@@ -317,7 +317,7 @@ Constructing a correlation function using an underlying cosmology is computation
 
 
 Decomposing the BAO signal into its tangential and parallel to line-of-sight components can be used to simultaneously extract $D_A$ and $H(z)$ \citep{BlakeGlazebrook2003, SeoEisenstein2003, Wang2006}. As discussed in \S\ref{sec:frw}, transverse and radial distances can be given in terms of $(1+z) D_A(z)$ and $H(z)/cz$ respectively, and the imprinted length scale of the BAO can be used to constrain both of these distilled parameters. When one analyses the BAO without separating out parallel and perpendicular to line of sight distances, one can constrain the parameter $D_V$, 
-\begin{align}
+\begin{align} \label{eq:dv}
 D_V \equiv \left[ (1+z)^2 D_A(z)^2 \frac{cz}{H(z)}\right]^{1/3},
 \end{align}
 which is a simply a ratio of the transverse constraint on $(1+z) D_A$ and radial constraint on $H(z)/cz$. This parameter has degeneracy with the matter density of the universe $\Omega_m$, and so often constraints are given on the acoustic parameter $A(z)$ introduced by \citet{EisensteinZehavi2005}, which is given by
@@ -1298,7 +1298,9 @@ $0.6 < z < 1.0$ &  $0.73$ & 1509.4  & 102.8 & $0.140^{+0.036}_{-0.022}$ & $1348 
 \section{External comparison}
 
 
-We can now check consistency of the results obtained in the previous section with results from other BAO analyses. In Table \ref{tab:external} I source cosmological constraints on $D_A(z)$ and $H(z)$, and compare them to the Wigglez constraints I have derived in Figure \ref{fig:external}. We can see that the derived $D_A(z)$ values diverge from Planck cosmology in the higher redshift bins, due to the low $D_A/D^{\mathcal{D}}_A$ values seen in Table \ref{tab:wigglezBinsParams2}. We should further note that if we had instead utilised the wedge analysis, the $D_A$ values would consistently have been higher than Planck cosmology! For the determined values of $H(z)$, we notice a (not significantly) lower value of $H(z = 0.73)$ that may have been expected from the trend observed in external data sets.\\
+We can now check consistency of the results obtained in the previous section with results from other BAO analyses. In Table \ref{tab:external} I source cosmological constraints on $D_A(z)$ and $H(z)$, and compare them to the Wigglez constraints I have derived in Figure \ref{fig:external}. We can see that the derived $D_A(z)$ values diverge from Planck cosmology in the higher redshift bins, due to the low $D_A/D^{\mathcal{D}}_A$ values seen in Table \ref{tab:wigglezBinsParams2}. We should further note that if we had instead utilised the wedge analysis, the $D_A$ values would consistently have been higher than Planck cosmology! For the determined values of $H(z)$, we notice a (not significantly) lower value of $H(z = 0.73)$ than may have been expected from the trend observed in external data sets.\\
+
+The constraints included in Table \ref{tab:external} from \citet{BlakeBroughColless2012} determine $D_A(z)$ and $H(z)$ from the WiggleZ survey by combining measurements of the 1D BAO peak and the Alcock-Paczynski distortion. The 1D BAO signal analysed in prior studies provides constraints on $D_V$, which is a function of $D_A$, $H(z)$ and $z$, as per equation \eqref{eq:dv}. The  Alcock-Paczynski (AP) test can be used to measure $\approx (1+z)D_A(z) H(z)/c$, and can thus be used in conjunction with the angle-average BAO signal to constrain $D_A(z)$ and $H(z)$. The AP test was applied to the Wigglez data in \citet{BlakeGlazebrook2011}, and the angle average BAO peak was measured in \citet{BlakeKazin2011}. The resultant constraints on $D_A(z)$ and $H(z)$ by combining these results and a Gaussian prior on $\Omega_m h^2$ from CMB fits \citep{Komatsu2009} are shown in Table \ref{tab:external}.
 
 
 
@@ -1309,11 +1311,15 @@ We can now check consistency of the results obtained in the previous section wit
 \resizebox{\columnwidth}{!}{
 \begin{tabular}{cc|c|cc}
 \specialrule{.1em}{.05em}{.05em} 
-Paper & Source &  $z_{\rm{eff}}$ & $D_A(z)$ & $H(z)$ \\
+Paper & Source &  $z_{\rm{eff}}$ & $D_A(z)$ [Mpc] & $H(z)$ [km/s/Mpc]\\
 \specialrule{.1em}{.05em}{.05em} 
 \citet{Gaztanaga2009} & SDSS LRG DR7 & 0.24 & & $79.69\pm2.32$ \\
  & & 0.34 & &  $83.80\pm2.96$ \\
  & & 0.43 & &  $86.45\pm3.27$ \\
+ 
+\citet{BlakeBroughColless2012} & WiggleZ & 0.44 & $1205\pm114$ & $82.6\pm7.8$ \\
+& & 0.6 & $1380\pm95$ & $87.9\pm6.1$ \\
+& & 0.73 & $1534\pm107$ & $97.3\pm7.0$ \\
 \cite{ChuangWang2012} & SDSS LRG DR7 & 0.35 & $1048^{+60}_{-58}$ & $82.1^{+4.8}_{-4.9}$ \\
 \citet{AndersonAubourg2012} & SDSS-III BOSS DR11 & 0.57 & $(1421\pm20) (r_d/r_{d,\rm{fid}})$ & $(96.8\pm3.4) (r_{d,\rm{fid}}/r_d)$ \\
 \citet{FontRiberaKirkby2014} & SDSS-III BOSS DR11 Quasars & 2.36 & $1590\pm60$ & $226\pm 8$ \\
@@ -1327,7 +1333,7 @@ Paper & Source &  $z_{\rm{eff}}$ & $D_A(z)$ & $H(z)$ \\
   \begin{center}
     \includegraphics[width=\textwidth]{images/external.pdf}
   \end{center}
-  \caption{A comparison with the constraints on $D_A(z)$ and $H(z)$ found in external papers, best fitting Planck cosmology for a Flat $\Lambda$CDM universe, and the constraints derived in Table \ref{tab:wigglezBinsParams}.}
+  \caption{A comparison with the constraints on $D_A(z)$ and $H(z)$ found in external papers, best fitting Planck cosmology for a Flat $\Lambda$CDM universe, and the constraints listed in Table \ref{tab:wigglezBinsParams}.}
   \label{fig:external}
 %\end{wrapfigure}
 \end{figure}
