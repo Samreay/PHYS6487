@@ -1,4 +1,5 @@
-\documentclass[titlesmallcaps, examinerscopy, copyrightpage]{uqthesis}
+\documentclass[titlesmallcaps, copyrightpage]{uqthesis}
+%\documentclass[titlesmallcaps, examinerscopy, copyrightpage]{uqthesis}
 
 \bibliographystyle{hapj}
 \usepackage{braket}
@@ -95,7 +96,7 @@ Samuel Hinton\\ 41966855\\ 30 Matingara St, Chapel Hill, QLD 4069\\
 \end{flushright}
 
 \noindent \today \\
-\noindent Ass. Prof Tim McIntyre\\
+\noindent Associate Professor Tim McIntyre\\
 Head of Physics\\
 School of Mathematics and Physics\\
 The University of  Queensland\\
@@ -122,12 +123,15 @@ In accordance with the requirement of the Degree of Bachelor of Science (Honours
 
 I would like to thank my supervisors Tamara Davis and Chris Lidman for their significant help during the construction of this thesis. In particular, I am grateful for Tamara's patience with my stream of questions - some of them well thought out - more of them perhaps asked too quickly before I had thought them through properly. I am also grateful for the suggestions and feedback on fitting methodology provided by Chris Blake throughout the year.\\
 
-I would also like to thank Joshua Calcino, Carolyn Wood and Sarah Thompson for their emotional support during the year!
+I am grateful to St John's College and the AAO for the assistance their scholarships have provided in the creation of this thesis.\\
+
+I would also like to thank Joshua Calcino, Carolyn Wood and Sarah Thompson for their emotional support during the year!\\
+
 
 % =====================================================================
 \chapter{Abstract}
 
-In this thesis, I analyse the 2D anisotropic Baryon Acoustic Oscillation (BAO) signal present in the final WiggleZ dataset. I utilise newly released covariance matrices from the WizCOLA simulations and follow well tested methodologies used in prior analyses of the BAO signal in alternative datasets. The WiggleZ data is presented in two forms - in multipole expansion and in data wedges - both of which are analysed in this thesis. I test these methodologies are tested against previous one dimensional analyses of the BAO signal in the WiggleZ data, and against WizCOLA simulations and found to be free of bias or systematic offsets. However, the analysis on the wedge data format was found to be internally inconsistent, and thus discarded in favour of the multipole analysis. The multipole analysis determined $\Omega_c h^2$, $H(z)$ and $D_A(z)$ for three redshift bins, of effective redshift bins $z = 0.44, 0.60, 0.73$. The respective constraints on $\Omega_c h^2$ are $0.119^{+0.029}_{-0.026}$, $0.151^{+0.038}_{-0.025}$ and $0.140^{+0.036}_{-0.022}$. The fits for $H(z)$ are respectively  $87 \pm 16$, $90 \pm 15$ and $82 \pm 13$ \kmsmpc, and for $D_A(z)$ I find values of $1300 \pm  160$, $1300 \pm  180$ and $1350 \pm  160$ Mpc. These cosmological constraints are consistent with Flat $\Lambda$CDM cosmology.
+In this thesis, I analyse the 2D anisotropic Baryon Acoustic Oscillation (BAO) signal present in the final WiggleZ dataset. I utilise newly released covariance matrices from the WizCOLA simulations and follow well tested methodologies used in prior analyses of the BAO signal in alternative datasets. The WiggleZ data is presented in two forms - in multipole expansion and in data wedges - both of which are analysed in this thesis. I test my model against previous one dimensional analyses of the BAO signal in the WiggleZ data and against WizCOLA simulations, and find it to be free of bias or systematic offsets. However, the analysis on the wedge data format was unable to properly constrain cosmological parameters, and thus discarded in favour of the multipole analysis. The multipole analysis determined $\Omega_c h^2$, $H(z)$ and $D_A(z)$ for three redshift bins, of effective redshifts $z = 0.44, 0.60$ and $0.73$. The respective constraints on $\Omega_c h^2$ are $0.119^{+0.029}_{-0.026}$, $0.151^{+0.038}_{-0.025}$ and $0.140^{+0.036}_{-0.022}$. The fits for $H(z)$ are respectively  $87 \pm 16$, $90 \pm 15$ and $82 \pm 13$ \kmsmpc, and for $D_A(z)$ I find values of $1300 \pm  160$, $1300 \pm  180$ and $1350 \pm  160$ Mpc. These cosmological constraints are consistent with Flat $\Lambda$CDM cosmology.
 
 
 
@@ -150,9 +154,9 @@ In this thesis, I analyse the 2D anisotropic Baryon Acoustic Oscillation (BAO) s
 \chapter{Introduction}
 
 
-Modern cosmological observations have given strict constraints on cosmological parameters and model viability, and indicate a late time accelerated expansion of the universe \citep{RiessFilippenko1998, PerlmutterAldering1999, SpergelVerde2003, RiessStrolger2004, TegmarkBlanton2004, SanchezBaugh2006, SpergelBean2007, Komatsu2009, RiessMacri2009, PercivalReid2010, ReidPercival2010,BlakeKazin2011}. This accelerating expansion is one of the foremost problems in cosmology, and efforts to determine the expansion history of the universe will allow differentiation between many proposed models \citep{SanchezScoccola2012, AlbrechtBernstein2006}. One area of promising development is detecting of Baryon Acoustic Oscillations (BAO) in the large scale structure of the universe, as the BAO signal provides a robust, precise measurement of the history of the universe's expansion rate and size \citep{BlakeGlazebrook2003,HuHaiman2003,Linder2003,SeoEisenstein2003}. Analysis of the BAO signal has been performed on modern cosmology surveys, providing tight constraints on cosmological parameters \citep{Gaztanaga2009, SanchezKazinBeutler2013, AndersonAubourg2014}. The constraints BAO measurements provide are highly complimentary to, and can be used in conjunction with, constraints derived from measurements on the Cosmic Microwave Background (CMB) \citep{BennettHalpern2003, Planck201416}, weak lensing \citep{VanWaerbeke2000,WittmanTyson2000,KaiserWilson2000} and supernova data \citep{KowalskiRubin2008, KesslerBeckerCinabro2009, BetouleKessler2014}.\\
+Modern cosmological observations have given strict constraints on cosmological parameters and model viability, and indicate a late time accelerated expansion of the universe \citep{RiessFilippenko1998, PerlmutterAldering1999, SpergelVerde2003, RiessStrolger2004, TegmarkBlanton2004, SanchezBaugh2006, SpergelBean2007, Komatsu2009, RiessMacri2009, PercivalReid2010, ReidPercival2010,BlakeKazin2011}. This accelerating expansion is one of the foremost problems in cosmology, and efforts to determine the expansion history of the universe will allow differentiation between many proposed models \citep{AlbrechtBernstein2006, SanchezScoccola2012}. One area of promising development is detecting Baryon Acoustic Oscillations (BAO) in the large scale structure of the universe, as the BAO signal provides a robust and precise measurement of the history of the universe's expansion rate and size \citep{BlakeGlazebrook2003,HuHaiman2003,Linder2003,SeoEisenstein2003}. Analysis of the BAO signal has been performed on modern cosmology surveys, providing tight constraints on cosmological parameters \citep{Gaztanaga2009, SanchezKazinBeutler2013, AndersonAubourg2014}. The constraints BAO measurements provide are highly complimentary to, and can be used in conjunction with, constraints derived from measurements on the Cosmic Microwave Background (CMB) \citep{BennettHalpern2003, Planck201416}, weak lensing \citep{VanWaerbeke2000,WittmanTyson2000,KaiserWilson2000} and supernova data \citep{KowalskiRubin2008, KesslerBeckerCinabro2009, BetouleKessler2014}.\\
 
-From this motivation, I attempt to extract useful cosmological information from the BAO signal present in the WiggleZ dataset \citep[WiggleZ;][]{Drinkwater2010} beyond the analyses already completed by the WiggleZ team in \citet{BlakeDavis2011, BlakeKazin2011, BlakeBroughColless2011, BlakeGlazebrook2011, Parkinson2012}. In this document, I layout the sections as follows: In Chapter 2 I introduce relevant modern cosmology for any non-technical audience. Chapter 3 contains a summary of prior literature in which BAO signal has been used to constrain cosmological parameters in this dataset and others previously. In Chapter 4 I construct my BAO model and test it against prior studies and WizCOLA mocks, and in Chapter 5 this model is then applied to the WiggleZ dataset. Chapter 6 presents my conclusions.
+From this motivation, I attempt to extract useful cosmological information from the BAO signal present in the WiggleZ dataset \citep[WiggleZ;][]{Drinkwater2010} beyond the analyses already completed by the WiggleZ team in \citet{BlakeBroughColless2011, BlakeDavis2011, BlakeGlazebrook2011, BlakeKazin2011, Parkinson2012}. In this document, I layout the sections as follows: In Chapter 2 I introduce relevant modern cosmology for any non-technical audience. Chapter 3 contains a summary of prior literature in which the BAO signal has been used to constrain cosmological parameters in this dataset and others previously. In Chapter 4 I construct my BAO model and test it against prior studies and WizCOLA mocks, and in Chapter 5 this model is then applied to the WiggleZ dataset. Chapter 6 presents my conclusions.
 
 
 
@@ -179,10 +183,10 @@ where $s$ denotes the proper distance, $c$ the speed of light, $R(t)$ the time d
 S_\kappa(\chi) = \begin{cases}
     \sin(\chi), & (\kappa = +1)\\
     \chi, & (\kappa = 0) \\
-    \sinh (\chi) & (\kappa = -1).
+    \sinh (\chi) & (\kappa = -1),
   \end{cases}
 \end{align}
-We can also define a factor $a(t)$, which represents a scaling factor normalised to the present scale of the universe \citep{RydenPartridge2004}, such that $a(t) = R(t)/R_0$, where $R_0$ is the present day radius. We should note that $\kappa$ (representing the curvature of the universe) only needs to be given for three distinct values due to the ability to scale the metric without changing the underlying physics. As such, $\kappa = 1$ corresponds to a closed (spherical) universe, $\kappa = 0$ is a flat universe, and $\kappa = -1$ represents an open (hyperbolic) universe. Curvature can be thought of in multiple ways, where perhaps the two most conceptually simple methods of understanding relate to parallel lines and the angles in a triangle. Consider two rays of light emitted at some point parallel to one another. In a closed universe, these lines would eventually converge, in a flat universe they would stay parallel, and in an open universe they would diverge. For a real world example, consider the surface of the Earth, which is closed (spherical); if one were to draw to parallel lines towards the North Pole, they would converge at said pole. 
+where $\kappa$ (representing the curvature of the universe) only needs to be given for three distinct values due to the ability to scale the metric without changing the underlying physics. As such, $\kappa = 1$ corresponds to a closed (spherical) universe, $\kappa = 0$ is a flat universe, and $\kappa = -1$ represents an open (hyperbolic) universe. Curvature can be thought of in multiple ways, where perhaps the two most conceptually simple methods of understanding relate to parallel lines and the angles in a triangle. Consider two rays of light emitted at some point parallel to one another. In a closed universe, these lines would eventually converge, in a flat universe they would stay parallel, and in an open universe they would diverge. For a real world example, consider the surface of the Earth, which is closed (spherical); if one were to draw to parallel lines towards the North Pole, they would converge at said pole. 
 \begin{wrapfigure}{r}{0.4\textwidth}
   \begin{center}
     \includegraphics[width=0.4\textwidth]{images/SphereRightAngle.png}
@@ -190,20 +194,20 @@ We can also define a factor $a(t)$, which represents a scaling factor normalised
   \caption{An illustration of how angles in triangles on a surface with positive curvature exceed 180 degrees, courtesy of \citet{LegnerMathigones}.}
   \label{fig:triangle}
 \end{wrapfigure}
-Another useful way to conceptualise the curvature of space is to sum the angles on a triangle. In flat space, they will add to 180 degrees, as expected. In open space, they would sum to less, and would sum to more in closed space. Again we can use the Earth as a good starting point from this - it is possible to draw a triangle with three ninety degree angles by having one point at the north pole and two other points on the equator, as illustrated in Figure \ref{fig:triangle}. 
+Another useful way to conceptualise the curvature of space is to sum the angles on a triangle. In flat space, they will add to 180 degrees, as expected. In open space, they would sum to less, and would sum to more in closed space. Again we can use the Earth as a good starting point from this - it is possible to draw a triangle with three ninety degree angles by having one point at the north pole and two other points on the equator, as illustrated in Figure \ref{fig:triangle}. \\
 
-In order to simplify explanations, we will be working with flat geometry in this document, as cosmological observations highly support a flat universe \citep{Planck201416, DavisMortsell2007,Mortonson2009}. With this simplification, we see that the metric reduces down to
+In order to simplify explanations, we will be working with flat geometry in this document, as cosmological observations highly support a flat universe \citep{DavisMortsell2007,Mortonson2009,Planck201416}. With this simplification, we see that the metric reduces down to
 \begin{align} \label{eq:flatmetric}
 ds^2 = -c^2 dt^2 + R(t)^2 \left[ d\chi^2 + \chi^2 d\Omega^2 \right].
 \end{align}
-If we wish to find the distance between two objects at time $t_0$, one can simply rotate the coordinate system such that $d\Omega$ vanishes and then integrate, giving that $D = R(t_0) \chi$. Thus $\chi$ represents a distance independent of the the scale of the universe, which is denoted the comoving distance \citep{CarrollOstlie2006}.  As such, $R_0 \chi$ represents the distance $D$ between two objects if measured in the present day.
+If we wish to find the distance between two objects at time $t_0$, one can simply rotate the coordinate system such that $d\Omega$ vanishes and then integrate, giving that $D = R(t_0) \chi \equiv R_0 \chi$. Thus $\chi$ represents a distance independent of the the scale of the universe, which is denoted the comoving distance \citep{CarrollOstlie2006}.  As such, $R_0 \chi$ represents the distance $D$ between two objects if measured in the present day.\\
 
-We can also see that, as $a(t)$ is explicitly time dependent, its time derivative is non-zero. From this fact we can recover the famous Hubble's law \citep{Hubble1929}, such that we consider the rate of change of proper distance between two objects with no peculiar velocity due to relative motion through space (i.e., their recession velocity). Note that, as discussed previously, $\chi$ for comoving objects is independent of time and scalefactor, and is thus treated as a constant.
+If we do not restrict ourselves to the present day, we have $D = R(t) \chi$, which we can also write $D = a(t) R_0 \chi$, where $a(t)$ is now a scaling factor normalised to $1$ for the present day. We can also see that, as $a(t)$ is explicitly time dependent, its time derivative is non-zero. From this fact we can recover the famous Hubble's law \citep{Hubble1929}, such that we consider the rate of change of proper distance between two objects with no peculiar velocity due to relative motion through space (i.e., their recession velocity). Note that, as discussed previously, $\chi$ for comoving objects is independent of time and scalefactor, and is thus treated as a constant.
 \begin{align}
-\dot{D} &= \dot{a} \chi  = \frac{\dot{a}}{a} (a \chi)\\
+\dot{D} &= \dot{a} R_0 \chi  = \frac{\dot{a}}{a} (a R_0 \chi) = \frac{\dot{a}}{a} D\\
 v_{\text{rec}} &= H D,
 \end{align}
-where $v_{\text{rec}} \equiv \dot{D}$ and $H \equiv \dot{a}/a$ is Hubble's constant - the ratio of the rate at which the universe is currently expanding relative to its size. We should note that it is possible for $v_{\text{rec}}$ to exceed the speed of light. This has been the cause of some confusion in the past, however as special relativity says nothing can travel \textit{through} space greater than the speed of light, but recession velocity is not due to travelling through space, but instead space expanding, this result is allowed. For more details on this, please see \citet{DavisLineweaver2004}. Hubble's constant is traditionally given in units of km s$^{-1}$ Mpc$^{-1}$, but can easily be written simply in terms of inverse time, so $H^{-1}$ has units of time and is known as Hubble time. Similarly, Hubble distance is defined as $D_H = c/H$, and this length corresponds to the distance at which recession velocity due to the expansion of space is the speed of light.
+where $v_{\text{rec}} \equiv \dot{D}$ and $H \equiv \dot{a}/a$ is Hubble's constant - the ratio of the rate at which the universe is currently expanding relative to its size. We should note that it is possible for $v_{\text{rec}}$ to exceed the speed of light. This has been the cause of some confusion in the past, however as special relativity says nothing can travel \textit{through} space greater than the speed of light, and recession velocity is not due to travelling through space, but instead space expanding, this result is allowed. For more details on this, please see \citet{DavisLineweaver2004}. Hubble's constant is traditionally given in units of \kmsmpc, but can easily be written simply in terms of inverse time, so $H^{-1}$ has units of time and is known as Hubble time. Similarly, the Hubble distance is defined as $D_H = c/H$, and this length corresponds to the distance at which recession velocity due to the expansion of space is the speed of light.\\
 
 The expansion of space has an important effect on light travelling through it, in that the wavelength of the light expands along with space, causing light to be progressively redshifted as it travels through the cosmos. Redshift, denoted $z$, is defined as 
 \begin{align}
@@ -211,9 +215,9 @@ z \equiv \frac{\lambda_{\text{ob}} - \lambda_{\text{em}}}{\lambda_{\text{em}}},
 \end{align}
 where $\lambda_{\text{ob}}$ is the wavelength of light that is observed and $\lambda_{\text{em}}$ is the wavelength of light emitted from the source. As the scalefactor is linked with wavelength, we also find
 \begin{align}
-1 + z = \frac{a(t_{\text{ob}})}{a(t_{\text{em}})} = \frac{1}{a(t_{\text{em}})} \quad\rightarrow \quad z = \frac{1}{a(t_{\text{em}})} - 1.
+1 + z = \frac{a(t_{\text{ob}})}{a(t_{\text{em}})} = \frac{1}{a(t_{\text{em}})} \quad\rightarrow \quad z = \frac{1}{a(t_{\text{em}})} - 1,
 \end{align}
-For a more rigorous derivation of this relationship, see \citet[Ch 3.4]{RydenPartridge2004}. Redshift is what we observe in cosmological surveys, and the ability to link the expansion of the universe to redshift is thus fundamental to our ability to do precision cosmology, and by measuring the redshifts of various targets we are able to map the expansion dynamics of the universe. It should also be noted that there are two primary methods of determining redshift - spectroscopically or photometrically. Without going into detail, spectroscopic measurements use a spectrum and are far more accurate but far slower to gather than photometric redshifts, which use images taken in several broad colour filters.
+if we set $t_{\text{ob}} = t_0$. For a more rigorous derivation of this relationship, see \citet[Ch 3.4]{RydenPartridge2004}. Redshift is what we observe in cosmological surveys, and the ability to link the expansion of the universe to redshift is thus fundamental to our ability to do precision cosmology, and by measuring the redshifts of various targets we are able to map the expansion dynamics of the universe. It should also be noted that there are two primary methods of determining redshift - spectroscopically or photometrically. Without going into detail, spectroscopic measurements use a spectrum and are far more accurate but far slower to gather than photometric redshifts, which use images taken in several broad colour filters.\\
 
 These dynamics were formalised by Friedmann in the two eponymous equations given below \citep{RydenPartridge2004}:
 \begin{align}
@@ -240,7 +244,7 @@ Non-relativistic matter (also known as cold matter) has an equation of state of 
 \begin{align} \label{eq:dynamics}
 H(t)^2 = H_0^2 \left( \Omega_m a^{-3} + \Omega_r a^{-4} + \Omega_k a^{-2} + \Omega_\Lambda \right).
 \end{align}
-For the present universe, radiation pressure has dropped sufficiently for it to often be discarded as negligible ($\Omega_r < 10^{-4}$), however this was not the case in the early universe \citep{Planck201416, RydenPartridge2004}. As we shall be primarily dealing with the Flat $\Lambda$CDM model, and due to the measured flatness of the universe ($\Omega_k = 0$ within error), we can further simplify the above equation to
+For the present universe, radiation pressure has dropped sufficiently for it to often be discarded as negligible ($\Omega_r < 10^{-4}$), however this was not the case in the early universe \citep{RydenPartridge2004, Planck201416}. As we shall be primarily dealing with the Flat $\Lambda$CDM model, and due to the measured flatness of the universe ($\Omega_k = 0$ within error), we can further simplify the above equation to
 \begin{align}
 H(t)^2 = H_0^2 \left( \Omega_m a^{-3} + \Omega_\Lambda \right).
 \end{align}
@@ -252,15 +256,15 @@ Using the metric from equation \eqref{eq:flatmetric} along the radial component 
 \begin{align}
 D(t,z) = R_0 a(t) \chi = c \int_0^z \frac{d z^\prime}{H(z^\prime)} = \frac{c}{H_0} \int_0^z \frac{dz^\prime}{E(z^\prime)}.
 \end{align}
-For small $\Delta z$ in which we can approximate $H(z)$ as constant and $\Delta v \approx c \Delta z$, we can thus write the radial distance as $\Delta D_\parallel = c\Delta z/H(z)$. We can also express transverse distance $\tilde{D}(t,z) = R_0 a(t) S_\kappa(\chi)$, and further define the angular diameter distance $D_A \equiv \tilde{D} / (1 + z)$. For flat universes, this reduces to $D_A = R_0 a(t) \chi(z) / (1 + z)$.
+For small $\Delta z$ in which we can approximate $H(z)$ as constant and $\Delta v \approx c \Delta z$, we can thus write the radial distance as $\Delta D_\parallel = c\Delta z/H(z)$. We can also express transverse distance $\tilde{D}(t,z) = R_0 a(t) S_\kappa(\chi)$, and further define the angular diameter distance $D_A \equiv \tilde{D} / (1 + z)$. For flat universes, this reduces to $D_A = R_0 a(t) \chi(z) / (1 + z)$.\\
 
-For a treatment and review of other cosmological models, from dynamical dark energy \citep{PeeblesRatra1988} to exotic models such as Chaplygin gas \citep{BentoBertolami2003, Benaoum2012} please see \citet{PeeblesRatra2003,DavisMortsell2007, FriemanTurnerHuterer2008, GottSlepian2011}. My analysis in thesis is mainly concerned with testing and parametrizing the Flat $\Lambda$CDM model, as it is the primarily favoured cosmological model \citep{Planck201416, SanchezKazinBeutler2013}, and I will be explicit about any extensions I make to the model that deviate from Flat $\Lambda$CDM. Equation \eqref{eq:dynamics} gives the dynamical evolution of the universe, and in order to understand the origin and significance of Baryon Acoustic Oscillations I will elaborate on the early history of the universe in which they were formed.\\
+For a treatment and review of other cosmological models, from dynamical dark energy \citep{PeeblesRatra1988} to exotic models such as Chaplygin gas \citep{BentoBertolami2003, Benaoum2012} please see \citet{PeeblesRatra2003,DavisMortsell2007, FriemanTurnerHuterer2008, GottSlepian2011}. My analysis in thesis is mainly concerned with testing and parametrizing the Flat $\Lambda$CDM model, as it is the primarily favoured cosmological model \citep{SanchezKazinBeutler2013, Planck201416}, and I will be explicit about any extensions I make to the model that deviate from Flat $\Lambda$CDM. Equation \eqref{eq:dynamics} gives the dynamical evolution of the universe, and in order to understand the origin and significance of Baryon Acoustic Oscillations I will elaborate on the early history of the universe in which they were formed.\\
 
 
 
 \subsection{A brief history of the universe}
 
-The origins of the BAO stretch back to the beginning of the universe, and so we delve into Big Bang cosmology to provide a sufficient background. The Big Bang refers to a point in space-time at which our models break down due to a predicted singularity, and immediately after the Big Bang the universe was an extraordinarily dense, hot, soup of energy. Importantly, this soup was not completely homogeneous, for it contained tiny perturbations in energy density thought to be the result of quantum fluctuations expanded to macroscopic size via the process of inflation and then expansion. Three minutes in, the universe had expanded (and thus cooled) enough for the first nucleons to form - Hydrogen, Helium and Lithium. Radiation density is still sufficiently high that baryonic matter and light is strongly coupled via the process of Thomson scattering \citep{PeeblesYu1970, Doroshkevich1978, SunyaevZeldovich1970}.
+The origins of the BAO stretch back to the beginning of the universe, and so we delve into Big Bang cosmology to provide a sufficient background. The Big Bang refers to a point in space-time at which our models break down due to a predicted singularity, and immediately after the Big Bang the universe was an extraordinarily dense, hot, soup of energy. Importantly, this soup was not completely homogeneous, for it contained tiny perturbations in energy density thought to be the result of quantum fluctuations expanded to macroscopic size via the process of inflation and then expansion. Three minutes in, the universe had expanded (and thus cooled) enough for the first nucleons to form - Hydrogen, Helium and Lithium. Radiation density is still sufficiently high that baryonic matter and light is strongly coupled via the process of Thomson scattering \citep{PeeblesYu1970, SunyaevZeldovich1970, Doroshkevich1978}.
 
 
 
@@ -311,7 +315,7 @@ Other anisotropic effects are introduced in the form of redshift-space distortio
 %\end{wrapfigure}
 \end{figure}
 
-The anisotropies present in the correlation function can also be decomposed using multipole expansion, as illustrated in Figure \ref{fig:xi2d}. In prior studies that examine the one dimensional angle-averaged BAO peak, this refers to the monopole component of the correlation function. Given advances in renormalised perturbation theory (RPT), and progress in accurately modelling non-linear growth \citep{CrocceScoccimarro2006, Matsubara2008Resumming, Matsubara2008, TaruyaNishimichi2009}, it is now possible to correct for some sources of anisotropy, allowing a one dimensional BAO signal to be reconstructed from two dimensional galaxy distribution data that provides better signal than the unreconstructed data \citep{EisensteinSeoSirko2007, SeoEckelEisenstein2010, PadmanabhanXuEisenstein2012, KazinKoda2014}. \\
+The anisotropies present in the correlation function can be decomposed using multipole expansion, as illustrated in Figure \ref{fig:xi2d}. In prior studies that examine the one dimensional angle-averaged BAO peak, this refers to the monopole component of the correlation function. Given advances in renormalised perturbation theory (RPT), and progress in accurately modelling non-linear growth \citep{CrocceScoccimarro2006, Matsubara2008Resumming, Matsubara2008, TaruyaNishimichi2009}, it is now possible to correct for some sources of anisotropy, allowing a one dimensional BAO signal to be reconstructed from two dimensional galaxy distribution data that provides better signal than the unreconstructed data \citep{EisensteinSeoSirko2007, SeoEckelEisenstein2010, PadmanabhanXuEisenstein2012, KazinKoda2014}. \\
 
 \begin{figure}[h!]
 %\begin{wrapfigure}{r}{0.5\textwidth}
@@ -324,7 +328,7 @@ The anisotropies present in the correlation function can also be decomposed usin
 \end{figure}
 
 
-Constructing a correlation function using an underlying cosmology is computationally expensive, and thus not desired when running numerical fits to the correlation function. Fortunately, one does not have to recompute the correlation function when doing model testing for each new parametrization of the model, one can instead create a correlation function using an underlying fiducial cosmology, and test similar cosmologies by introducing scaling factors (such as scaling distance or amplitude), where the the best fit values to the scaling parameters can be used to determine the correct perturbation to the fiducial cosmology that recovers the actual cosmology in the universe \citep{SanchezScoccola2012}. The process of constraining cosmology therefore involves utilising a set fiducial model, extracting the correlation function from the galaxy distribution, fitting a cosmological model to this correlation function, and then combining the fit results with the fiducial model to get the final cosmological constraints.
+Constructing a correlation function using an underlying cosmology is computationally expensive, and thus not desired when running numerical fits to the correlation function. Fortunately, one does not have to recompute the correlation function when doing model testing for each new parametrization of the model, one can instead create a correlation function using an underlying fiducial cosmology, and test similar cosmologies by introducing scaling factors (such as scaling distance or amplitude), where the the best fit values to the scaling parameters can be used to determine the correct perturbation to the fiducial cosmology that recovers the actual cosmology in the universe \citep{SanchezScoccola2012}. The process of constraining cosmology therefore involves utilising a set fiducial model, extracting the correlation function from the galaxy distribution, fitting a cosmological model to this correlation function, and then combining the fit results with the fiducial model to get the final cosmological constraints.\\
 
 
 
@@ -342,7 +346,7 @@ A(z) \equiv D_V(z) \frac{\sqrt{\Omega_m H_0^2}}{cz}.
 
 
 
-Decomposing the BAO signal into the line of sight and tangential components has only recently become possible as doing so requires a greater amount of data than many prior surveys have gathered (for example, \citet{OkumuraMatsubara2008} concluded DR3 of Sloan Digital Sky Survey was not sufficient for robust detection of the BAO peak). For robust detection survey criteria should have the number of targets on the order of $10^5$ or more, and span a volume of at least a cubic Gpc \citep{Tegmark1997,BlakeGlazebrook2003,BlakeParkinson2006}. Modern technological advances are helping increase galaxy survey counts rapidly, which will make BAO analysis even more important in the next generation of surveys. To illustrate the growth in survey counts over time, consider a short chronology of cosmological surveys:
+Decomposing the BAO signal into the line of sight and tangential components has only recently become possible as doing so requires a greater amount of data than many prior surveys have gathered (for example, \citet{OkumuraMatsubara2008} concluded DR3 of Sloan Digital Sky Survey was not sufficient for robust detection of the BAO peak). For robust detection survey criteria should have the number of targets on the order of $10^5$ or more, and span a volume of at least a cubic Gpc \citep{Tegmark1997,BlakeGlazebrook2003,BlakeParkinson2006}. Modern technological advances are helping increase galaxy survey counts rapidly, which will make BAO analysis even more important in the next generation of surveys. To illustrate the growth in survey counts over time, consider a short chronology of completed, undergoing and proposed cosmological surveys:
 \begin{itemize}
 \item The Point Source Catalog Redshift Survey surveyed $\sim 15\,000$ galaxies using the Infrared Astronomical Satellite \citep{SaundersSutherland2000}.
 \item The 2dF Galaxy Redshift Survey got determined redshifts of $221\,414$ galaxies \citep{CollessPeterson2003} over an area of 1500 square degrees.
@@ -356,10 +360,10 @@ Decomposing the BAO signal into the line of sight and tangential components has 
 
 
 
-
+\newpage
 \section{WiggleZ} \label{sec:wigglez}
 
-The WiggleZ Dark Energy Survey was carried out between 2006 to 2011 at the Australian Astronomical Observatory over the course of 276 nights \citep{Drinkwater2010}. The survey measured redshifts of $225\,415$ galaxy spectra targeting blue emission-line galaxies in a redshift range of $0.2 < z < 1.0$. The target selection function is summarised in \citet{BlakeDavis2011}, and explained in detail in \citet{BlakeBrough2010}. \\
+The WiggleZ Dark Energy Survey was carried out between 2006 to 2011 at the Australian Astronomical Observatory over the course of 276 nights \citep{Drinkwater2010}. The survey measured redshifts of $225\,415$ galaxy spectra, targeting blue emission-line galaxies in a redshift range of $0.2 < z < 1.0$. The target selection function is summarised in \citet{BlakeDavis2011}, and explained in detail in \citet{BlakeBrough2010}. \\
 
 A variety of prior analyses have been conducted on the WiggleZ dataset. As the survey meets the criteria for being able to detect the BAO signal - volumes of order 1 Gpc$^3$ with order of $10^5$ redshifted galaxies \citep{Tegmark1997,BlakeGlazebrook2003,BlakeParkinson2006} - this includes analyses of the BAO signal.\\
 
@@ -390,7 +394,7 @@ ContrerasBlake2013      -> 2D fit to correlation function, but only to redshift 
 
 One investigation that has not been undertaken with the WiggleZ data is a two dimensional analysis of full BAO signal across all available redshift bins. Whilst this may not give tight cosmological constraints due to the number of galaxies being only above the bare minimum needed to detect the 2D BAO peak, the methodology used in such an analysis is directly applicable to future surveys.\\
 
-A recent improvement to the WiggleZ survey is the creation of accurate mock catalogues from the WizCOLA simulations \citep{KodaBlake2015}. The simulations provide covariance estimates at greater accuracy than the log-normal realisations used in previous analyses, and serve the added purpose of allowing me to check that correlation function is sufficiently accurate that I can recover the simulation cosmology.\\
+A recent improvement to the WiggleZ survey is the creation of accurate mock catalogues from the WizCOLA simulations \citep{KodaBlake2015}. The simulations provide covariance estimates at greater accuracy than the log-normal realisations used in previous analyses, and serve the added purpose of allowing me to check that my model correlation function is sufficiently accurate that I can recover the simulation cosmology.\\
 
 \begin{figure}[h!]
 %\begin{wrapfigure}{r}{0.5\textwidth}
@@ -406,7 +410,7 @@ A recent improvement to the WiggleZ survey is the creation of accurate mock cata
 
 \section{Markov Chain Monte Carlo}
 
-When fitting a model, the simplest approach is to generate a grid of parameters in which to search and fit each point in the grid. Unfortunately, this approach becomes infeasible as the number of parameters in your model increases, due to grid search scaling as a function of $\mathcal{O}(r^n)$, where $r$ represents the grid resolution and $n$ the number of parameters in the model.  As cosmological models often have a high number of parameters (also referred to as dimensions or degrees of freedom), they require a different fitting approach. A popular solution do this problem is to use Markov chain Monte Carlo (MCMC) methods, which allow fitting to high dimension models without the rapidly expanding search size found in grid searches.\\
+When fitting a model, the simplest approach is to generate a grid of parameters in which to search and fit each point in the grid. Unfortunately, this approach becomes infeasible as the number of parameters in your model increases, due to grid search scaling as a function of $\mathcal{O}(r^n)$, where $r$ represents the grid resolution and $n$ the number of parameters in the model.  As cosmological models often have a high number of parameters (also referred to as dimensions or degrees of freedom), they require a different fitting approach. A popular solution do this problem is to use Markov Chain Monte Carlo (MCMC) methods, which allow fitting to high dimension models without the rapidly expanding search size found in grid searches.\\
 
 In general, a Markov chain is a stochastic process that satisfies the Markov property - that the probability  of the next state is dependent only on the current state and no prior states \citep{Markov1988theory}. This property, also known as the chain being memoryless, forms the core of the MCMC algorithm. To complete the definition, a Monte Carlo method is a class of algorithms that utilise distributions of random sampling results to produce results. There are many different classes of MCMC algorithms, but we shall only consider the popular Metropolis-Hastings (MH) algorithm used in the model fitting in this document. The probability distributions obtained from performing an MH MCMC analysis are useful specifically because the method of selecting or rejecting potential points is chosen such that the resultant probability distribution is proportional to the (unknown) underlying probability distribution for the model \citep{Hobson2010bayesian, Ivezic2013}. Given a point in chain $\theta_i$, a random variable $u$ (which generates a random number between zero and one), and the likelihood function for an arbitrary potential point $y$ as $Q(y|\theta_i)$, the Metropolis-Hastings algorithm gives the next sample in the chain as 
 \begin{align}
@@ -421,7 +425,7 @@ It is through the function $Q(y|\theta_i)$ that we can constrain the distributio
 \end{align}
 we select $Q(y|\theta_i) = \exp(-\Delta \chi^2 / 2)$. Proposing points close to the current point generally results in a small $\Delta \chi^2$ and thus a high acceptance ratio of new points, whilst selecting points `far away' often gives rise to a large $\Delta \chi^2$, which, due to the exponential nature of the selection function, are often rejected. The method for selecting proposal points is to use a Gaussian random variable for each parameter, centred at the current point. The width of this Gaussian can then be tuned to ensure that an optimal rejection rate is achieved. Rejecting too many points results in a distribution with less points, whilst having too high an acceptance ratio often makes the walk too slow to converge. Due to the selection function, it can be seen that the walks (the chain of points) tend to walk towards lower $\chi^2$ values. The initial process of starting at a random point and walking down the $\chi^2$ slope until the sample becomes stationary (the chain is irreducible, aperiodic, and positive recurrent) is known as the burn-in period, and must be removed from the final distribution. Similarly, consecutive points give rise to traces of auto-correlation in the final distribution, and a thinning of the walk samples is also normally undertaken to make samples independent \citep{Gilks1995markov}. The final distribution should then be proportional to the underlying probability surface, and as such the distribution of parameters in the chain can be used to determine parameter constraints.\\
 
-To ensure the final distribution is accurate, many tests can be applied to the distribution. For these tests, most require that more than one walk was run, such that it becomes possible to confirm that all walks converged to the same distribution. These convergence diagnostics are varied, from the Gelman-Rubin statistic, Geweke diagnostic, Raftery and Lewis's diagnostic and the Heidelberg and Welch diagnostic \citep{CowlesCarlin1996,Gilks1995markov}. To ensure chain convergence I test all fits generated in the development of this document using the Gelman-Rubin statistic, which calculates the ratio between the variance in separate chains and the variance of the total distribution, where a value divergent from unity indicates unsatisfactory mixing and convergence between different walks.\\
+To ensure the final distribution is accurate, many tests can be applied to the distribution. For these tests, most require that more than one walk was run, such that it becomes possible to confirm that all walks converged to the same distribution. These convergence diagnostics are varied, from the Gelman-Rubin statistic, Geweke diagnostic, Raftery and Lewis's diagnostic and the Heidelberg and Welch diagnostic \citep{Gilks1995markov,CowlesCarlin1996}. To ensure chain convergence I test all fits generated in the development of this document using the Gelman-Rubin statistic, which calculates the ratio between the variance in separate chains and the variance of the total distribution, where a value divergent from unity indicates unsatisfactory mixing and convergence between different walks.\\
 
 Due to the ability for MCMC algorithms to handle models with a high number of dimensions, it is a very popular choice in cosmological model fitting and testing. A program called \textsc{cosmomc} was written to generate MCMC walks using cosmological data sets \citep{LewisBridle2002}, in which a FORTRAN program generates walks, and a Python module is used to extract results from these distributions. Many prior studies utilise this software, however for this analysis I wrote my own MCMC code that does not utilise \textsc{cosmomc}.
 
@@ -448,18 +452,18 @@ Due to the ability for MCMC algorithms to handle models with a high number of di
 \chapter{Prior Literature}
 
 
-Initial detection of the BAO signal is not limited to the latest generation of surveys;
-\cite{ColePercival2005} and \citet{PercivalBaugh2001} detected hints of the BAO signal in 2-degree Field Galaxy Redshift Survey,  \citet{MillerNichol2001} combined smaller datasets and also detected the BAO signal. It was only with larger surveys that the significance of the BAO signal became sufficient to be able to extract cosmological constraints, and this was first done by \citet{EisensteinZehavi2005}, who reported a convincing BAO detection in the 2-point correlation function of the SDSS \citep[SDSS]{YorkAdelmanAnderson2000} DR3 Luminous Red Galaxy (LRG) sample at $z = 0.35$. In this section, I will introduce some modern analyses of the BAO signal in different surveys, and detail their model creation process.\\
+Initial detection of the BAO signal is not limited to the latest generation of surveys; \citet{PercivalBaugh2001}
+ and \citet{ColePercival2005} detected hints of the BAO signal in 2-degree Field Galaxy Redshift Survey, and \citet{MillerNichol2001} combined smaller datasets and also detected the BAO signal. It was only with larger surveys that the significance of the BAO signal became sufficient to be able to extract cosmological constraints, and this was first done by \citet{EisensteinZehavi2005}, who reported a convincing BAO detection in the 2-point correlation function of the SDSS \citep[SDSS]{YorkAdelmanAnderson2000} DR3 Luminous Red Galaxy (LRG) sample at $z = 0.35$. In this section, I will introduce some modern analyses of the BAO signal in different surveys, and detail their model creation process.\\
 
-Whilst increased target counts is possible by using photometric redshifts instead of spectroscopic redshifts \citep[see][for analysis of the BAO signal from the SDSS Luminous Red Galaxies (LRGs) catalogue]{BlakeCollister2007,Padmanabhan2007,HoCuesta2012}, the increased uncertainty associated with photometric analysis makes BAO analysis only possible with tomographic projection, and has not been achieved yet in cosmological surveys. As such the papers investigated in this section will be limited to those utilising spectroscopic data.\\
+Whilst increased target counts is possible by using photometric redshifts instead of spectroscopic redshifts \citep[see][for analysis of the BAO signal from the SDSS Luminous Red Galaxies (LRGs) catalogue for further examples]{BlakeCollister2007,Padmanabhan2007,HoCuesta2012}, the increased uncertainty associated with photometric analysis makes BAO analysis only possible with tomographic projection, and has not been achieved yet in cosmological surveys. As such the papers investigated in this section will be limited to those utilising spectroscopic data.\\
 
-As discussed in \S\ref{sec:wigglez} the WiggleZ dataset has had the BAO signal analysed in previous studies. The signal has in fact been analysed using the complete dataset, where \citet{BlakeKazin2011} measured the BAO feature at $z=0.6$, making a distance measurement accurate to 4\%. The measurement was refined by  \citet{BlakeDavis2011} by breaking the analysis into separate redshift bins, which respectively provided distance measurements of accuracy 7.2\%, 4.5\% and 5.0\% in three bins centred at redshifts $z=0.44,0.6,0.73$. \citet{BeutlerBlake2011} made a distance measurement at $z=0.106$ with 6dF Galaxy Redshift Survey \cite[6dFGRS:][]{JonesRead2009} accurate to 4.5\%. The Sloan Digital Sky Survey (SDSS) has also had multiple BAO analyses carried out after their data releases. One example is that of \citet{PercivalReid2010}, who did power-spectrum analysis of SDSS DR7 and achieved a 2.7\% accurate measurement of distance-redshift relation centred at redshift $z=0.275$. The SDSS dataset is rich enough that many different analyses of galaxy distribution have been carried out, using analyses of the power spectrum \citep{TegmarkBlanton2004,Huetsi2005,BlakeCollister2007,Padmanabhan2007, PercivalCole2007,PercivalReid2010, ReidPercival2010}, or analyses of the correlation function \citep{EisensteinZehavi2005, Sanchez2009, OkumuraMatsubara2008, CabreGaztanaga2009, Martinez2009,KazinBlanton2010,ChuangWangHemantha2012}. Other studies using SDSS LRG sample include \citet{Huetsi2006, PercivalNichol2007,Sanchez2009, KazinBlanton2010}, but shall not be investigated in detail in this document.\\
-
-
+As discussed in \S\ref{sec:wigglez} the WiggleZ dataset has had the BAO signal analysed in previous studies. The signal has in fact been analysed using the complete dataset, where \citet{BlakeKazin2011} measured the BAO feature at $z=0.6$, making a distance measurement accurate to 4\%. The measurement was refined by  \citet{BlakeDavis2011} by breaking the analysis into separate redshift bins, which respectively provided distance measurements of accuracy 7.2\%, 4.5\% and 5.0\% in three bins centred at redshifts $z=0.44,0.60,0.73$. \citet{BeutlerBlake2011} made a distance measurement at $z=0.106$ with 6dF Galaxy Redshift Survey \cite[6dFGRS:][]{JonesRead2009} accurate to 4.5\%. The Sloan Digital Sky Survey (SDSS) has also had multiple BAO analyses carried out after their data releases. One example is that of \citet{PercivalReid2010}, who did power-spectrum analysis of SDSS DR7 and achieved a 2.7\% accurate measurement of distance-redshift relation centred at redshift $z=0.275$. The SDSS dataset is rich enough that many different analyses of galaxy distribution have been carried out, using analyses of the power spectrum \citep{TegmarkBlanton2004,Huetsi2005,BlakeCollister2007,Padmanabhan2007, PercivalCole2007,PercivalReid2010, ReidPercival2010}, or analyses of the correlation function \citep{EisensteinZehavi2005, Sanchez2009, OkumuraMatsubara2008, CabreGaztanaga2009, Martinez2009,KazinBlanton2010,ChuangWangHemantha2012}. Other studies using SDSS LRG sample include \citet{Huetsi2006, PercivalNichol2007,Sanchez2009, KazinBlanton2010}, but shall not be investigated in detail in this document.\\
 
 
 
-Given the finalisation of the WiggleZ dataset, the main challenge performing the 2D BAO analysis involves creating an accurate cosmological model that can be compared to the dataset. I have therefore selected several relevant prior studies that span multiple methodologies for both 1D and 2D analysis, and have investigated their model construction methodologies. From the chosen studies, \citet{CabreGaztanaga2009} measured the linear redshift space distortion parameter $\beta$, galaxy bias $b$ and mean density $\sigma_8$ from SDSS DR6 LRGs. \citet{Gaztanaga2009} obtained measurement of $H(z)$ by measuring the shape of the two point correlation function along line of sight. \citet{KazinBlanton2010} determines $D_V$ from analysis of the 1D BAO signal in SDSS DR7 LRGs. \citet{ChuangWangHemantha2012} gives a method to obtain constraints without assuming dark energy model of flat universe. \citet{SanchezKazinBeutler2013} and \citet{Kazin2010} extract cosmological constraints from the 2D BAO signal using the BOSS dataset. Combined, these analyses provide multiple methodologies for constructing a 1D BAO model, and then adding anisotropic features to generate a 2D model.
+
+
+Given the finalisation of the WiggleZ dataset, the main challenge performing the 2D BAO analysis involves creating an accurate cosmological model that can be compared to the dataset. I have therefore selected several relevant prior studies that span multiple methodologies for both 1D and 2D analysis, and have investigated their model construction methodologies. From the chosen studies, \citet{CabreGaztanaga2009} measured the linear redshift space distortion parameter $\beta$, galaxy bias $b$ and mean density $\sigma_8$ from SDSS DR6 LRGs. \citet{Gaztanaga2009} obtained measurement of $H(z)$ by measuring the shape of the two point correlation function along line of sight. \citet{KazinBlanton2010} determines $D_V$ from analysis of the 1D BAO signal in SDSS DR7 LRGs. \citet{ChuangWangHemantha2012} gives a method to obtain constraints without assuming dark energy model of flat universe. \citet{Kazin2010} and \citet{SanchezKazinBeutler2013} extract cosmological constraints from the 2D BAO signal using the BOSS dataset. Combined, these analyses provide multiple methodologies for constructing a 1D BAO model, and then adding anisotropic features to generate a 2D model.
 
 
 \section{Correlation function and Covariance Matrix}
@@ -473,7 +477,7 @@ where $D$ is used to denote the observed distribution and $R$ a random distribut
 
 Successive data points in a galaxy correlation function are highly correlated, and as such accurate estimation of the covariance between points is critical in being able to generate correct results. A popular methodolody is to estimate covariance through the utilisation of simulations created to replicate survey conditions and geometry. As with \citet{SanchezScoccola2012}, \citet{AndersonAubourg2012} states that the dataset covariance for the BOSS data was recovered from 600 galaxy mock catalogues, as detailed in \citet{ManeraScoccimarro2013}. For more detail, the mocks were generated using a method similar to PTHalos \citep{ScoccimarroSheth2002}, in which second order perturbation theory (2LPT) was used to generate the matter fields corresponding to the fiducial cosmology, and these fields were calibrated using suite of $N$-body simulations from LasDamas \citep{McBride2011}. The halos were populated with galaxies using a halo occupation distribution as described by \citet{ZhengCoilZehavi2007}. Mocks were then reshaped to fit the survey geometry and modified so as to include redshift-space distortions, follow sky completeness and downsampled to match the radial number density of observed data. Covariance was calculated for the LRG dataset of SDSS with the use of 216 mock catalogues \citep[MICEL7860; see][for details]{FosalbaGaztanaga2008, CrocceFosalbaCastander2010}, and \citet{Gaztanaga2009} compared this covariance to Jack-knife error and analytic error estimation. Agreement between comparisons validated the analytic error model, which is used in rest of their analysis.\\
 
-\citet{BlakeDavis2011} utilised a series of lognormal realisations to estimate uncertainty in the binned data points. Lognormal realisations are reasonably accurate whilst the data remains in the linear and quasi-linear regimes, which is generally sufficient for analysis of large scale structure such as the BAO \citep{ColesJones1991}. The method of generating these realisations is detailed \citet{BlakeGlazebrook2003} and \citet{GlazebrookBlake2005}. In contrast to this, I will be using uncertainties derived from the WizCOLA simulations \citep{KodaBlake2015}. These use a technique to create fast simulations that are more accurate than lognormal realisations in the non-linear regime. Although WizCOLA simulations are but not as accurate as a full $N$-body simulations, they are much faster to generate. That means they are ideal in situation where many realisations of a survey are required - as is true in my case as I need to calculate the covariance between data points in our WiggleZ 2D correlation function.
+\citet{BlakeDavis2011} utilised a series of lognormal realisations to estimate uncertainty in the binned data points. Lognormal realisations are reasonably accurate whilst the data remains in the linear and quasi-linear regimes, which is generally sufficient for analysis of large scale structure such as the BAO \citep{ColesJones1991}. The method of generating these realisations is detailed \citet{BlakeGlazebrook2003} and \citet{GlazebrookBlake2005}. In contrast to this, I will be using uncertainties derived from the WizCOLA simulations \citep{KodaBlake2015}. These use a technique to create fast simulations that are more accurate than lognormal realisations in the non-linear regime. Although WizCOLA simulations are not as accurate as a full $N$-body simulations, they are much faster to generate. That means they are ideal in situation where many realisations of a survey are required, from which one can calculate correlation function covariance.
 
 
 
@@ -487,11 +491,11 @@ Whilst the physical considerations taken into account when modelling the correla
 \subsection{Base Model}
 All studies investigated begin with a linear power spectrum $P_{\rm{lin}}(k)$, which is commonly generated using the \camb{} software created by \citet{Lewis2000}. $P_{\rm{lin}}(k)$ is calculated by treating overdensities and underdensities as small perturbations in a homogeneous background. These density fluctuations are then evolved using linear perturbation theory, and as such are valid only for small fluctuations $\delta$ such that $\delta \equiv (\rho - \bar{\rho})/\bar{\rho} \ll 1$. Density fluctuations on the scale of galactic structures are firmly in the non-linear regime, and thus the linear model only forms the beginning of our model. Methods exist for including non-linear growth, the most accurate of which are $N$-body simulations. I discuss how I take non-linear growth into account in \S\ref{sec:nonlinear}.\\
 
-The default \camb{} software, utilised by \citet{ChuangWang2012,BlakeDavis2011} test the default Flat $\Lambda$CDM cosmology. Modifications to \camb{} to support other cosmologies is possible \citep{SanchezScoccola2012, FangHuLewis2008, KeislerReichardt2011, ConleyGuySullivan2011}, however my analysis does not extend to that scope and as such I shall utilise the base version of \camb{} to generate a linear power spectrum.
+The default \camb{} software, utilised by \citet{ChuangWang2012,BlakeDavis2011} test the default Flat $\Lambda$CDM cosmology. Modifications to \camb{} to support other cosmologies is possible \citep{FangHuLewis2008, KeislerReichardt2011, ConleyGuySullivan2011, SanchezScoccola2012}, however my analysis does not extend to that scope and as such I shall utilise the base version of \camb{} to generate a linear power spectrum.
 
 \subsection{BAO damping}
 
-One of the common quasilinear effects taken into account by all studies is that of BAO peak smoothing caused by displacement of matter due to bulk flows \citep{EisensteinSeoWhite2007,CrocceScoccimarro2008,Matsubara2008,CrocceScoccimarro2006}. The degradation in the acoustic peak can be modelled with a smoothing parameter \citep{CrocceScoccimarro2008}, which was tested by \citet{SanchezBaughAngulo2008} against $N$-body simulations and subsequently used in many analyses \citep{BlakeDavis2011,EisensteinZehavi2005,Sanchez2009,BeutlerBlake2011}. This smoothing parameter takes the form of a Gaussian dampening term which reduces the amplitude of the BAO signal as a function of $k$:
+One of the common quasilinear effects taken into account by all studies is that of BAO peak smoothing caused by displacement of matter due to bulk flows \citep{CrocceScoccimarro2006, EisensteinSeoWhite2007,CrocceScoccimarro2008,Matsubara2008}. The degradation in the acoustic peak can be modelled with a smoothing parameter \citep{CrocceScoccimarro2008}, which was tested by \citet{SanchezBaughAngulo2008} against $N$-body simulations and subsequently used in many analyses \citep{Sanchez2009, BlakeDavis2011,BeutlerBlake2011}. This smoothing parameter takes the form of a Gaussian dampening term which reduces the amplitude of the BAO signal as a function of $k$:
 \begin{align} \label{{eq:blake1}}
 P_{\rm{dw}}(k) = \exp(-k^2 \sigma_v^2) P_{\rm{lin}}(k) + (1 - \exp(-k^2 \sigma_v^2)) P_{\rm{nw}}(k),
 \end{align}
@@ -499,7 +503,7 @@ where $P_{\rm{nw}}(k)$ is a power spectrum without the BAO signal (the BAO peak 
 \begin{align}
 P_{\rm{dw}}(k) = \left[ P_{\rm{lin}}(k) - P_{\rm{nw}}(k) \right] e^{-k^2 \Sigma_{\rm{NL}}^2 / 2} + P_{\rm{nw}}(k),
 \end{align}
-where we can see that we have different notation for the smoothing parameter, giving $\sigma_v = \Sigma_{\rm{NL}} / \sqrt{2}$. Analogous approaches are also utilised by \citet{MontesanoSanchezPhelps2012} and \citet{SanchezScoccola2012}, and the effect of damping the BAO signal is shown in Figure \ref{fig:dwExample}.
+where we can see that we have different notation for the smoothing parameter, giving $\sigma_v = \Sigma_{\rm{NL}} / \sqrt{2}$. Analogous approaches are also utilised by \citet{MontesanoSanchezPhelps2012} and \citet{SanchezScoccola2012}, and the effect of damping the BAO signal is shown in Figure \ref{fig:dwExample}.\\
 
 
 
@@ -515,7 +519,7 @@ where we can see that we have different notation for the smoothing parameter, gi
 
 
 
-Whilst advances in renormalization perturbation theory (RPT)  \citep{CrocceScoccimarro2008} allow a theoretical determination of $\sigma_v$ as
+Whilst advances in renormalization perturbation theory (RPT) \citep{CrocceScoccimarro2008} allow a theoretical determination of $\sigma_v$ as
 \begin{align} \label{eq:sigmav}
 \sigma_v^2 = \frac{1}{6\pi^2} \int P_{\rm{lin}}(k)\, dk,
 \end{align}
@@ -530,9 +534,8 @@ The power spectrum without the BAO signal present is generated using the \verb;t
 \subsection{Non-linear growth}\label{sec:nonlinear}.
 
 The non-linear effects of gravitational growth require model corrections to account for the enhancement of small scale structure growth that was not modelled with linear perturbation theory. The software package \halofit{} from \citet{Smith2003} is utilised by many studies to generate a power ratio $r_{\rm{halo}}$ as a function of $k$ \citep{ReidPercival2010, BlakeDavis2011, ChuangWang2012}, which is applied onto the model:
- as a function of $k$, such that we have
 \begin{align}
-P_{\text{nl}} = P_{\text{dw}} r_{\text{halo}}
+P_{\text{nl}} = P_{\text{dw}} r_{\text{halo}}.
 \end{align}
 Figure \ref{fig:nlExample} has been created to help visualise the effects from non-linear growth. \citet{XuPadmanabhan2012} does not detail this step in their model creation, but instead, after converting to the power spectrum $P_{\rm{dw}}(k)$ to a correlation function $\xi(s)$, add a nuisance function $A(s)$, such that
 \begin{align} \label{eq:as}
@@ -563,7 +566,7 @@ which acts to marginalise over any changes in broad correlation shape which the 
 \end{figure}
 
 
-As illustrated in Figure \ref{fig:bias}, we observe galaxy density and not the true underlying total matter (dark matter and standard matter) distribution, and as such a biasing term $b$ is required to move from a matter power spectrum to a galaxy power spectrum. This is often incorporated into the model as a factor $b^2$ in the correlation function, such that $\xi_g(s) = b^2 \xi(s)$, or equivalently into the power spectrum, giving $P_g(k) = b^2 P_{\rm{nl}}(k)$ \citep{BlakeDavis2011, ChuangWang2012, XuPadmanabhan2012, AndersonAubourg2012, MontesanoSanchezPhelps2012}. In case of any dependence between the cosmological model and non-linear corrections added using \halofit{}, \citet{ReidPercival2010} expands upon the bias factor of $b^2$, instead utilising a more complex model that introduces scale dependent bias:
+As illustrated in Figure \ref{fig:bias}, we observe galaxy density and not the true underlying total matter (dark matter and standard matter) distribution, and as such a biasing term $b$ is required to move from a matter power spectrum to a galaxy power spectrum. This is often incorporated into the model as a factor $b^2$ in the correlation function, such that $\xi_g(s) = b^2 \xi(s)$, or equivalently into the power spectrum, giving $P_g(k) = b^2 P_{\rm{nl}}(k)$ \citep{BlakeDavis2011, AndersonAubourg2012, ChuangWang2012, MontesanoSanchezPhelps2012, XuPadmanabhan2012}. In case of any dependence between the cosmological model and non-linear corrections added using \halofit{}, \citet{ReidPercival2010} expands upon the bias factor of $b^2$, instead utilising a more complex model that introduces scale dependent bias:
 \begin{align}
 F(k) = b^2\left(1 + a_1 \left(\frac{k}{k_*}\right) a_2 \left( \frac{k}{k_*} \right)^2 \right),
 \end{align}
@@ -611,13 +614,13 @@ where $P_{g}$ is the power spectrum of galaxy density fluctuations $\delta_g$, $
 \begin{align}
 \beta \approx \frac{\Omega_m^{0.55}}{b}.
 \end{align}
-This correction for the Kaiser effect has been utilised by \citet{ChuangWang2012, XuPadmanabhan2012, Gaztanaga2009} for identifying the unreconstructed BAO signal in survey data. When reconstructing the BAO signal \citep[see][for details]{KazinKoda2014,PadmanabhanXuEisenstein2012}, the Kaiser effect is corrected for and thus does not have to be inserted into the cosmological model.
+This correction for the Kaiser effect has been utilised by \citet{Gaztanaga2009, ChuangWang2012, XuPadmanabhan2012} for identifying the unreconstructed BAO signal in survey data. When reconstructing the BAO signal \citep[see][for details]{PadmanabhanXuEisenstein2012,KazinKoda2014}, the Kaiser effect is corrected for and thus does not have to be inserted into the cosmological model.
 
 
 
 \subsubsection{Fingers of God}
 
-Peculiar velocity does not have to be coherent to effect observational cosmology, and the random peculiar velocities of galaxies in clusters, which are related to the cluster mass via the virial theorem, create artefacts known as Fingers of God that elongate the observed position of galaxies along the line of sight. This is illustrated in Figure \ref{fig:fingersOfGod}. \citet{SanchezKazinBeutler2013} incorporates this effect via an additional exponential prefactor:
+Peculiar velocity does not have to be coherent to effect observational cosmology, and the random peculiar velocities of galaxies in clusters, which are related to the cluster mass via the virial theorem, create artefacts known as Fingers of God. Fingers of God elongate the observed position of galaxies along the line of sight, as illustrated in Figure \ref{fig:fingersOfGod}. \citet{SanchezKazinBeutler2013} incorporates this effect via an additional exponential prefactor:
 \begin{align}
 P_{\rm{gal}} = \left( \frac{1}{1 + (k f \sigma_v \mu )^2} \right)^2  P_{\rm{nl}}(k, \mu), \label{eq:lorentzian}
 \end{align}
@@ -639,9 +642,7 @@ following \citet{Peebles1980}, where the random motions take exponential form \c
 \begin{align}
 f(v) = \frac{1}{\sigma_v \sqrt{2}} \exp\left(- \frac{\sqrt{2}\abs{v}}{\sigma_v} \right)
 \end{align}
-where $\sigma_v$ is the pairwise peculiar velocity dispersion, and not to be confused with the $\sigma_v$ denoted in the Gaussian dampening used by \citet{BlakeDavis2011}.
-
-In all of these analyses, the distribution itself is marginalised over, where $\sigma_v$, is often set as a free parameter.
+where $\sigma_v$ is the pairwise peculiar velocity dispersion, and not to be confused with the $\sigma_v$ denoted in the Gaussian dampening used by \citet{BlakeDavis2011}. In all of these analyses, the distribution itself is marginalised over, where $\sigma_v$ is often set as a free parameter. In my analysis, I will follow the Lorentzian methodology utilised by \citet{BlakeBroughColless2011}.
 
 %{\red question for Tam: \citet{BlakeBroughColless2011} investigated a wide array of ways to model $f$. Is this of any use to me?}
 %, testing 18 models from \citet{HattonCole1998, Vishniac1983, CrocceScoccimarro2006, Matsubara2008Resumming, TaruyaNishimichiSaito2010, Smith2003, JenningsBaughPascoli2011} using the WiggleZ dataset. \citet{ } found the two quasi-linear 
@@ -669,10 +670,10 @@ where $j_\ell(ks)$ are spherical Bessel functions of the first kind. As the incr
 
 \subsubsection{Wedges} \label{sec:prior:cor:wedge}
 
-Having obtained the multipole expansion of the correlation function, a 2D analysis can reconstruct the parallel to line-of-sight and perpendicular to line-of-sight correlation functions \citep{KazinSanchezBlanton2012, SanchezKazinBeutler2013}
+Having obtained the multipole expansion of the correlation function, a 2D analysis can reconstruct the parallel to line-of-sight and perpendicular to line-of-sight correlation functions \citep{KazinSanchezBlanton2012, SanchezKazinBeutler2013}, where the correlation functions are given as 
 \begin{align}
-\xi_\perp(s) &= \xi_0(s) - \frac{3}{8} \xi_2(s) + \frac{15}{128} \xi_4(s) \\
-\xi_\parallel(s) &= \xi_0(s) + \frac{3}{8} \xi_2(s) - \frac{15}{128} \xi_4(s)
+\xi_\perp(s) &= \xi_0(s) - \frac{3}{8} \xi_2(s) + \frac{15}{128} \xi_4(s), \\
+\xi_\parallel(s) &= \xi_0(s) + \frac{3}{8} \xi_2(s) - \frac{15}{128} \xi_4(s).
 \end{align}
 The distance scale is transformed via
 \begin{align}
@@ -681,35 +682,35 @@ s_\parallel &\rightarrow \alpha_\parallel s_\parallel,
 \end{align}
 which is respectively used to constrain
 \begin{align}
-\alpha_\perp &= \frac{D_A(z)}{D_A^{\mathcal{D}}(z)} \\
+\alpha_\perp &= \frac{D_A(z)}{D_A^{\mathcal{D}}(z)}, \\
 \alpha_\parallel &= \frac{H^{\mathcal{D}}(z)}{H(z)},
 \end{align}
-where the superscript $\mathcal{D}$ is used to denote the fiducial value of the model. Having defined $\alpha_\perp$ and $\alpha_\parallel$, they are used to define transformation functions:
+where the superscript $\mathcal{D}$ is used to denote the value given from fiducial cosmology. Having defined $\alpha_\perp$ and $\alpha_\parallel$, they are used to define transformation functions:
 \begin{align}
 s(\mu^\prime, s^\prime) &= s^\prime \sqrt{\alpha_\parallel^2(\mu^\prime)^2 + \alpha_\perp^2 (1 - (\mu^\prime)^2)}, \\
 \mu(\mu^\prime) &= \frac{\alpha_\parallel \mu^\prime}{\sqrt{\alpha_\parallel^2(\mu^\prime)^2 + \alpha_\perp^2 (1 - (\mu^\prime)^2)}},
 \end{align}
 where data wedges can be extracted via
 \begin{align}
-\xi^\prime_{\Delta \mu}(s^\prime) = \frac{1}{\Delta \mu^\prime} \int_{\mu^\prime_{\rm{min}}}^{\mu^\prime_{\rm{max}}} \xi(\mu(\mu^\prime), s(\mu^\prime, s^\prime)) d\mu^\prime
+\xi^\prime_{\Delta \mu}(s^\prime) = \frac{1}{\Delta \mu^\prime} \int_{\mu^\prime_{\rm{min}}}^{\mu^\prime_{\rm{max}}} \xi(\mu(\mu^\prime), s(\mu^\prime, s^\prime)) d\mu^\prime.
 \end{align}
-In both the analyses by \citet{KazinSanchezBlanton2012} and \citet{SanchezKazinBeutler2013}, the observational data is found in two wedges, corresponding to $0 < \mu < 0.5$ and $0.5 < \mu < 1$ respectively. When considering only one dimensional BAO analysis, such as in \citet{BlakeDavis2011}, the monopole moment has its $s$ transformed to $\alpha s$ similar to for the 2D case where this is simply a horizontal scaling, where we can now provide constraints on $D_V(z)$ via
+In both the analyses by \citet{KazinSanchezBlanton2012} and \citet{SanchezKazinBeutler2013}, the observational data is found in two wedges, corresponding to $0 < \mu < 0.5$ and $0.5 < \mu < 1$ respectively. When considering only a one dimensional BAO analysis, such as in \citet{BlakeDavis2011}, the monopole moment has its $s$ transformed to $\alpha s$ (as opposed to scaling $s_\perp$ and $s_\parallel$ as seen above), where we can now provide constraints on $D_V(z)$ via
 \begin{align}
 \alpha = \frac{D_V(z)}{D_V^{\mathcal{D}}(z)}.
 \end{align}
 
 \subsubsection{Multipoles} \label{sec:prior:cor:mp}
 
-Other analyses utilise fitting to the multipole expansion directly, instead of reconstructing the parallel and tangential to line-of-sight wedges. As detailed in \citet{PadmanabhanWhite2008}, \citet{KazinSanchezBlanton2012} and \citet{XuCuesta2013}, one can transform the distance scales such that
+Other analyses utilise fitting to the multipole expansion directly, instead of reconstructing the parallel and tangential to line-of-sight wedges. As detailed in \citet{PadmanabhanWhite2008}, \citet{KazinSanchezBlanton2012} and \citet{XuCuesta2013}, one can introduce isotropic scaling factor $\alpha$ and warping parameter $\epsilon$, where we transform the distance scales such that
 \begin{align}
 s_\parallel &\rightarrow s_\parallel \alpha (1 + \epsilon)^2 \\
 s_\perp &\rightarrow s_\perp (1 + \epsilon)^{-1},
 \end{align}
-where $\alpha$ gives constraints on $D_V$:
+where $\alpha$ gives constraints on $D_V$, as mentioned previously:
 \begin{align}
 \alpha = \left( \frac{H^{\mathcal{D}}(z)}{H(z)}\right) ^{1/3} \left( \frac{D_A(z)}{D_A^{\mathcal{D}}(z)} \right)^{2/3},
 \end{align}
-where a superscript $\mathcal{D}$ is used to indicate the value from fiducial cosmology. Similarly, $\epsilon$ gives
+where a superscript $\mathcal{D}$ is used again to indicate the value from fiducial cosmology. Similarly, $\epsilon$ gives
 \begin{align}
 1 + \epsilon = \left( \frac{H^{\mathcal{D}}(z) D_A^{\mathcal{D}}(z)}{H(z) D_A(z)} \right) ^{1/3}.
 \end{align}
@@ -849,7 +850,7 @@ $0.44$ & $0.136^{+0.018}_{-0.014}$ & $1.026^{+0.110}_{-0.086}$ & $0.138\pm 0.016
 \end{tabular}\label{tab:stats}
 \end{table}
 
-In all cases in the comparison from Table \ref{tab:stats}, we can see that the change in mean value is within the uncertainty of all statistical methods, indicating that the symmetry of all recovered distributions is great enough that the choice of statistical methodology does not significantly impact final parametrisations.
+In all cases in the comparison from Table \ref{tab:stats}, we can see that the change in mean value is within the uncertainty of all statistical methods, indicating that the symmetry of all recovered distributions is great enough that the choice of statistical methodology does not significantly impact final parametrisations. Whilst deviations from the results of \citet{BlakeKazin2011} are larger than expected, as they are well within a $1\sigma$ limit, I will move on to constructed the 2D BAO model.
 
 
 \pagebreak
@@ -857,7 +858,7 @@ In all cases in the comparison from Table \ref{tab:stats}, we can see that the c
 
 
 
-In moving to a 2D analysis, anisotropies must now be taken into account. I use a similar technique as the 1D analysis to calculate up to the non-linear power spectrum $P_{\rm{nl}}(k)$. Considering anisotropic effects, distortions due to coherent infall are corrected via an angle dependent factor:
+In moving to a 2D analysis, anisotropies must now be taken into account. I use the same technique as the 1D analysis to calculate up to the non-linear power spectrum $P_{\rm{nl}}(k)$. Considering anisotropic effects, distortions due to coherent infall are corrected via an angle dependent factor:
 \begin{align}
 P_{\rm{nl}}(k, \mu) = \left(1 + \beta \mu^2\right)^2 P_{\text{nl}}(k),
 \end{align}
@@ -899,9 +900,9 @@ where I have not utilised the approximation to simplify $\xi_0(s)$, nor discarde
 \alpha(1 + \epsilon)^2 &\approx \frac{H^\mathcal{D}(z)}{H(z)} \\
 \alpha(1 + \epsilon)^{-1} &\approx \frac{D_A}{D_A^\mathcal{D}}.
 \end{align}
-As the fiducial cosmology used in the WizCOLA simulations is identical to the simulation cosmology, we do not expect to observe anisotropic warping when fitting to the simulation realisations. As such, I can validate my model by checking if it can recover $\alpha = 1.0$ and $\epsilon = 0.0$ when fitting the WizCOLA correlation functions.
+As the fiducial cosmology used in the WizCOLA simulations is identical to the simulation cosmology, we do not expect to observe anisotropic warping when fitting to the simulation realisations. As such, I can validate my model by checking if it can recover $\alpha = 1.0$ and $\epsilon = 0.0$ when fitting the WizCOLA correlation functions.\\
 
-The WizCOLA simulations were configured with cosmology $\Omega_m = 0.273$, $\Omega_\Lambda = 0.727$, $\Omega_b = 0.0456$, $h=0.705$, $\sigma_8 = 0.812$ and $n_s = 0.961$, following WMAP5 cosmology \citep{Komatsu2009}. Putting this in terms of $\Omega_c h^2$, we have $\Omega_c h^2 = 0.113$. The WizCOLA data is presented both in multipole expansion and in data wedges, and in this section I will fit to the multipole expansion. To reduce statistical uncertainty as much as possible, the input data was created using the mean of all 600 realisations of the WizCOLA simulations, and the variance was thus reduced by a factor of  $\sqrt{600}$ as each realisation should be independent. Data was fit in the range $25<s<180$, and a comparison of the effects of dataset truncation can be found in Appendix \ref{app:truncation}. As with the one dimensional fitting performed previously, fit parameters $\Omega_c h^2$, $b^2$, $\log(k_*)$ were allowed to vary, with additional angular dependent marginalisation parameters $\beta$ and $\sigma H(z)$ also allowed to vary. The main parameters of interest for cosmology are the dilation and warp parameters $\alpha$ and $\epsilon$, since these relate directly to $H(z)$ and $D_A(z)$. Likelihood surfaces and marginalised parameter distributions for fits to all three redshift bins are shown in Figure \ref{fig:wizmp}, and final parameter constraints are detailed in Table \ref{tab:wizmp}.
+The WizCOLA simulations were configured with cosmology $\Omega_m = 0.273$, $\Omega_\Lambda = 0.727$, $\Omega_b = 0.0456$, $h=0.705$, $\sigma_8 = 0.812$ and $n_s = 0.961$, following WMAP5 cosmology \citep{Komatsu2009}. Putting this in terms of $\Omega_c h^2$, we have $\Omega_c h^2 = 0.113$. The WizCOLA data is presented both in multipole expansion and in data wedges, and in this section I will fit to the multipole expansion. To reduce statistical uncertainty as much as possible, the input data was created using the mean of all 600 realisations of the WizCOLA simulations, and the variance was thus reduced by a factor of  $\sqrt{600}$ as each realisation should be independent. Data was fit in the range $25<s<180$, and a comparison of the effects of dataset truncation can be found in Appendix \ref{app:truncation}. As with the one dimensional fitting performed previously, fit parameters $\Omega_c h^2$, $b^2$, $\log(k_*)$ were allowed to vary, with additional angular dependent marginalisation parameters $\beta$ and $\sigma H(z)$ also allowed to vary. The main parameters of interest for cosmology are the dilation and warp parameters $\alpha$ and $\epsilon$, since these relate directly to $H(z)$ and $D_A(z)$. Likelihood surfaces and marginalised parameter distributions for fits to all three redshift bins are shown in Figure \ref{fig:wizmp}, and final parameter constraints are detailed in Table \ref{tab:wizmp}.\\
 
 For all redshift bins, all desired recovery parameters were recovered well within the $1\sigma$ uncertainty limit. We can also see that, looking at the mean value of the determined values for $\log(k_*) = -2.10$, this gives a $\sigma_v = 5.77 h^{-1}$ Mpc, which  is in the magnitude expected by the theory given in equation \eqref{eq:sigmav} and the values found found in \citet{BlakeKazin2011} and \citet{BlakeDavis2011}. It should also be noted that within the range $\sigma_v \in [0,10]$, no significant difference is found in determined $\chi^2$ values, indicating that setting a specific $\sigma_v$ when refitting is sensitive to the magnitude, but is not tightly constrained within theoretically predicted ranges. Fixing $\sigma_v = 5 h^{-1}$ Mpc, I recover fits also consistent with a $1\sigma$ recovery of simulation cosmology.
 
@@ -952,7 +953,7 @@ Finally, we can perform a final validation of the multipole methodology by fitti
   \begin{center}
     \includegraphics[width=\textwidth]{images/mpDist2.pdf}
   \end{center}
-  \caption{Maximum likelihood $\Omega_c h^2$, $\alpha$ and $\epsilon$ values from a total of 623 realisation bins are shown in the bottom left corner plots. Dashed black lines indicate simulations parameters, and the solid black distributions in the diagonal subplots represent the final distribution across all bins for the specific parameter.}
+  \caption{Maximum likelihood $\Omega_c h^2$, $\alpha$ and $\epsilon$ values from a total of 623 realised bins are shown in the bottom left corner plots. Dashed black lines indicate simulations parameters, and the solid black distributions in the diagonal subplots represent the final distribution across all bins for the specific parameter.}
   \label{fig:mpDist2}
 %\end{wrapfigure}
 \end{figure}
@@ -964,7 +965,7 @@ Finally, we can perform a final validation of the multipole methodology by fitti
 \section{Testing against WizCOLA wedges}
 
 
-I also test the wedge methodology used by \citet{SanchezKazinBeutler2013} and \citet{KazinSanchezCuesta2013}, whereby one transforms the scale of the tangential and parallel to line-of-sight directions separately in the form of $\alpha_\perp$ and $\alpha_\parallel$. From these transformations we define
+I also test the wedge methodology used by \citet{KazinSanchezCuesta2013} and \citet{SanchezKazinBeutler2013}, whereby one transforms the scale of the tangential and parallel to line-of-sight directions separately in the form of $\alpha_\perp$ and $\alpha_\parallel$. From these transformations we define
 \begin{align}
 s(\mu^\prime, s^\prime) &= s^\prime \sqrt{\alpha_\parallel^2(\mu^\prime)^2 + \alpha_\perp^2 (1 - (\mu^\prime)^2)}, \\
 \mu(\mu^\prime) &= \frac{\alpha_\parallel \mu^\prime}{\sqrt{\alpha_\parallel^2(\mu^\prime)^2 + \alpha_\perp^2 (1 - (\mu^\prime)^2)}},
@@ -1048,7 +1049,7 @@ Similarly to the covariance matrix, we can also calculate the correlation matrix
 \begin{align}
 R_{ij} = \frac{1}{N} \sum\limits_{n=1}^{N} \frac{(P_i - \bar{P}_i)(P_j - \bar{P}_j)}{\sigma_i \sigma_j},
 \end{align}
-where $\sigma_i$ represents the standard deviation of the $i$th parameter. The correlation matrix determined from analysis of $N$ realisations is shown in Figure \ref{fig:correlations}. Ideally, this matrix would be constructed using all $N=600$ realisations, however computational limitations have reduced this to $N \approx 200$, which may not be sufficient to produce smooth and accurate covariance matrices.
+where $\sigma_i$ represents the standard deviation of the $i$th parameter. The correlation matrix determined from analysis of $N$ realisations is shown in Figure \ref{fig:correlations}. Ideally, this matrix would be constructed using all $N=600$ realisations, however computational limitations have reduced this to $N \approx 200$, which may not be sufficient to produce smooth and accurate covariance matrices. I intend to continue to run fits for further realisations, and the results of these fits will be presented in a future paper.
 
 \begin{figure}[h!]
 %\begin{wrapfigure}{r}{0.5\textwidth}
@@ -1064,7 +1065,7 @@ This covariance matrix can now be used to fit for a final $\Omega_c h^2$, $\alph
 \begin{align} \label{eq:covchi}
 \chi^2(\Omega_c h^2, \alpha, \epsilon) = (\Omega_c h^2 - \Omega_c h^2_0, \Omega_c h^2 - \Omega_c h^2_1, ...,\  \epsilon - \epsilon_2)^T C_{ij}^{-1}(\Omega_c h^2 - \Omega_c h^2_0, \Omega_c h^2 - \Omega_c h^2_1, ...,\  \epsilon - \epsilon_2),
 \end{align}
-where again the subscript indices on the $\Omega_c h^2$, $\alpha$ and $\epsilon$ refer to the redshift bins. In essence, we utilise the parameters fitted to each bin as datapoints in a secondary model, which we minimise with respect to the final parameters $\Omega_c h^2$, $\alpha$ and $\epsilon$. To test this methodology, I first utilise it on a fit to the mean WizCOLA simulation values, illustrated in Figure \ref{fig:corCombinedMPWiz2}. With this test showing that tighter constraints can be achieved by combining bins, it has been applied to the $N=5$ WizCOLA realisation to more accurately test the effect on the final WiggleZ dataset.  The fitting results for the $N=5$ realisation are described in Table \ref{tab:n2Wizcola}. We can see from the results that combining the redshift bins recovers tighter parameter constraints that are closer to recovering simulation parameters than any individual redshift bin for this realisation. The likelihood surfaces and marginalised parameter distributions for the three bins and the combined data is shown in Figure \ref{fig:corCombined_2}.
+where again the subscript indices on the $\Omega_c h^2$, $\alpha$ and $\epsilon$ refer to the redshift bins. In essence, we utilise the parameters fitted to each bin as datapoints in a secondary model, which we minimise with respect to the final parameters $\Omega_c h^2$, $\alpha$ and $\epsilon$. To test this methodology, I first utilise it on a fit to the mean WizCOLA simulation values, illustrated in Figure \ref{fig:corCombinedMPWiz2}. With this test showing that tighter constraints can be achieved by combining bins, it has been applied to the $N=5$ WizCOLA realisation to more accurately test the effect on the final WiggleZ dataset.  The fitting results for the $N=5$ realisation are described in Table \ref{tab:n2Wizcola}. We can see from the results that combining the redshift bins recovers tighter parameter constraints that are closer to recovering simulation parameters than any individual redshift bin for this realisation. The likelihood surfaces and marginalised parameter distributions for the three bins and the combined data is shown in Figure \ref{fig:corCombined_2}. In addition to this test, once further realisations are fitted, I intend to calculate a distribution of final parameter values (by combining the fits from all 600 realisations) to ensure that this methodology is without systematic bias.
 
 \begin{table}[h]
 \centering
@@ -1107,7 +1108,7 @@ Combined & $0.60$ & $3.7$ & $0.107^{+0.014}_{-0.016}$ &$1.01^{+0.06}_{-0.06}$ & 
 
 
 
-%\newpage\phantom{blabla}\newpage
+\clearpage%\newpage\phantom{blabla}\newpage
 \subsection{Second method: All data covariance} \label{sec:allData}
 
 The covariance matrices utilised so far in my analysis have been supplied from the WizCOLA simulations, and give data covariance inside each redshift bin. However, also having the 600 WizCOLA realisations, I can reconstruct a full covariance matrix to give me the covariance between values of the correlation function across redshift bins. The correlation matrix for the multipole and wedge data formats are shown in Figure \ref{fig:fullCorrelations}.\\
@@ -1140,7 +1141,7 @@ Based on these results, I will utilise independent $b^2$ values, whilst fixing $
   \begin{center}
     \includegraphics[width=\textwidth]{images/wizcolaAllNormalCovCombined.pdf}
   \end{center}
-  \caption{Fits to the mean WizCOLA data using the computed covariance matrix. Marginalisation parameters for the fit are $b^2$, $\beta$, $\sigma_v$ and $\sigma H(z)$. There are four fits shown, where the word `free' has been used to indicate that the parameter in question has been made unique for each redshift bin. We can see that setting more than just $b^2$ as a nuisance parameter per bin does not improve the tightness of obtained constraints.}
+  \caption{Fits to the mean WizCOLA data using the computed covariance matrix. Marginalisation parameters for the fit are $b^2$, $\beta$, $\sigma_v$ and $\sigma H(z)$. There are four fits shown, where the word `free' has been used to indicate that the parameter in question has been made unique for each redshift bin. We can see that setting more than just $b^2$ as a nuisance parameter per bin does not increase the quality of obtained results.}
   \label{fig:wizcolaAllNormalCovCombined}
 \end{figure}
 
@@ -1156,7 +1157,7 @@ Based on these results, I will utilise independent $b^2$ values, whilst fixing $
 \clearpage
 \section{Model testing conclusions}
 
-In this chapter I have sought to validate my constructed BAO model. The one dimensional base model was first validated by successfully reproducing fits to the one dimensional WiggleZ survey as found in \citet{BlakeDavis2011} and \citet{BlakeKazin2011}. Both methodologies for incorporating angle dependence to create a 2D BAO model, by modelling data wedges or multipole expansion, were then successfully tested using the combined WizCOLA simulation dataset by recovering the simulation parameters. The significance of the hexadecapole term was investigated, and was found to be small enough that discarding the term for computational benefit would have a negligible impact on parameter recovery when compared to statistical error.\\
+In this chapter I have sought to validate my constructed BAO model. The one dimensional base model was first validated by successfully reproducing fits to the one dimensional WiggleZ survey as found in \citet{BlakeDavis2011} and \citet{BlakeKazin2011} to within a $1\sigma$ limit. Both methodologies for incorporating angular dependence to create a 2D BAO model, by modelling data wedges or multipole expansion, were then successfully tested using the combined WizCOLA simulation dataset by recovering the simulation parameters. The significance of the hexadecapole term was investigated, and was found to be small enough that discarding the term for computational benefit would have a negligible impact on parameter recovery when compared to statistical error.\\
 
 Due to the overlapping redshift bins in the analyses, covariance between the final cosmological parameters was determined by comparing individual realisations of the WizCOLA simulations, and this will be used in conjunction with an analysis using the all data across redshift bins to get global parameters. A graphical comparison of fits to the mean WizCOLA data for individual redshift bins, all data fits, and combining bin parameters can be found for the multipole data format in Figure \ref{fig:corCombinedMPWiz} and for the wedge data format in Figure \ref{fig:corCombinedWedgeWiz}. \\
 
@@ -1174,7 +1175,7 @@ Having performed various tests to determine that my constructed models is free o
   \begin{center}
     \includegraphics[width=\textwidth]{images/corCombinedMPWiz.pdf}
   \end{center}
-  \caption{Fits to the mean data of all 600 WizCOLA realisations (without reducing data uncertainty) for the multipole expansion expression of the data. Fits using all three bins simultaneously are shown as the ``All data'' fits, and the combination of maximum likelihood parameters using parameter covariance is shown as the ``Combined'' likelihood surfaces. In all cases we recover simulation cosmology well within $1-\sigma$ limits.}
+  \caption{Fits to the mean data of all 600 WizCOLA realisations (without reducing data uncertainty) for the multipole expansion expression of the data. Fits using all three bins simultaneously are shown as the ``All data'' fits, and the combination of maximum likelihood parameters using parameter covariance is shown as the ``Combined'' likelihood surfaces. In all cases we recover simulation cosmology well within $1\sigma$ limits.}
   \label{fig:corCombinedMPWiz}
 %\end{wrapfigure}
 \end{figure}
@@ -1184,7 +1185,7 @@ Having performed various tests to determine that my constructed models is free o
   \begin{center}
     \includegraphics[width=\textwidth]{images/corCombinedWedgeWiz.pdf}
   \end{center}
-  \caption{Fits to the mean data of all 600 WizCOLA realisations (without reducing data uncertainty) for the wedge expansion expression of the data. Fits using all three bins simultaneously are shown as the ``All data'' fits, and the combination of maximum likelihood parameters using parameter covariance is shown as the ``Combined'' likelihood surfaces. In all cases we recover simulation cosmology well within $1-\sigma$ limits, although we should note that the data strength is not significant enough to constrain $\alpha_\parallel$ to the $2-\sigma$ limits even in this optimal example (where the data input is the mean of all 600 realisations).}
+  \caption{Fits to the mean data of all 600 WizCOLA realisations (without reducing data uncertainty) for the wedge expansion expression of the data. Fits using all three bins simultaneously are shown as the ``All data'' fits, and the combination of maximum likelihood parameters using parameter covariance is shown as the ``Combined'' likelihood surfaces. In all cases we recover simulation cosmology well within $1\sigma$ limits, although we should note that the data strength is not significant enough to constrain $\alpha_\parallel$ to the $2\sigma$ limits even in this optimal example (where the data input is the mean of all 600 realisations).}
   \label{fig:corCombinedWedgeWiz}
 %\end{wrapfigure}
 \end{figure}
@@ -1299,7 +1300,7 @@ $H / H^\mathcal{D}$           &  $1.00 \pm 0.18$           &   $0.94 \pm 0.15$  
 
 \begin{table}[h]
 \centering
-\caption{Parameter constraints from the WiggleZ redshift bins. $D_A$ is presented in units of $[\rm{Mpc}]$, and $H(z)$ is presented in units of [km/s/Mpc]. The low significance of the BAO peak is expected: the 1D BAO analysis from \citet{BlakeDavis2011} found a significance of $3.2\sigma$ when using all data in one combined bin, and as my analysis used the data divided over three bins, and includes extra parameters to model angular dependence, it is expected the statistical significance of the BAO peak would decrease. The analysis in \citet{BlakeKazin2011}, which utilised three redshift bins, the same as my analysis, found statistical significances between $1.9\sigma$ and $2.4\sigma$, consistent with the results shown below.}
+\caption{Parameter constraints from the WiggleZ redshift bins. $D_A$ is presented in units of $[\rm{Mpc}]$, and $H(z)$ is presented in units of [\kmsmpc]. The low significance of the BAO peak is expected: the 1D BAO analysis from \citet{BlakeDavis2011} found a significance of $3.2\sigma$ when using all data in one combined bin, and as my analysis used the data divided over three bins, and includes extra parameters to model angular dependence, it is expected the statistical significance of the BAO peak would decrease. The analysis in \citet{BlakeKazin2011}, which utilised three redshift bins, the same as my analysis, found statistical significances between $1.9\sigma$ and $2.4\sigma$, consistent with the results shown below.}
 \resizebox{\columnwidth}{!}{
 \begin{tabular}{cc|cc|cccc}
 \specialrule{.1em}{.05em}{.05em} 
@@ -1344,7 +1345,7 @@ $0.6 < z < 1.0$ &  $0.73$ & 1509.4  & 102.8 & $0.140^{+0.036}_{-0.022}$ & $1348 
 \section{External comparison}
 
 
-We can now check consistency of the results obtained in the previous section with results from other BAO analyses. In Table \ref{tab:external} I source cosmological constraints on $D_A(z)$ and $H(z)$, and compare them to the Wigglez constraints I have derived in Figure \ref{fig:external}. We can see that the derived $D_A(z)$ values diverge from Planck cosmology in the higher redshift bins, due to the low $D_A/D^{\mathcal{D}}_A$ values seen in Table \ref{tab:wigglezBinsParams2}. We should further note that if we had instead utilised the wedge analysis, the $D_A$ values would consistently have been higher than Planck cosmology! For the determined values of $H(z)$, we notice a (not significantly) lower value of $H(z = 0.73)$ than may have been expected from the trend observed in external data sets.\\
+We can now check consistency of the results obtained in the previous section with results from other BAO analyses. In Table \ref{tab:external} I source cosmological constraints on $D_A(z)$ and $H(z)$, and compare them to the Wigglez constraints I have derived in Table \ref{tab:wigglezBinsParams}. We can see that the derived $D_A(z)$ values diverge (non-significantly) from Planck cosmology in the higher redshift bins, due to the low $D_A/D^{\mathcal{D}}_A$ values seen in Table \ref{tab:wigglezBinsParams2}. We should further note that if we had instead utilised the wedge analysis, the $D_A$ values would consistently have been higher than Planck cosmology! For the determined values of $H(z)$, we notice a (not significantly) lower value of $H(z = 0.73)$ than may have been expected from the trend observed in external data sets.\\
 
 The constraints included in Table \ref{tab:external} from \citet{BlakeBroughColless2012} determine $D_A(z)$ and $H(z)$ from the WiggleZ survey by combining measurements of the 1D BAO peak and the Alcock-Paczynski distortion. The 1D BAO signal analysed in prior studies provides constraints on $D_V$, which is a function of $D_A$, $H(z)$ and $z$, as per equation \eqref{eq:dv}. The  Alcock-Paczynski (AP) test can be used to measure $\approx (1+z)D_A(z) H(z)/c$, and can thus be used in conjunction with the angle-average BAO signal to constrain $D_A(z)$ and $H(z)$. The AP test was applied to the Wigglez data in \citet{BlakeGlazebrook2011}, and the angle average BAO peak was measured in \citet{BlakeKazin2011}. The resultant constraints on $D_A(z)$ and $H(z)$ by combining these results and a Gaussian prior on $\Omega_m h^2$ from CMB fits \citep{Komatsu2009} are shown in Table \ref{tab:external}.
 
@@ -1379,7 +1380,7 @@ Paper & Source &  $z_{\rm{eff}}$ & $D_A(z)$ [Mpc] & $H(z)$ [km/s/Mpc]\\
   \begin{center}
     \includegraphics[width=\textwidth]{images/external.pdf}
   \end{center}
-  \caption{A comparison with the constraints on $D_A(z)$ and $H(z)$ found in external papers, best fitting Planck cosmology for a Flat $\Lambda$CDM universe, and the constraints listed in Table \ref{tab:wigglezBinsParams}.}
+  \caption{A comparison with the constraints on $D_A(z)$ and $H(z)$ found in external papers, best fitting Planck cosmology for a Flat $\Lambda$CDM universe \citep{Planck2015Parameters}, and the constraints listed in Table \ref{tab:wigglezBinsParams}.}
   \label{fig:external}
 %\end{wrapfigure}
 \end{figure}
@@ -1393,29 +1394,25 @@ Paper & Source &  $z_{\rm{eff}}$ & $D_A(z)$ [Mpc] & $H(z)$ [km/s/Mpc]\\
 \chapter{Conclusion}
 
 
-In the previous section I analysed the full WiggleZ dataset from \citet{KazinKoda2014} for the 2D BAO signal. My methodology follows that of prior studies, and has been validated against prior WiggleZ analyses of the 1D BAO signal, and I have checked for systematic biases in my model by fitting to the WizCOLA simulations \citep{KodaBlake2015}, which provide improved covariance estimates over previous analyses of the WiggleZ data which estimate covariance from lognormal realisations. Using the WizCOLA covariance and WiggleZ data, I fit for the cosmological parameters $\Omega_c h^2$, $D_A(z)$ and $H(z)$ for the three redshift bins $z \in \left[0.44, 0.6, 0.73\right]$ using both the wedge and multipole data expressions provided.\\
+In the previous section I analysed the full WiggleZ dataset from \citet{KazinKoda2014} for the 2D BAO signal. My methodology follows that of prior studies, and has been validated against prior WiggleZ analyses of the 1D BAO signal, and I have checked for systematic biases in my model by fitting to the WizCOLA simulations \citep{KodaBlake2015}. The WizCOLA simulations also provide improved covariance estimates over previous analyses of the WiggleZ data which estimate covariance from lognormal realisations. Using the WizCOLA covariance and WiggleZ data, I fit for the cosmological parameters $\Omega_c h^2$, $D_A(z)$ and $H(z)$ for the three redshift bins $z \in \left[0.44, 0.60, 0.73\right]$ using both the wedge and multipole data expressions provided.\\
 
 After showing the wedge data analysis was internally inconsistent and unable to properly constrain required parameters, I present the multipole data results as the final constraints from the 2D BAO analysis, given in Table \ref{tab:final}. As shown in Figure \ref{fig:external}, these results are consistent with the Flat $\Lambda$CDM cosmology derived from best-fitting Planck cosmological values.\\
 
 \begin{table}[h]
 \centering
-\caption{Final constraint summary, from the WiggleZ multipole data analysis.}
+\caption{Final constraint summary, from the WiggleZ multipole data analysis. $H(z)$ is given in units of \kmsmpc, and $D_A(z)$ is given in units of Mpc.}
 %\resizebox{\columnwidth}{!}{
 \begin{tabular}{cc|cccc}
 \specialrule{.1em}{.05em}{.05em} 
 Sample & $z_{\rm{eff}}$   &  $\Omega_c h^2$   & $D_A(z)$ & $H(z)$ \\
 \specialrule{.1em}{.05em}{.05em} 
-$0.2 < z < 0.6$ &  $0.44$ & $0.119^{+0.029}_{-0.026}$ & $1302 \pm  160$ & $87.0 \pm 15.7$ \\
-$0.4 < z < 0.8$ &  $0.6$  & $0.151^{+0.038}_{-0.025}$ & $1295 \pm  184$ & $89.7 \pm 15.1$ \\
-$0.6 < z < 1.0$ &  $0.73$ & $0.140^{+0.036}_{-0.022}$ & $1348 \pm  161$ & $82.0 \pm 12.7$ \\
+$0.2 < z < 0.6$ &  $0.44$ & $0.119^{+0.029}_{-0.026}$ & $1300 \pm  160$ & $87 \pm 16$ \\
+$0.4 < z < 0.8$ &  $0.60$  & $0.151^{+0.038}_{-0.025}$ & $1300 \pm  180$ & $90 \pm 15$ \\
+$0.6 < z < 1.0$ &  $0.73$ & $0.140^{+0.036}_{-0.022}$ & $1350 \pm  160$ & $82 \pm 13$ \\
 \specialrule{.1em}{.05em}{.05em} 
 \end{tabular}\label{tab:final}
 %}
 \end{table}
-
-
-
-
 
 
 
@@ -1513,6 +1510,7 @@ Polynomial regression are a tried and tested method for determining broad shape 
 
 By comparing a wide array of parametrisations of polynomial degree $n$, Gaussian width $\sigma$ and Gaussian weight $\alpha$, a final combination of $n=13, \sigma=1, \alpha=0.5$ we chosen to act as the best choice for both strong BAO signal subtraction and non distortion of the original linear power spectrum.
 
+\clearpage
 \subsection{Spline Interpolation}
 
 
@@ -1570,7 +1568,7 @@ where $a$ was set to $1 h^{-1}$ Mpc to damp signal at high high $k$. In addition
   \begin{center}
     \includegraphics[width=\textwidth]{images/Bxi.pdf}
   \end{center}
-  \caption{A comparison of the different algorithms used to perform the numerical Fourier transformation. The power spectrum supplied to the algorithms consisted of 732 data points ranging up to $k = 223.56 \ h/$Mpc. The oscillations present in the naive spectrum are due to the fact the integration bounds are not infinite, and form due to the cumulative effect of the $\sin(ks)$ term when the integration bounds truncate the calculation when $\sin(ks) \neq 0$. The Gaussian method used by \citet{AndersonAubourg2012} with $a=1$ provided good convergence to the high quality algorithm at $s > 20 h^{-1}$ Mpc, with a slight deviation around the BAO peak itself and a general positive offset of approximately of $\Delta = 0.1 s^2 \xi(s)$ (which has negligible impact on cosmological fitting due to the marginalisation over power amplitude from $b^2$). Both the initial deviation and the peak deviation were greatly reduced in magnitude when $a$ was set to $0.5$ instead of $1$. The greatest deviation from the high quality algorithm was found by t he truncated algorithm used in \citet{BlakeDavis2011}, where the truncation increased diverge as we go to larger separation.}
+  \caption{A comparison of the different algorithms used to perform the numerical Fourier transformation. The power spectrum supplied to the algorithms consisted of 732 data points ranging up to $k = 223.56 \ h/$Mpc. The oscillations present in the naive spectrum are due to the fact the integration bounds are not infinite, and form due to the cumulative effect of the $\sin(ks)$ term when the integration bounds truncate the calculation when $\sin(ks) \neq 0$. The Gaussian method used by \citet{AndersonAubourg2012} with $a=1$ provided good convergence to the high quality algorithm at $s > 20 h^{-1}$ Mpc, with a slight deviation around the BAO peak itself and a general positive offset of approximately of $\Delta = 0.1 s^2 \xi(s)$ (which has negligible impact on cosmological fitting due to the marginalisation over power amplitude from $b^2$). Both the initial deviation and the peak deviation were greatly reduced in magnitude when $a$ was set to $0.5$ instead of $1$. The greatest deviation from the high quality algorithm was found by the truncated algorithm used in \citet{BlakeDavis2011}, where the truncation increased divergence as we go to larger separation.}
   \label{fig:pk2xicomp}
 %\end{wrapfigure}
 \end{figure}
@@ -1582,7 +1580,7 @@ Whilst Figure \ref{fig:pk2xicomp} shows what appears to be significance differen
   \begin{center}
     \includegraphics[width=0.6\textwidth]{images/BcosmoComp.pdf}
   \end{center}
-  \caption{Likelihood surfaces for $1-\sigma$ and $2-\sigma$ confidence levels and marginalised distributions were created using both the Gaussian $a=0.5$ and truncated method of moving from a power spectrum to a correlation function. Models were compared to the combined monopole moment of the 600 WizCOLA simulations in the $z=0.4$ redshift bin. Parameters $\beta, b^2, k_*, \sigma_v H(z)$ are marginalised over in these MCMC fits. Data noisiness exists from halting the MCMC algorithm early (2 million steps combined) after it became clear the two methods gave negligible differences.}
+  \caption{Likelihood surfaces for $1\sigma$ and $2\sigma$ confidence levels and marginalised distributions were created using both the Gaussian $a=0.5$ and truncated method of moving from a power spectrum to a correlation function. Models were compared to the combined monopole moment of the 600 WizCOLA simulations in the $z=0.4$ redshift bin. Parameters $\beta, b^2, k_*, \sigma_v H(z)$ are marginalised over in these MCMC fits. Data noisiness exists from halting the MCMC algorithm early (2 million steps combined) after it became clear the two methods gave negligible differences.}
   \label{fig:BcosmoTest}
 %\end{wrapfigure}
 \end{figure}
@@ -1611,7 +1609,7 @@ The failure of modern cosmological models at small separations and their similar
 \chapter{WizCOLA Covariance} \label{app:wizDiff}
 
 
-When comparing the computed covariance matrix using the provided 600 WizCOLA realisations to the supplied covariance matrix from the WizCOLA data release, I found discrepancies in the off diagonal terms, which are illustrated in Figure \ref{fig:DfullCorrelationDifferences}. Contact with academics involved in the simulation creation has not been able to resolve the source of these differences. Visually, the WizCOLA correlation matrix appears smoother than the computed correlation matrix, and so a potential source of discrepancy would be if the WizCOLA covariance was calculated using more than the 600 realisations available in the data release.
+When comparing the computed covariance matrix using the provided 600 WizCOLA realisations to the supplied covariance matrix from the WizCOLA data release, I found discrepancies in the off diagonal terms, which are illustrated in Figure \ref{fig:DfullCorrelationDifferences}. Contact with academics involved in the simulation creation has not been able to resolve the source of these differences. Visually, the WizCOLA correlation matrix appears smoother than the computed correlation matrix, and so a potential source of discrepancy would be if the WizCOLA covariance was calculated using more than the 600 realisations available in the data release, or if steps were deliberately taken to smooth the covariance matrix. Covariance smoothing is a topic of growing interest, and new efficient methodologies for smoothing \citep{OconnellEisenstein2015} makes this a topic that should be revisited with the WizCOLA mocks.\\
 
 \begin{figure}[h!]
 %\begin{wrapfigure}{r}{0.5\textwidth}

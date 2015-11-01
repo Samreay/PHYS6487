@@ -208,5 +208,5 @@ has not been submitted in whole or part for a degree in any university.
 % use 1.5 line spacing for the examiners copy
 % single line spacing for the final copy
 \ifthenelse{\boolean{examinerscopy}}{%
-\renewcommand{\baselinestretch}{1.15}}%
-{\renewcommand{\baselinestretch}{1}}
+\renewcommand{\baselinestretch}{1.5}}%
+{\renewcommand{\baselinestretch}{1.15}}
